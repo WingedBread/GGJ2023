@@ -26,7 +26,7 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
             transform.position += Vector3.up * 50;
             hasBeenPlayed = true;
             GameManager.Instance.avaiableSlots[handIndex] = true;
-            GameManager.Instance.UpdateSliders(this);
+            //GameManager.Instance.UpdateSliders(this);
             GameManager.Instance.discardPile.Add(this);
             Invoke("HideCard", 1f);
         } 
@@ -36,6 +36,7 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
     {
         gameObject.SetActive(false);
         GameManager.Instance.UpdateTexts();
+        GameManager.Instance.DrawCard();
     }
 
     public List<int> GetCardPowers()

@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI deckText;
     public TextMeshProUGUI discardPileText;
 
-    private SliderBehaviour slider;
+    //private SliderBehaviour slider;
 
     public CanvasGroup canvasGameplay;
     public CanvasGroup canvasGameOver;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     bool gameOver = false;
     bool pause = false;
-    public bool initWithStart = true;
+    public bool initWithStart = false;
 
     private void Awake()
     {
@@ -46,11 +46,15 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateTexts();
-        slider = GetComponent<SliderBehaviour>();
+        //slider = GetComponent<SliderBehaviour>();
         if (initWithStart)
         {
             canvasGameplay.interactable = false;
             canvasStart.alpha = 1;
+        }
+        for (int i = 0; i < cardSlots.Length; i++)
+        {
+            DrawCard();
         }
     }
 
@@ -126,10 +130,10 @@ public class GameManager : MonoBehaviour
         discardPileText.text = discardPile.Count.ToString();
     }
 
-    public void UpdateSliders(CardBehaviour randomCard)
-    {
-        slider.UpdateSlidersValue(randomCard.GetCardPowers());
-    }
+    //public void UpdateSliders(CardBehaviour randomCard)
+    //{
+    //    slider.UpdateSlidersValue(randomCard.GetCardPowers());
+    //}
 
 
     public void GameOver()
@@ -148,7 +152,7 @@ public class GameManager : MonoBehaviour
             card.Restart();
             deck.Add(card);
         }
-        slider.Restart();
+        //slider.Restart();
         UpdateTexts();
         canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;

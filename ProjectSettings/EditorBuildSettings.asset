@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CardsScene.unity
-    guid: abaee642a65cc384eac90f5d030e31a0
+    path: Assets/Scenes/GridScene.unity
+    guid: ebc1ff508fb2828419c8b1cb6965f8dc
   m_configObjects: {}
