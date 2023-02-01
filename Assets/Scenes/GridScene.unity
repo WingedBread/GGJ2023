@@ -5581,9 +5581,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 20
   _height: 10
-  tileChildA: {fileID: 5881430377941930325, guid: ba6f0a618f8c65142a55b711944b6ee4,
+  tileSoil: {fileID: 5881430377941930325, guid: ba6f0a618f8c65142a55b711944b6ee4,
     type: 3}
-  tileChildB: {fileID: -2806916161858350771, guid: f4ea02148716088438479bf0f2b625e1,
+  tileRock: {fileID: -2806916161858350771, guid: f4ea02148716088438479bf0f2b625e1,
     type: 3}
   cam: {fileID: 2062427208}
 --- !u!1 &417668683

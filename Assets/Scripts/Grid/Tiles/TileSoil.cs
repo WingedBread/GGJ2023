@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileChildA : Tile
+public class TileSoil : Tile
 {
     [SerializeField]
     private Color baseColor, offsetColor;

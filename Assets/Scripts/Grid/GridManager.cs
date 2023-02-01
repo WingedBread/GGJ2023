@@ -7,7 +7,7 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private int _width, _height;
     [SerializeField]
-    private Tile tileChildA, tileChildB;
+    private Tile tileSoil, tileRock;
     [SerializeField]
     private Transform cam;
 
@@ -25,15 +25,25 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var randomTile = Random.Range(0, 6) == 3 ? tileChildB : tileChildA;
-                var spawnedTile = Instantiate(randomTile, new Vector3(x,y), Quaternion.identity);
-                
-                if(randomTile == tileChildA) randomTile.name = $"TileChildA {x} {y}";
-                else if (randomTile == tileChildB) randomTile.name = $"TileChildB {x} {y}";
-                else randomTile.name = $"Tile {x} {y}";
+                var spawnedTile = tileSoil;
 
-                spawnedTile.Init(x, y);
-                tiles[new Vector2(x, y)] = spawnedTile;
+                if (x == 0 || y == 0 || x == _width-1 || y == _height - 1)
+                {
+                    spawnedTile = tileRock;
+                }
+                else if(x <= 2 || y <= 2|| x >= _width-3|| y >= _height-3)
+                {
+                    spawnedTile = Random.Range(0, 6) == 3 ? tileSoil : tileRock;
+                }
+
+                var placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity);
+                
+                if(spawnedTile == tileSoil) spawnedTile.name = $"TileSoil {x} {y}";
+                else if (spawnedTile == tileRock) spawnedTile.name = $"TileRock {x} {y}";
+                else spawnedTile.name = $"Tile {x} {y}";
+
+                placedTile.Init(x, y);
+                tiles[new Vector2(x, y)] = placedTile;
             }
         }
 

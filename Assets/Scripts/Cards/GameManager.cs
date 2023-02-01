@@ -11,13 +11,15 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if(_instance is null)
+            if (_instance is null)
             {
                 Debug.LogError("FALTA GAME MANAGER");
             }
             return _instance;
         }
     }
+    public enum States {Start, Gameplay, Pause, GameOver};
+    public States gameState;
 
     public List<CardBehaviour> deck = new List<CardBehaviour>();
     public List<CardBehaviour> discardPile = new List<CardBehaviour>();
