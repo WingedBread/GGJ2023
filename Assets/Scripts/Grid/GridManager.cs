@@ -26,7 +26,7 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                var spawnedTile = tileSoil;
+                Tile spawnedTile = tileSoil;
 
                 if (x == 0 || y == 0 || x == _width-1 || y == _height - 1)
                 {
@@ -37,7 +37,7 @@ public class GridManager : MonoBehaviour
                     spawnedTile = Random.Range(0, 6) == 3 ? tileSoil : tileRock;
                 }
 
-                var placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity);
+                Tile placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity);
                 
                 if(spawnedTile == tileSoil) spawnedTile.name = $"TileSoil {x} {y}";
                 else if (spawnedTile == tileRock) spawnedTile.name = $"TileRock {x} {y}";

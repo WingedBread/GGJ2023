@@ -716,6 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42d1069642975c49a50fc6768842b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameState: 0
   deck:
   - {fileID: 1643118736}
   - {fileID: 1974230435}
