@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -46,8 +47,11 @@ public class GridManager : MonoBehaviour
                 tiles[new Vector2(x, y)] = placedTile;
             }
         }
-
         cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -1.5f, -10.8f);
+    }
+
+    public List<Vector2> getSoilTilesPositions(){
+        return tiles.Where(tile => tile.Value.isSoil()).ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
     }
 
     public Tile GetTileAtPosition(Vector2 pos)
@@ -56,7 +60,6 @@ public class GridManager : MonoBehaviour
         {
             return tile;
         }
-
         return null;
     }
 }

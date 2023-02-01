@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6759364848620420312, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
       propertyPath: m_Name
-      value: TileChildB 18 5
+      value: TileRock 19 9
       objectReference: {fileID: 0}
     - target: {fileID: 6759364848620420318, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dad19c3e92152947a569f79e37fe733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _states: 0
+  wet: 0
   spriteRenderer: {fileID: 2173473863145125155}
   highlight: {fileID: 8546834102499701120}
 --- !u!1 &8546834102499701120 stripped

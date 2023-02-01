@@ -29,4 +29,8 @@ public abstract class Tile : MonoBehaviour
     {
         highlight.SetActive(false);
     }
+
+    public bool isSoil(){
+        return _states == TileStates.SOIL;
+    }
 }

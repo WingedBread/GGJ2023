@@ -5,16 +5,15 @@ using UnityEngine;
 public class BirdBehaviour : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    static string UP = "up";
-    static string LEFT = "left";
-    static string RIGHT = "right";
-    static string DOWN = "down";
+    GridManager gridManager;
+    enum Moves {UP, LEFT, RIGHT, DOWN}
 
     int maxPositionX;
     int maxPositionY;
 
     void Start()
     {
+        gridManager = GameObject.Find("GridManager").GetComponent<GridManager> ();;
         transform.position = getInitialPosition();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         maxPositionX = 19;
@@ -23,43 +22,44 @@ public class BirdBehaviour : MonoBehaviour
 
     public void move() 
     {
-        List<string> moves = calculateProsibleMoves();
-        string move = moves[Random.Range(0, moves.Count)];
+        List<Moves> possibleMoves = calculateProsibleMoves();
+        Moves move = possibleMoves[Random.Range(0, possibleMoves.Count-1)];
 
-        if(move == UP){
+        if(move == Moves.UP){
             transform.position += new Vector3(0,1,0);
-        } else if(move == LEFT){
+        } else if(move == Moves.LEFT){
             transform.position += new Vector3(-1,0,0);
             spriteRenderer.flipX = false;
-        } else if(move == RIGHT){
+        } else if(move == Moves.RIGHT){
             transform.position += new Vector3(1,0,0);
             spriteRenderer.flipX = true;
-        } else if(move == DOWN){
+        } else if(move == Moves.DOWN){
             transform.position += new Vector3(0,-1,0);
         } 
     }
 
-    List<string> calculateProsibleMoves()
+    List<Moves> calculateProsibleMoves()
     {
-        List<string> possibleMoves = new List<string>();
+        List<Moves> possibleMoves = new List<Moves>();
 
         if(transform.position.x > 0 ){
-            possibleMoves.Add(LEFT);
+            possibleMoves.Add(Moves.LEFT);
         } 
         if(transform.position.x < maxPositionX){
-            possibleMoves.Add(RIGHT);
+            possibleMoves.Add(Moves.RIGHT);
         } 
         if(transform.position.y > 0){
-            possibleMoves.Add(DOWN);
+            possibleMoves.Add(Moves.DOWN);
         } 
         if(transform.position.y < maxPositionY){
-            possibleMoves.Add(UP);
+            possibleMoves.Add(Moves.UP);
         }
         return possibleMoves;
     }
 
     Vector3 getInitialPosition(){
-        return new Vector3(10,5,0);
+        List<Vector2> possiblePositions = gridManager.getSoilTilesPositions();
+        return possiblePositions[Random.Range(0, possiblePositions.Count-1)];
     }
 
     // Update is called once per frame
