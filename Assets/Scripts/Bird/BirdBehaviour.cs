@@ -8,6 +8,9 @@ public class BirdBehaviour : MonoBehaviour
     GridManager gridManager;
     enum Moves {UP, LEFT, RIGHT, DOWN}
 
+    [SerializeField]
+    private Tile tileSoil;
+
     int maxPositionX;
     int maxPositionY;
 
@@ -23,7 +26,12 @@ public class BirdBehaviour : MonoBehaviour
     public void move() 
     {
         List<Moves> possibleMoves = calculateProsibleMoves();
-        Moves move = possibleMoves[Random.Range(0, possibleMoves.Count-1)];
+
+        if(possibleMoves.Count == 0){
+            return;
+        }
+        Debug.Log(possibleMoves.Count);
+        Moves move = possibleMoves[Random.Range(0, possibleMoves.Count)];
 
         if(move == Moves.UP){
             transform.position += new Vector3(0,1,0);
@@ -42,16 +50,16 @@ public class BirdBehaviour : MonoBehaviour
     {
         List<Moves> possibleMoves = new List<Moves>();
 
-        if(transform.position.x > 0 ){
+        if(transform.position.x > 0 && gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0)).isPassable){
             possibleMoves.Add(Moves.LEFT);
         } 
-        if(transform.position.x < maxPositionX){
+        if(transform.position.x < maxPositionX && gridManager.GetTileAtPosition(transform.position + new Vector3(1,0,0)).isPassable){
             possibleMoves.Add(Moves.RIGHT);
         } 
-        if(transform.position.y > 0){
+        if(transform.position.y > 0&& gridManager.GetTileAtPosition(transform.position + new Vector3(0,-1,0)).isPassable){
             possibleMoves.Add(Moves.DOWN);
         } 
-        if(transform.position.y < maxPositionY){
+        if(transform.position.y < maxPositionY && gridManager.GetTileAtPosition(transform.position + new Vector3(0,1,0)).isPassable){
             possibleMoves.Add(Moves.UP);
         }
         return possibleMoves;
@@ -59,7 +67,10 @@ public class BirdBehaviour : MonoBehaviour
 
     Vector3 getInitialPosition(){
         List<Vector2> possiblePositions = gridManager.getSoilTilesPositions();
-        return possiblePositions[Random.Range(0, possiblePositions.Count-1)];
+        if(possiblePositions.Count == 0 ) {
+            return new Vector2(-5,-5);
+        }
+        return possiblePositions[Random.Range(0, possiblePositions.Count)];
     }
 
     // Update is called once per frame
@@ -67,6 +78,10 @@ public class BirdBehaviour : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0)){
             move();
+        }
+
+        if(gridManager.GetTileAtPosition(transform.position).isConsumible()){
+            gridManager.setTile(transform.position, tileSoil);
         }
     }
 }

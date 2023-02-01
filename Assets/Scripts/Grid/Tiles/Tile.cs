@@ -7,6 +7,7 @@ public abstract class Tile : MonoBehaviour
 
     public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, CARROT }
     public TileStates tileState;
+    public bool isPassable;
     [SerializeField]
     protected SpriteRenderer spriteRenderer;
     [SerializeField]
@@ -20,7 +21,6 @@ public abstract class Tile : MonoBehaviour
     private void OnMouseEnter()
     {
         highlight.SetActive(true);
-        Debug.Log(this.name);
     }
 
     private void OnMouseExit()
@@ -30,5 +30,9 @@ public abstract class Tile : MonoBehaviour
 
     public bool isSoil(){
         return tileState == TileStates.SOIL;
+    }
+
+    public bool isConsumible(){
+        return tileState == TileStates.SPROUT || tileState == TileStates.CARROT;
     }
 }

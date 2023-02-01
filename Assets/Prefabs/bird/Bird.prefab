@@ -97,3 +97,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f63b3fa5e697d49a4439e81fe2e2ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileSoil: {fileID: 5881430377941930325, guid: ba6f0a618f8c65142a55b711944b6ee4,
+    type: 3}

@@ -8,7 +8,7 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private int _width, _height;
     [SerializeField]
-    private Tile tileSoil, tileRock;
+    private Tile tileSoil, tileRock, tileSprout, tileCarrot;
     [SerializeField]
     private Transform cam;
 
@@ -37,10 +37,20 @@ public class GridManager : MonoBehaviour
                     spawnedTile = Random.Range(0, 6) == 3 ? tileSoil : tileRock;
                 }
 
+                if(x == 10  && y == 4){
+                    spawnedTile = tileSprout;
+                }
+
+                if(x == 9  && y == 5){
+                    spawnedTile = tileCarrot;
+                }
+
                 Tile placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity);
                 
                 if(spawnedTile == tileSoil) spawnedTile.name = $"TileSoil {x} {y}";
                 else if (spawnedTile == tileRock) spawnedTile.name = $"TileRock {x} {y}";
+                else if (spawnedTile == tileCarrot) spawnedTile.name = $"TileCarrot {x} {y}";
+                else if (spawnedTile == tileSprout) spawnedTile.name = $"TileSprout {x} {y}";
                 else spawnedTile.name = $"Tile {x} {y}";
 
                 placedTile.Init(x, y);
@@ -61,5 +71,11 @@ public class GridManager : MonoBehaviour
             return tile;
         }
         return null;
+    }
+
+    public void setTile(Vector2 position, Tile tile) {
+        Destroy(tiles[position]);
+        tiles[position] = tile;
+        Instantiate(tile, position, Quaternion.identity);
     }
 }

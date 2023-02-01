@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4893069129547008508
+--- !u!1001 &768395073018385385
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6759364848620420312, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
       propertyPath: m_Name
-      value: TileRock 19 9
+      value: TileCarrot
       objectReference: {fileID: 0}
     - target: {fileID: 6759364848620420318, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
@@ -81,46 +81,50 @@ PrefabInstance:
     - target: {fileID: 6759364848620420319, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6759364848620420319, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
       propertyPath: m_Color.r
+      value: 0.100138426
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560859707230395708, guid: c1d1701485fa7604ab56336765e5e899,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560859707230395708, guid: c1d1701485fa7604ab56336765e5e899,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1d1701485fa7604ab56336765e5e899, type: 3}
---- !u!212 &2173473863145125155 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6759364848620420319, guid: c1d1701485fa7604ab56336765e5e899,
-    type: 3}
-  m_PrefabInstance: {fileID: 4893069129547008508}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2173473863145125156 stripped
+--- !u!1 &6298272787595521841 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6759364848620420312, guid: c1d1701485fa7604ab56336765e5e899,
     type: 3}
-  m_PrefabInstance: {fileID: 4893069129547008508}
+  m_PrefabInstance: {fileID: 768395073018385385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-2806916161858350771
+--- !u!114 &-6885397095451951473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2173473863145125156}
+  m_GameObject: {fileID: 6298272787595521841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dad19c3e92152947a569f79e37fe733, type: 3}
+  m_Script: {fileID: 11500000, guid: ec2c331eae2ebaf4f9293b85ea6e3d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileState: 0
-  isPassable: 0
-  spriteRenderer: {fileID: 2173473863145125155}
-  highlight: {fileID: 8546834102499701120}
---- !u!1 &8546834102499701120 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3853911571007027324, guid: c1d1701485fa7604ab56336765e5e899,
+  tileState: 4
+  isPassable: 1
+  spriteRenderer: {fileID: 6298272787595521846}
+  highlight: {fileID: 0}
+--- !u!212 &6298272787595521846 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6759364848620420319, guid: c1d1701485fa7604ab56336765e5e899,
     type: 3}
-  m_PrefabInstance: {fileID: 4893069129547008508}
+  m_PrefabInstance: {fileID: 768395073018385385}
   m_PrefabAsset: {fileID: 0}

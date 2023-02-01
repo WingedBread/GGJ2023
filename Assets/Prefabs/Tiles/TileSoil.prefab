@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 6759364848620420312, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
       propertyPath: m_Name
-      value: TileSoil 16 7
+      value: TileSoil
       objectReference: {fileID: 0}
     - target: {fileID: 6759364848620420318, guid: c1d1701485fa7604ab56336765e5e899,
         type: 3}
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8c26925c047d4458f8a61c4a0f9c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileState: 1
+  isPassable: 1
   spriteRenderer: {fileID: 6298272787595521846}
   highlight: {fileID: 4598803147116243861}
   baseColor: {r: 1, g: 1, b: 1, a: 1}

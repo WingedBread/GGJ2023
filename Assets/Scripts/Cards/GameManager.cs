@@ -5,7 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    //Hacemos que nuestro Game Manager sea un Singleton para que sea fácilmente accesible desde otras clases
+    //Hacemos que nuestro Game Manager sea un Singleton para que sea fï¿½cilmente accesible desde otras clases
     private static GameManager _instance;
     public static GameManager Instance
     {
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public bool[] avaiableSlots;
     public TextMeshProUGUI deckText;
     public TextMeshProUGUI discardPileText;
+    public GameObject bird;
+    List<GameObject> birds;
 
     //private SliderBehaviour slider;
 
@@ -78,6 +80,11 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (Input.GetMouseButtonDown(1))
+        {
+            Instantiate(bird, new Vector3(-10,-10), Quaternion.identity);
+        }
+
         if (Input.GetKeyDown(KeyCode.P))
         {
             pause = !pause;
@@ -93,8 +100,8 @@ public class GameManager : MonoBehaviour
             //Recogemos una carta random de la lista del mazo
             CardBehaviour randomCard = deck[Random.Range(0, deck.Count)];
 
-            //Miramos si tenemos algún slot para poner la carta, si lo hay, la activamos, 
-            //le ponemos su posición (y le decimos que el slot esta ocupado) y la eliminamos del deck.
+            //Miramos si tenemos algï¿½n slot para poner la carta, si lo hay, la activamos, 
+            //le ponemos su posiciï¿½n (y le decimos que el slot esta ocupado) y la eliminamos del deck.
             for (int i = 0; i < avaiableSlots.Length; i++)
             {
                 if(avaiableSlots[i] == true)
@@ -114,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void ShuffleCards()
     {
-        //Miramos si la pila de descartes es mayor a 1, si lo es reañadimos la carta al mazo, y limpiamos la lista.
+        //Miramos si la pila de descartes es mayor a 1, si lo es reaï¿½adimos la carta al mazo, y limpiamos la lista.
         if(discardPile.Count >= 1)
         {
             foreach (CardBehaviour card in discardPile)
