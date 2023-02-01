@@ -5,6 +5,8 @@ using UnityEngine;
 public abstract class Tile : MonoBehaviour
 {
 
+    public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, CARROT }
+    public TileStates tileState;
     [SerializeField]
     protected SpriteRenderer spriteRenderer;
     [SerializeField]
@@ -27,6 +29,6 @@ public abstract class Tile : MonoBehaviour
     }
 
     public bool isSoil(){
-        return _states == TileStates.SOIL;
+        return tileState == TileStates.SOIL;
     }
 }
