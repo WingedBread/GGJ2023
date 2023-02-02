@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 //Scriptable Object con los settings de cada carta
-[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
+//[CreateAssetMenu(fileName = "New Card", menuName = "Cards")]
 public class CardGenerator : ScriptableObject
 {
     public enum CARD_TYPE { SPROUT, SPRINKLER, PICKAXE, HOE, SHOVEL, SHOTGUN, SCARECROW}

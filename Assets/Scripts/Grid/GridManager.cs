@@ -52,7 +52,7 @@ public class GridManager : MonoBehaviour
         cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -1.5f, -10.8f);
     }
 
-    public List<Vector2> getSoilTilesPositions(){
+    public List<Vector2> GetSoilTilesPositions(){
         return tiles.Where(tile => tile.Value.isSoil()).ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
     }
 

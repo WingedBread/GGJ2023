@@ -66,7 +66,7 @@ public class BirdBehaviour : MonoBehaviour
     }
 
     Vector3 getInitialPosition(){
-        List<Vector2> possiblePositions = gridManager.getSoilTilesPositions();
+        List<Vector2> possiblePositions = gridManager.GetSoilTilesPositions();
         if(possiblePositions.Count == 0 ) {
             return new Vector2(-5,-5);
         }
