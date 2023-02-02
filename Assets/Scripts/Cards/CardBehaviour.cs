@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class CardBehaviour : MonoBehaviour, IPointerDownHandler
 {
-    private Card.CARD_TYPE cardType;
+    private CardGenerator.CARD_TYPE cardType;
 
     public bool hasBeenPlayed = false;
 
@@ -25,20 +25,20 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
 
             switch (cardType)
             {
-                case Card.CARD_TYPE.SPROUT:
+                case CardGenerator.CARD_TYPE.SPROUT:
                     CardSproutBehaviour();
                     break;
-                case Card.CARD_TYPE.SPRINKLER:
+                case CardGenerator.CARD_TYPE.SPRINKLER:
                     break;
-                case Card.CARD_TYPE.PICKAXE:
+                case CardGenerator.CARD_TYPE.PICKAXE:
                     break;
-                case Card.CARD_TYPE.HOE:
+                case CardGenerator.CARD_TYPE.HOE:
                     break;
-                case Card.CARD_TYPE.SHOVEL:
+                case CardGenerator.CARD_TYPE.SHOVEL:
                     break;
-                case Card.CARD_TYPE.SHOTGUN:
+                case CardGenerator.CARD_TYPE.SHOTGUN:
                     break;
-                case Card.CARD_TYPE.SCARECROW:
+                case CardGenerator.CARD_TYPE.SCARECROW:
                     break;
             }
         } 
@@ -67,10 +67,7 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
         //}
     }
 
-
-
-
-    public Card.CARD_TYPE GetCardType()
+    public CardGenerator.CARD_TYPE GetCardType()
     {
         return cardType;
     }

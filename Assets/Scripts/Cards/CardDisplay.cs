@@ -8,7 +8,7 @@ using TMPro;
 public class CardDisplay : MonoBehaviour
 {
     [Header("CHOOSE CARD")]
-    public Card card;
+    public CardGenerator card;
 
     private Image artImage;
     private TextMeshProUGUI nameText;
