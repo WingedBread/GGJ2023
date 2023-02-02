@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
     bool pause = false;
     public bool initWithStart = false;
 
+    [SerializeField]
     private Tile lastClickedTile;
+    [SerializeField]
+    private Card playedCard;
 
     private void Awake()
     {
@@ -114,6 +117,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetPlayedCard(Card card)
+    {
+        playedCard = card;
+    }
+
+    public void PlayCard()
+    {
+        playedCard.CardBehaviour();
+        playedCard.HideCard();
+    }
+
     public void ChangeTileColliderState(bool activate)
     {
         for (int i = 0; i < gridManager.tileColliders.Count; i++)
@@ -173,6 +187,8 @@ public class GameManager : MonoBehaviour
     public void SetClickedTile(Tile tile)
     {
         lastClickedTile = tile;
+        Debug.Log(tile.name);
+        Debug.Log(lastClickedTile.name);
     }
 
     public Tile GetClickedTile()

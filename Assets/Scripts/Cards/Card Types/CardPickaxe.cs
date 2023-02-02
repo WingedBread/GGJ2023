@@ -26,6 +26,7 @@ public class CardPickaxe : Card
         if (!hasBeenPlayed)
         {
             hasBeenPlayed = true;
+            GameManager.Instance.SetPlayedCard(this);
         }
         Debug.Log("PICKAXE_CARD");
     }
@@ -33,6 +34,7 @@ public class CardPickaxe : Card
     public override void CardBehaviour()
     {
         //Change Tile to Soil
+        GameManager.Instance.gridManager.SetTile(GameManager.Instance.GetClickedTile().GetPosition(), tileToChange);
     }
 
     public override void Restart()

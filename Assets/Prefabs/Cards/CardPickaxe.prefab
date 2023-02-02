@@ -280,6 +280,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlight: {fileID: 0}
+  tileToChange: {fileID: -5957897553192933226, guid: 985a7e24c121fbe44be543cbddc43184,
+    type: 3}
   hasBeenPlayed: 0
   handIndex: 0
 --- !u!65 &5085846419836176963

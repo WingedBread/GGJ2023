@@ -15,7 +15,7 @@ public abstract class Tile : MonoBehaviour
     [SerializeField]
     private GameObject highlight;
 
-    bool hasBeenSelected = false;
+    public bool hasBeenSelected = false;
 
     public virtual void TileBehaviour()
     {
@@ -33,18 +33,14 @@ public abstract class Tile : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
+    public virtual void OnMouseDown()
     {
-        GameManager.Instance.SetClickedTile(this);
-        Debug.Log(this.name);
-        hasBeenSelected = true;
+
     }
 
-    private void OnMouseUp()
+    public virtual void OnMouseUp()
     {
-        GameManager.Instance.ChangeTileColliderState(false);
-        GameManager.Instance.ChangeCardColliderState(true);
-        hasBeenSelected = false;
+
     }
 
     public TileStates GetTileState()

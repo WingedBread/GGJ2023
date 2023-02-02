@@ -215,3 +215,4 @@ MonoBehaviour:
   isPassable: 0
   spriteRenderer: {fileID: 6759364848620420319}
   highlight: {fileID: 3853911571007027324}
+  hasBeenSelected: 0
