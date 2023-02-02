@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class CardSprinkler : Card
 {
-    public override void HideCard()
-    {
-        gameObject.SetActive(false);
-        GameManager.Instance.avaiableSlots[handIndex] = true;
-        GameManager.Instance.deck.Add(this);
-        GameManager.Instance.DrawCard();
-    }
     public override void OnMouseEnter()
     {
         transform.position += Vector3.up * 0.1f;
@@ -20,19 +13,30 @@ public class CardSprinkler : Card
     {
         transform.position -= Vector3.up * 0.1f;
     }
+
     public override void OnMouseDown()
     {
         if (!hasBeenPlayed)
         {
-            hasBeenPlayed = true;
+            GameManager.Instance.SetPlayedCard(this);
+            //EnableHighLight(true);
         }
-        Debug.Log("SPRINKLER_CARD");
+    }
+    public override void HideCard()
+    {
+        //EnableHighLight(false);
+        gameObject.SetActive(false);
+        GameManager.Instance.avaiableSlots[handIndex] = true;
+        GameManager.Instance.deck.Add(this);
+        GameManager.Instance.DrawCard();
     }
 
     public override void CardBehaviour()
     {
-        //Cuenta 3 turnos y change Tile a Carrot
+        base.CardBehaviour();
+        //Esperar 3 turnos
     }
+
     public override void Restart()
     {
         hasBeenPlayed = false;

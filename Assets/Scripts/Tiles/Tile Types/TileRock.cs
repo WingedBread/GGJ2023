@@ -8,13 +8,14 @@ public class TileRock : Tile
     {
         GameManager.Instance.SetClickedTile(this);
         hasBeenSelected = true;
-        GameManager.Instance.PlayCard();
     }
 
     public override void OnMouseUp()
     {
+        CloseHighlight();
         GameManager.Instance.ChangeTileColliderState(false);
         GameManager.Instance.ChangeCardColliderState(true);
         hasBeenSelected = false;
+        GameManager.Instance.PlayCard();
     }
 }

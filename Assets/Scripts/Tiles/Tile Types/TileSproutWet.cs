@@ -7,15 +7,15 @@ public class TileSproutWet : Tile
     public override void OnMouseDown()
     {
         GameManager.Instance.SetClickedTile(this);
-        Debug.Log(this.name);
         hasBeenSelected = true;
-        GameManager.Instance.PlayCard();
     }
 
     public override void OnMouseUp()
     {
+        CloseHighlight();
         GameManager.Instance.ChangeTileColliderState(false);
         GameManager.Instance.ChangeCardColliderState(true);
         hasBeenSelected = false;
+        GameManager.Instance.PlayCard();
     }
 }

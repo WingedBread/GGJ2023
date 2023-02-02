@@ -279,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 053e09f364ec16d408a69a8b5c9b76b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: 2
   highlight: {fileID: 0}
   tileToChange: {fileID: -5957897553192933226, guid: 985a7e24c121fbe44be543cbddc43184,
     type: 3}

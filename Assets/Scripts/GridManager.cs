@@ -19,7 +19,7 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     Transform tilesParent;
 
-    private void Start()
+    private void Awake()
     {
         GenerateGrid();
     }
@@ -70,8 +70,10 @@ public class GridManager : MonoBehaviour
 
     public void SetTile(Vector2 position, Tile tile)
     {
-        Destroy(tiles[position]);
-        tiles[position] = tile;
-        Instantiate(tile, position, Quaternion.identity);
+        Destroy(tiles[position].gameObject);
+        Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
+        tiles[position] = placedTile;
+        tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
+        placedTile.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
