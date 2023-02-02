@@ -22,16 +22,13 @@ public class GameManager : MonoBehaviour
     public States gameState;
 
     public List<CardBehaviour> deck = new List<CardBehaviour>();
-    public List<CardBehaviour> discardPile = new List<CardBehaviour>();
     public List<CardBehaviour> allCards = new List<CardBehaviour>();
     public Transform[] cardSlots;
     public bool[] avaiableSlots;
     public TextMeshProUGUI deckText;
-    public TextMeshProUGUI discardPileText;
+    public GridManager gridManager;
     public GameObject bird;
     List<GameObject> birds;
-
-    //private SliderBehaviour slider;
 
     public CanvasGroup canvasGameplay;
     public CanvasGroup canvasGameOver;
@@ -42,6 +39,8 @@ public class GameManager : MonoBehaviour
     bool pause = false;
     public bool initWithStart = false;
 
+    private Tile lastClickedTile;
+
     private void Awake()
     {
         _instance = this;
@@ -50,7 +49,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateTexts();
-        //slider = GetComponent<SliderBehaviour>();
         if (initWithStart)
         {
             canvasGameplay.interactable = false;
@@ -119,31 +117,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ShuffleCards()
-    {
-        //Miramos si la pila de descartes es mayor a 1, si lo es rea�adimos la carta al mazo, y limpiamos la lista.
-        if(discardPile.Count >= 1)
-        {
-            foreach (CardBehaviour card in discardPile)
-            {
-                deck.Add(card);
-            }
-            discardPile.Clear();
-            UpdateTexts();
-        }
-    }
-
     public void UpdateTexts()
     {
         deckText.text = deck.Count.ToString();
-        discardPileText.text = discardPile.Count.ToString();
     }
-
-    //public void UpdateSliders(CardBehaviour randomCard)
-    //{
-    //    slider.UpdateSlidersValue(randomCard.GetCardPowers());
-    //}
-
 
     public void GameOver()
     {
@@ -154,14 +131,12 @@ public class GameManager : MonoBehaviour
 
     void Restart()
     {
-        discardPile.Clear();
         deck.Clear();
         foreach (CardBehaviour card in allCards)
         {
             card.Restart();
             deck.Add(card);
         }
-        //slider.Restart();
         UpdateTexts();
         canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;
@@ -186,5 +161,28 @@ public class GameManager : MonoBehaviour
             canvasGameplay.interactable = true;
             canvasPause.alpha = 0;
         }
+    }
+
+    public void CardSproutBehaviour(CardBehaviour currentcard)
+    {
+        if(GetClickedTile().GetTileState() == Tile.TileStates.SOIL_FARMABLE)
+        {
+            GetClickedTile().ChangeTileState(Tile.TileStates.SPROUT);
+        }
+        else
+        {
+            currentcard.HideCard();
+        }
+    }
+
+
+    public void SetClickedTile(Tile tile)
+    {
+        lastClickedTile = tile;
+    }
+
+    public Tile GetClickedTile()
+    {
+        return lastClickedTile;
     }
 }

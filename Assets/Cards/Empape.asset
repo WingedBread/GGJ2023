@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33f519f332a2e343aeb3972c62ce82e, type: 3}
   m_Name: Empape
   m_EditorClassIdentifier: 
-  name: Empape
-  description: Mbape, que empape
+  cardType: 2
+  name: PICKAXE
+  description: Pico
   art: {fileID: 21300000, guid: 20ba5bfdfeb8bcd41907a75af295ba69, type: 3}
-  powerWater: -2
-  powerEarth: -1
-  powerSun: 2

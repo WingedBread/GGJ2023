@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -356,7 +356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &7246232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -738,7 +737,6 @@ MonoBehaviour:
   - {fileID: 712448625}
   - {fileID: 2110373523}
   - {fileID: 495570547}
-  discardPile: []
   allCards:
   - {fileID: 1643118736}
   - {fileID: 1974230435}
@@ -768,7 +766,6 @@ MonoBehaviour:
   - {fileID: 1618197150}
   avaiableSlots: 0101010101
   deckText: {fileID: 1024093159}
-  discardPileText: {fileID: 271700174}
   bird: {fileID: 3643789053306009510, guid: 1e8ac601afc9e0b45a7d9b111f727372, type: 3}
   canvasGameplay: {fileID: 427580662}
   canvasGameOver: {fileID: 1489213157}
@@ -1604,7 +1601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &90155040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,7 +2539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &137256262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,7 +4498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &321692405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5583,14 +5577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 20
   _height: 10
-  tileSoil: {fileID: 5881430377941930325, guid: ba6f0a618f8c65142a55b711944b6ee4,
-    type: 3}
-  tileRock: {fileID: -2806916161858350771, guid: f4ea02148716088438479bf0f2b625e1,
-    type: 3}
-  tileSprout: {fileID: -6474733012347053879, guid: 3f9fafda7adf8934a8a5da1ff4e58774,
-    type: 3}
-  tileCarrot: {fileID: -6885397095451951473, guid: dd352aedfddd9844990e364d398afc96,
-    type: 3}
+  tile: {fileID: -6030820208302146114, guid: c1d1701485fa7604ab56336765e5e899, type: 3}
   cam: {fileID: 2062427208}
 --- !u!1 &417668683
 GameObject:
@@ -7070,7 +7057,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &495570548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9906,7 +9892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &712448626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10877,7 +10862,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &820847406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11127,7 +11112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &824323206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12506,7 +12490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &992553741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13950,7 +13933,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &1106103328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14432,14 +14414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 1
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1185973749
 GameObject:
   m_ObjectHideFlags: 0
@@ -16676,7 +16650,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &1383923758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17723,7 +17696,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &1488977143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19285,7 +19257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!222 &1627676922
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19474,7 +19445,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!1 &1653793684
 GameObject:
   m_ObjectHideFlags: 0
@@ -20034,7 +20004,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!222 &1716879069
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21043,7 +21012,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &1835312367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21231,7 +21199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &1843926469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22572,7 +22539,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!222 &1974230436
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23345,7 +23311,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &2008335524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23758,27 +23723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1 &2064683924
 GameObject:
   m_ObjectHideFlags: 0
@@ -24179,7 +24123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &2110373524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24426,7 +24369,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
-  power: 
 --- !u!114 &2116421684
 MonoBehaviour:
   m_ObjectHideFlags: 0

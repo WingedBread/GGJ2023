@@ -5,18 +5,15 @@ using UnityEngine.EventSystems;
 
 public class CardBehaviour : MonoBehaviour, IPointerDownHandler
 {
+    private Card.CARD_TYPE cardType;
+
     public bool hasBeenPlayed = false;
 
     public int handIndex;
 
-    public List<int> power;
-
     void Awake()
     {
-        power = new List<int>();
-        power.Add(GetComponent<CardDisplay>().card.powerWater);
-        power.Add(GetComponent<CardDisplay>().card.powerEarth);
-        power.Add(GetComponent<CardDisplay>().card.powerSun);
+        cardType = GetComponent<CardDisplay>().card.cardType;
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -25,23 +22,41 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
         {
             transform.position += Vector3.up * 50;
             hasBeenPlayed = true;
-            GameManager.Instance.avaiableSlots[handIndex] = true;
-            //GameManager.Instance.UpdateSliders(this);
-            GameManager.Instance.discardPile.Add(this);
-            Invoke("HideCard", 1f);
+
+            switch (cardType)
+            {
+                case Card.CARD_TYPE.SPROUT:
+                    GameManager.Instance.CardSproutBehaviour(this);
+                    break;
+                case Card.CARD_TYPE.SPRINKLER:
+                    break;
+                case Card.CARD_TYPE.PICKAXE:
+                    break;
+                case Card.CARD_TYPE.HOE:
+                    break;
+                case Card.CARD_TYPE.SHOVEL:
+                    break;
+                case Card.CARD_TYPE.SHOTGUN:
+                    break;
+                case Card.CARD_TYPE.SCARECROW:
+                    break;
+            }
         } 
     }
 
     public void HideCard()
     {
         gameObject.SetActive(false);
+        GameManager.Instance.avaiableSlots[handIndex] = true;
+        GameManager.Instance.UpdateTexts();
+        GameManager.Instance.deck.Add(this);
         GameManager.Instance.UpdateTexts();
         GameManager.Instance.DrawCard();
     }
 
-    public List<int> GetCardPowers()
+    public Card.CARD_TYPE GetCardType()
     {
-        return power;
+        return cardType;
     }
 
     public void Restart()

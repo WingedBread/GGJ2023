@@ -8,8 +8,8 @@ public class BirdBehaviour : MonoBehaviour
     GridManager gridManager;
     enum Moves {UP, LEFT, RIGHT, DOWN}
 
-    [SerializeField]
-    private Tile tileSoil;
+    //[SerializeField]
+    //private Tile tileSoil;
 
     int maxPositionX;
     int maxPositionY;
@@ -81,7 +81,8 @@ public class BirdBehaviour : MonoBehaviour
         }
 
         if(gridManager.GetTileAtPosition(transform.position).isConsumible()){
-            gridManager.setTile(transform.position, tileSoil);
+            //gridManager.SetTile(transform.position, tileSoil);
+            gridManager.SetTile(transform.position, Tile.TileStates.SOIL);
         }
     }
 }
