@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Card : MonoBehaviour
+public class CardHoe : Card
 {
-    public bool hasBeenPlayed = false;
-
-    public int handIndex;
-
-    public virtual void HideCard()
+    public override void HideCard()
     {
         gameObject.SetActive(false);
         GameManager.Instance.avaiableSlots[handIndex] = true;
@@ -18,22 +14,23 @@ public abstract class Card : MonoBehaviour
         GameManager.Instance.DrawCard();
     }
 
-    public virtual void Restart()
+    public override void Restart()
     {
         hasBeenPlayed = false;
         GameManager.Instance.avaiableSlots[handIndex] = true;
         gameObject.SetActive(false);
     }
-    public virtual void OnMouseDown()
+    public override void OnMouseDown()
     {
         if (!hasBeenPlayed)
         {
             transform.position += Vector3.up * 0.5f;
             hasBeenPlayed = true;
         }
+        Debug.Log("HOE_CARD");
     }
 
-    public virtual void CardBehaviour()
+    public override void CardBehaviour()
     {
 
     }

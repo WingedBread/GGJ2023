@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
                 {
                     randomCard.gameObject.SetActive(true);
                     randomCard.transform.position = cardSlots[i].position;
-                    Debug.Log(randomCard.transform.position);
                     avaiableSlots[i] = false;
                     randomCard.hasBeenPlayed = false;
                     randomCard.handIndex = i;
