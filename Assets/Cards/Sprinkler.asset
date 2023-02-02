@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33f519f332a2e343aeb3972c62ce82e, type: 3}
-  m_Name: Tierra
+  m_Name: Sprinkler
   m_EditorClassIdentifier: 
-  name: Tierra
-  description: La Tierra
-  art: {fileID: 21300000, guid: ebd0fb1f07d5dc9428392a6415d6f76a, type: 3}
-  powerWater: 1
-  powerEarth: 2
-  powerSun: 1
+  cardType: 1
+  name: SPRINKLER
+  description: Da Sol
+  art: {fileID: 21300000, guid: e5caa2000d1f5394fbe278ecde60ffde, type: 3}

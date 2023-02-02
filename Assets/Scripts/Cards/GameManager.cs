@@ -163,19 +163,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CardSproutBehaviour(CardBehaviour currentcard)
-    {
-        if(GetClickedTile().GetTileState() == Tile.TileStates.SOIL_FARMABLE)
-        {
-            GetClickedTile().ChangeTileState(Tile.TileStates.SPROUT);
-        }
-        else
-        {
-            currentcard.HideCard();
-        }
-    }
-
-
     public void SetClickedTile(Tile tile)
     {
         lastClickedTile = tile;

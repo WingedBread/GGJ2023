@@ -7,14 +7,15 @@ public class GridManager : MonoBehaviour
 {
     [SerializeField]
     private int _width, _height;
-    //[SerializeField]
-    //private Tile tileSoil, tileRock, tileSprout, tileCarrot;
     [SerializeField]
-    private Tile tile;
+    private Tile tileSoil, tileRock;
     [SerializeField]
     private Transform cam;
 
     private Dictionary<Vector2, Tile> tiles;
+
+    [SerializeField]
+    Transform tilesParent;
 
     private void Start()
     {
@@ -28,44 +29,22 @@ public class GridManager : MonoBehaviour
         {
             for (int y = 0; y < _height; y++)
             {
-                Tile spawnedTile = tile;
-                Tile placedTile = Instantiate(spawnedTile, new Vector3(x, y), Quaternion.identity);
+                Tile spawnedTile = tileSoil;
 
                 if (x == 0 || y == 0 || x == _width - 1 || y == _height - 1)
                 {
-                    //spawnedTile = tileRock;
-                    spawnedTile.ChangeTileState(Tile.TileStates.ROCK);
-                    Debug.Log("ROCK HERE");
+                    spawnedTile = tileRock;
                 }
                 else if (x <= 2 || y <= 2 || x >= _width - 3 || y >= _height - 3)
                 {
-                    //spawnedTile = Random.Range(0, 6) == 3 ? tileSoil : tileRock;
-
-                    if (Random.Range(0, 6) == 3) spawnedTile.ChangeTileState(Tile.TileStates.ROCK);
-                    else spawnedTile.ChangeTileState(Tile.TileStates.SOIL);
+                    spawnedTile = Random.Range(0, 6) == 3 ? tileSoil : tileRock;
                 }
 
-                if (x == 10 && y == 4)
-                {
-                    //spawnedTile = tileSprout;
-                    spawnedTile.ChangeTileState(Tile.TileStates.SPROUT);
-                }
-
-                if (x == 9 && y == 5)
-                {
-                    //spawnedTile = tileCarrot;
-                    spawnedTile.ChangeTileState(Tile.TileStates.CARROT);
-                }
-
-                //Tile placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity);
+                Tile placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity, tilesParent);
 
                 if (spawnedTile.GetTileState() == Tile.TileStates.SOIL) spawnedTile.name = $"TileSoil {x} {y}";
                 else if (spawnedTile.GetTileState() == Tile.TileStates.ROCK) spawnedTile.name = $"TileRock {x} {y}";
-                else if (spawnedTile.GetTileState() == Tile.TileStates.CARROT) spawnedTile.name = $"TileCarrot {x} {y}";
-                else if (spawnedTile.GetTileState() == Tile.TileStates.SPROUT) spawnedTile.name = $"TileSprout {x} {y}";
                 else spawnedTile.name = $"Tile NONAME {x} {y}";
-
-                //placedTile.Init(x, y);
 
                 tiles[new Vector2(x, y)] = placedTile;
             }
@@ -86,11 +65,10 @@ public class GridManager : MonoBehaviour
         return null;
     }
 
-    public void SetTile(Vector2 position, Tile.TileStates state)
+    public void SetTile(Vector2 position, Tile tile)
     {
-        tiles[position].ChangeTileState(state);
-        //Destroy(tiles[position]);
-        //tiles[position] = tile;
-        //Instantiate(tile, position, Quaternion.identity);
+        Destroy(tiles[position]);
+        tiles[position] = tile;
+        Instantiate(tile, position, Quaternion.identity);
     }
 }

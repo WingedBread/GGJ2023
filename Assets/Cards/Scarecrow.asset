@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33f519f332a2e343aeb3972c62ce82e, type: 3}
-  m_Name: Sol
+  m_Name: Scarecrow
   m_EditorClassIdentifier: 
-  name: Sol
-  description: Da Sol
-  art: {fileID: 21300000, guid: e5caa2000d1f5394fbe278ecde60ffde, type: 3}
-  powerWater: -1
-  powerEarth: -1
-  powerSun: 2
+  cardType: 6
+  name: SCARECROW
+  description: Llueve
+  art: {fileID: 21300000, guid: 0b1f15fe128cd98438218b5a88464616, type: 3}

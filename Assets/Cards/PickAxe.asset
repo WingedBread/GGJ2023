@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33f519f332a2e343aeb3972c62ce82e, type: 3}
-  m_Name: Lluvia
+  m_Name: PickAxe
   m_EditorClassIdentifier: 
-  name: Lluvia
-  description: Llueve
-  art: {fileID: 21300000, guid: 0b1f15fe128cd98438218b5a88464616, type: 3}
-  powerWater: 2
-  powerEarth: -1
-  powerSun: -1
+  cardType: 2
+  name: PICKAXE
+  description: Pico
+  art: {fileID: 21300000, guid: 20ba5bfdfeb8bcd41907a75af295ba69, type: 3}

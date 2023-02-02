@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 39fe690ff501cb042a4a77f1c5451df4, type: 2}
+  card: {fileID: 11400000, guid: 1836aed3d9a3e574db7d25ddf0fe839c, type: 2}
 --- !u!1 &19124402
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +766,7 @@ MonoBehaviour:
   - {fileID: 1618197150}
   avaiableSlots: 0101010101
   deckText: {fileID: 1024093159}
+  gridManager: {fileID: 415658037}
   bird: {fileID: 3643789053306009510, guid: 1e8ac601afc9e0b45a7d9b111f727372, type: 3}
   canvasGameplay: {fileID: 427580662}
   canvasGameOver: {fileID: 1489213157}
@@ -1613,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 39fe690ff501cb042a4a77f1c5451df4, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!1 &95537875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2551,7 +2552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
+  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
 --- !u!1 &144584425
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,7 +4511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
+  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
 --- !u!1 &329001698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5577,8 +5578,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 20
   _height: 10
-  tile: {fileID: -6030820208302146114, guid: c1d1701485fa7604ab56336765e5e899, type: 3}
+  tileSoil: {fileID: -5957897553192933226, guid: 985a7e24c121fbe44be543cbddc43184,
+    type: 3}
+  tileRock: {fileID: -1912233841290086854, guid: 9d3a3dc3d9c4de145a7fea4113c520b6,
+    type: 3}
   cam: {fileID: 2062427208}
+  tilesParent: {fileID: 2105608434}
 --- !u!1 &417668683
 GameObject:
   m_ObjectHideFlags: 0
@@ -9904,7 +9909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!1 &725604551
 GameObject:
   m_ObjectHideFlags: 0
@@ -10862,7 +10867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &820847406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11124,7 +11129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
+  card: {fileID: 11400000, guid: 009686287a984e347b7dbf3e4a363659, type: 2}
 --- !u!1 &825096609
 GameObject:
   m_ObjectHideFlags: 0
@@ -12502,7 +12507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
+  card: {fileID: 11400000, guid: 1836aed3d9a3e574db7d25ddf0fe839c, type: 2}
 --- !u!1 &1006787336
 GameObject:
   m_ObjectHideFlags: 0
@@ -13945,7 +13950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!1 &1154198834
 GameObject:
   m_ObjectHideFlags: 0
@@ -14414,6 +14419,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1185973749
 GameObject:
   m_ObjectHideFlags: 0
@@ -16662,7 +16675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!1 &1394452476
 GameObject:
   m_ObjectHideFlags: 0
@@ -17708,7 +17721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!1 &1489213155
 GameObject:
   m_ObjectHideFlags: 0
@@ -19307,7 +19320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
+  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
 --- !u!224 &1627676925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19392,7 +19405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 39fe690ff501cb042a4a77f1c5451df4, type: 2}
+  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
 --- !u!222 &1643118734
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20054,7 +20067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
+  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
 --- !u!224 &1716879072
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21024,7 +21037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
+  card: {fileID: 11400000, guid: 009686287a984e347b7dbf3e4a363659, type: 2}
 --- !u!1 &1835437583
 GameObject:
   m_ObjectHideFlags: 0
@@ -21211,7 +21224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 370d2bc5853b2494fb6403c271eeda00, type: 2}
+  card: {fileID: 11400000, guid: 1836aed3d9a3e574db7d25ddf0fe839c, type: 2}
 --- !u!1 &1902829322
 GameObject:
   m_ObjectHideFlags: 0
@@ -22589,7 +22602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
+  card: {fileID: 11400000, guid: 6bb6aa091283aca4bb16af26a9befd50, type: 2}
 --- !u!224 &1974230439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23323,7 +23336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
+  card: {fileID: 11400000, guid: 009686287a984e347b7dbf3e4a363659, type: 2}
 --- !u!1 &2027825702
 GameObject:
   m_ObjectHideFlags: 0
@@ -23723,6 +23736,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &2064683924
 GameObject:
   m_ObjectHideFlags: 0
@@ -24025,6 +24059,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088898129}
   m_CullTransparentMesh: 1
+--- !u!1 &2105608433
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105608434}
+  m_Layer: 0
+  m_Name: Tiles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105608434
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105608433}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2110373519
 GameObject:
   m_ObjectHideFlags: 0
@@ -24135,7 +24200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 39fe690ff501cb042a4a77f1c5451df4, type: 2}
+  card: {fileID: 11400000, guid: 1836aed3d9a3e574db7d25ddf0fe839c, type: 2}
 --- !u!1 &2112549016
 GameObject:
   m_ObjectHideFlags: 0
@@ -24381,7 +24446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c569c2e34ef51714e9f3df5a90092210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  card: {fileID: 11400000, guid: 39fe690ff501cb042a4a77f1c5451df4, type: 2}
+  card: {fileID: 11400000, guid: 13586573f2857814982af7111c0b927e, type: 2}
 --- !u!1 &2123027564
 GameObject:
   m_ObjectHideFlags: 0

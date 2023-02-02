@@ -26,7 +26,7 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
             switch (cardType)
             {
                 case Card.CARD_TYPE.SPROUT:
-                    GameManager.Instance.CardSproutBehaviour(this);
+                    CardSproutBehaviour();
                     break;
                 case Card.CARD_TYPE.SPRINKLER:
                     break;
@@ -53,6 +53,22 @@ public class CardBehaviour : MonoBehaviour, IPointerDownHandler
         GameManager.Instance.UpdateTexts();
         GameManager.Instance.DrawCard();
     }
+
+    public void CardSproutBehaviour()
+    {
+        //if (GetClickedTile().GetTileState() == Tile.TileStates.SOIL_FARMABLE)
+        //{
+        //    //Destroy and Instantiate new Tile
+        //    gridManager.SetTile(GetClickedTile().GetPosition(), )
+        //}
+        //else
+        //{
+        //    currentcard.HideCard();
+        //}
+    }
+
+
+
 
     public Card.CARD_TYPE GetCardType()
     {

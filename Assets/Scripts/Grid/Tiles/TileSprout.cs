@@ -5,7 +5,4 @@ using UnityEngine;
 public class TileSprout : Tile
 {
 
-    //public override void Init(int x, int y)
-    //{
-    //}
 }

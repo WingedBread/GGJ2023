@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33f519f332a2e343aeb3972c62ce82e, type: 3}
-  m_Name: Empape
+  m_Name: Shovel
   m_EditorClassIdentifier: 
-  cardType: 2
-  name: PICKAXE
-  description: Pico
-  art: {fileID: 21300000, guid: 20ba5bfdfeb8bcd41907a75af295ba69, type: 3}
+  cardType: 4
+  name: SHOVEL
+  description: La Tierra
+  art: {fileID: 21300000, guid: ebd0fb1f07d5dc9428392a6415d6f76a, type: 3}
