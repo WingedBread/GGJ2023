@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CardShovel : Card
 {
-
+    private void OnMouseDown()
+    {
+        Debug.Log("SHOVEL_CARD");
+    }
 }

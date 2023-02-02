@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CardPickaxe : Card
 {
-
+    private void OnMouseDown()
+    {
+        Debug.Log("PICKAXE_CARD");
+    }
 }

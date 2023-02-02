@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 962570774441180222}
   - component: {fileID: -5799599539287951243}
+  - component: {fileID: 1607909049497723635}
   m_Layer: 0
   m_Name: CardSprinkler
   m_TagString: Untagged
@@ -280,6 +281,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
+--- !u!65 &1607909049497723635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962570774441180223}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8025032, y: 0.99825656, z: 0.03764379}
+  m_Center: {x: 0.029654264, y: -0.023626983, z: -0.32601464}
 --- !u!1 &2136119022704222907
 GameObject:
   m_ObjectHideFlags: 0

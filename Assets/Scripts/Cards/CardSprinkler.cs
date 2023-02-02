@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CardSprinkler : Card
 {
-
+    private void OnMouseDown()
+    {
+        Debug.Log("SPRINKLER_CARD");
+    }
 }

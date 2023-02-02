@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     public enum States {Start, Gameplay, Pause, GameOver};
     public States gameState;
 
-    public List<CardBehaviour> deck = new List<CardBehaviour>();
-    public List<CardBehaviour> allCards = new List<CardBehaviour>();
+    public List<Card> deck = new List<Card>();
+    public List<Card> allCards = new List<Card>();
     public Transform[] cardSlots;
     public bool[] avaiableSlots;
     public TextMeshProUGUI deckText;
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
         if(deck.Count >= 1)
         {
             //Recogemos una carta random de la lista del mazo
-            CardBehaviour randomCard = deck[Random.Range(0, deck.Count)];
+            Card randomCard = deck[Random.Range(0, deck.Count)];
 
             //Miramos si tenemos alg�n slot para poner la carta, si lo hay, la activamos, 
             //le ponemos su posici�n (y le decimos que el slot esta ocupado) y la eliminamos del deck.
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
                 {
                     randomCard.gameObject.SetActive(true);
                     randomCard.transform.position = cardSlots[i].position;
+                    Debug.Log(randomCard.transform.position);
                     avaiableSlots[i] = false;
                     randomCard.hasBeenPlayed = false;
                     randomCard.handIndex = i;
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour
     void Restart()
     {
         deck.Clear();
-        foreach (CardBehaviour card in allCards)
+        foreach (Card card in allCards)
         {
             card.Restart();
             deck.Add(card);

@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CardSprout : Card
 {
-
+    private void OnMouseDown()
+    {
+        Debug.Log("SPROUT_CARD");
+    }
 }

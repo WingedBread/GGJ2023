@@ -243,6 +243,7 @@ GameObject:
   m_Component:
   - component: {fileID: 584010711688106315}
   - component: {fileID: -489961202720529461}
+  - component: {fileID: 5085846419836176963}
   m_Layer: 0
   m_Name: CardPickaxe
   m_TagString: Untagged
@@ -280,6 +281,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasBeenPlayed: 0
   handIndex: 0
+--- !u!65 &5085846419836176963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584010711688106314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8025032, y: 0.99825656, z: 0.03764379}
+  m_Center: {x: 0.029654264, y: -0.023626983, z: -0.32601464}
 --- !u!1 &1793676542483697614
 GameObject:
   m_ObjectHideFlags: 0
