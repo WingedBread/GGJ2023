@@ -42,6 +42,8 @@ public abstract class Tile : MonoBehaviour
 
     private void OnMouseUp()
     {
+        GameManager.Instance.ChangeTileColliderState(false);
+        GameManager.Instance.ChangeCardColliderState(true);
         hasBeenSelected = false;
     }
 

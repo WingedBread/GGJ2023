@@ -16,16 +16,16 @@ public class BirdBehaviour : MonoBehaviour
 
     void Start()
     {
-        gridManager = GameObject.Find("GridManager").GetComponent<GridManager> ();;
-        transform.position = getInitialPosition();
+        gridManager = GameObject.Find("GRID MANAGER").GetComponent<GridManager> ();;
+        transform.position = GetInitialPosition();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         maxPositionX = 19;
         maxPositionY = 9;  
     }
 
-    public void move() 
+    public void Move() 
     {
-        List<Moves> possibleMoves = calculateProsibleMoves();
+        List<Moves> possibleMoves = CalculateProsibleMoves();
 
         if(possibleMoves.Count == 0){
             return;
@@ -46,7 +46,7 @@ public class BirdBehaviour : MonoBehaviour
         } 
     }
 
-    List<Moves> calculateProsibleMoves()
+    List<Moves> CalculateProsibleMoves()
     {
         List<Moves> possibleMoves = new List<Moves>();
 
@@ -65,7 +65,7 @@ public class BirdBehaviour : MonoBehaviour
         return possibleMoves;
     }
 
-    Vector3 getInitialPosition(){
+    Vector3 GetInitialPosition(){
         List<Vector2> possiblePositions = gridManager.GetSoilTilesPositions();
         if(possiblePositions.Count == 0 ) {
             return new Vector2(-5,-5);
@@ -77,7 +77,7 @@ public class BirdBehaviour : MonoBehaviour
     void Update()
     {
         if(Input.GetMouseButtonDown(0)){
-            move();
+            Move();
         }
 
         if(gridManager.GetTileAtPosition(transform.position).isConsumible()){

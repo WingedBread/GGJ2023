@@ -8,23 +8,23 @@ public class CardScarecrow : Card
     {
         gameObject.SetActive(false);
         GameManager.Instance.avaiableSlots[handIndex] = true;
-        GameManager.Instance.UpdateTexts();
         GameManager.Instance.deck.Add(this);
-        GameManager.Instance.UpdateTexts();
         GameManager.Instance.DrawCard();
     }
-
-    public override void Restart()
+    public override void OnMouseEnter()
     {
-        hasBeenPlayed = false;
-        GameManager.Instance.avaiableSlots[handIndex] = true;
-        gameObject.SetActive(false);
+        transform.position += Vector3.up * 0.1f;
     }
+
+    public override void OnMouseExit()
+    {
+        transform.position -= Vector3.up * 0.1f;
+    }
+
     public override void OnMouseDown()
     {
         if (!hasBeenPlayed)
         {
-            transform.position += Vector3.up * 0.5f;
             hasBeenPlayed = true;
         }
         Debug.Log("SCARECROW_CARD");
@@ -33,5 +33,11 @@ public class CardScarecrow : Card
     public override void CardBehaviour()
     {
 
+    }
+    public override void Restart()
+    {
+        hasBeenPlayed = false;
+        GameManager.Instance.avaiableSlots[handIndex] = true;
+        gameObject.SetActive(false);
     }
 }

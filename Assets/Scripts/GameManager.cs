@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public List<Card> allCards = new List<Card>();
     public Transform[] cardSlots;
     public bool[] avaiableSlots;
-    public TextMeshProUGUI deckText;
     public GridManager gridManager;
     public GameObject bird;
     List<GameObject> birds;
@@ -48,7 +47,6 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdateTexts();
         if (initWithStart)
         {
             canvasGameplay.interactable = false;
@@ -110,16 +108,26 @@ public class GameManager : MonoBehaviour
                     randomCard.hasBeenPlayed = false;
                     randomCard.handIndex = i;
                     deck.Remove(randomCard);
-                    UpdateTexts();
                     return;
                 }
             }
         }
     }
 
-    public void UpdateTexts()
+    public void ChangeTileColliderState(bool activate)
     {
-        deckText.text = deck.Count.ToString();
+        for (int i = 0; i < gridManager.tileColliders.Count; i++)
+        {
+            gridManager.tileColliders[i].enabled = activate;
+        }
+    }
+
+    public void ChangeCardColliderState(bool activate)
+    {
+        foreach (Card card in allCards)
+        {
+            card.GetComponent<BoxCollider>().enabled = activate;
+        }
     }
 
     public void GameOver()
@@ -137,7 +145,6 @@ public class GameManager : MonoBehaviour
             card.Restart();
             deck.Add(card);
         }
-        UpdateTexts();
         canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;
         gameOver = false;

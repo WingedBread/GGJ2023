@@ -14,6 +14,8 @@ public class GridManager : MonoBehaviour
 
     private Dictionary<Vector2, Tile> tiles;
 
+    public List<BoxCollider2D> tileColliders = new List<BoxCollider2D>();
+
     [SerializeField]
     Transform tilesParent;
 
@@ -47,9 +49,10 @@ public class GridManager : MonoBehaviour
                 else spawnedTile.name = $"Tile NONAME {x} {y}";
 
                 tiles[new Vector2(x, y)] = placedTile;
+                tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
             }
         }
-        cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -1.5f, -10.8f);
+        cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -1.78f, -10.8f);
     }
 
     public List<Vector2> GetSoilTilesPositions(){

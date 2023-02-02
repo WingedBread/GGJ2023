@@ -4,33 +4,52 @@ using UnityEngine;
 
 public abstract class Card : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject highlight;
+
     public bool hasBeenPlayed = false;
 
     public int handIndex;
 
     public virtual void HideCard()
     {
-        gameObject.SetActive(false);
-        GameManager.Instance.avaiableSlots[handIndex] = true;
-        GameManager.Instance.UpdateTexts();
-        GameManager.Instance.deck.Add(this);
-        GameManager.Instance.UpdateTexts();
-        GameManager.Instance.DrawCard();
+
     }
 
     public virtual void Restart()
     {
-        hasBeenPlayed = false;
-        GameManager.Instance.avaiableSlots[handIndex] = true;
-        gameObject.SetActive(false);
+
     }
+
+    public virtual void OnMouseEnter()
+    {
+        
+    }
+
+    public virtual void OnMouseExit()
+    {
+        
+    }
+
     public virtual void OnMouseDown()
     {
-        if (!hasBeenPlayed)
-        {
-            transform.position += Vector3.up * 0.5f;
-            hasBeenPlayed = true;
-        }
+        
+    }
+
+    public void EnableHighLight()
+    {
+        highlight.SetActive(true);
+    }
+
+    public void DisableHighlight()
+    {
+        highlight.SetActive(false);
+    }
+
+    private void OnMouseUp()
+    {
+        GameManager.Instance.ChangeTileColliderState(true);
+        GameManager.Instance.ChangeCardColliderState(false);
     }
 
     public virtual void CardBehaviour()
