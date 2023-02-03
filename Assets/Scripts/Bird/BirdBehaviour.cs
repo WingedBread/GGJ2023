@@ -91,7 +91,7 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
     {
         Tile currentTile = gridManager.GetTileAtPosition(transform.position);
 
-        if(currentTile.GetTileState() == Tile.TileStates.SPROUT || currentTile.GetTileState() == Tile.TileStates.CARROT){
+        if(currentTile.GetTileState() == Tile.TileStates.SPROUT || currentTile.GetTileState() == Tile.TileStates.SPROUT_WET || currentTile.GetTileState() == Tile.TileStates.CARROT){
             gridManager.SetTile(transform.position, tileSoil);
         }
     }
