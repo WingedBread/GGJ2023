@@ -10451,7 +10451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769068755}
   - component: {fileID: 769068754}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10626,7 +10626,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796364163}
   - component: {fileID: 796364162}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13931,7 +13931,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1049764427}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19765,7 +19765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1569764628}
   - component: {fileID: 1569764627}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19974,7 +19974,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1618197152}
   - component: {fileID: 1618197151}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21392,7 +21392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798837087}
   - component: {fileID: 1798837086}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slot 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
