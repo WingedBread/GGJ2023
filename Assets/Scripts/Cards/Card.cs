@@ -10,7 +10,20 @@ public abstract class Card : MonoBehaviour
     private GameObject highlight;
     private int handIndex;
 
-    
+    private Vector3 startRotation;
+    private Vector3 currentAngle;
+    private float rotateSpeed = 1.5f;
+    Vector3 endRotation = new Vector3(-20, 194, 0);
+    Vector3 starterRotation = new Vector3(-20, 166, 0);
+    [SerializeField]
+    bool direction = false;
+
+    private void Start()
+    {
+        startRotation = transform.localEulerAngles;
+        currentAngle = startRotation;
+    }
+
     public abstract bool play(Tile clickedTile);
 
     public void OnMouseEnter()
@@ -18,18 +31,35 @@ public abstract class Card : MonoBehaviour
         transform.localPosition += Vector3.up * 0.1f;
     }
 
+    public void OnMouseOver()
+    {
+        //Quaternion endRotation = Quaternion.Euler(-20, 194, 0);
+        //Quaternion starterRotation = Quaternion.Euler(-20, 166, 0);
+        //transform.localRotation = Quaternion.Lerp(starterRotation, endRotation, rotateSpeed);
+        
+
+        if (currentAngle.y < 176 && currentAngle.y < 184 && !direction) direction = true;
+        if (currentAngle.y > 176 && currentAngle.y > 184 && direction) direction = false;
+
+        if (!direction) RotateToStart();
+        else RotateToEnd();
+
+    }
     public void OnMouseExit()
     {
         transform.localPosition -= Vector3.up * 0.1f;
+        transform.localEulerAngles = startRotation;
     }
 
     public void OnMouseDown()
     {
         GameManager.Instance.SetClickedCard(this);
+        EnableHighLight(true);
     }
 
     public void HideCard()
     {
+        EnableHighLight(false);
         gameObject.SetActive(false);
     }
 
@@ -59,5 +89,26 @@ public abstract class Card : MonoBehaviour
     public void UnClicked()
     {
         highlight.SetActive(false);
+    }
+
+
+    private void RotateToStart()
+    {
+        currentAngle = new Vector3(
+                 Mathf.LerpAngle(currentAngle.x, starterRotation.x, Time.deltaTime * rotateSpeed),
+                 Mathf.LerpAngle(currentAngle.y, starterRotation.y, Time.deltaTime * rotateSpeed),
+                 Mathf.LerpAngle(currentAngle.z, starterRotation.z, Time.deltaTime * rotateSpeed));
+
+        transform.eulerAngles = currentAngle;
+    }
+
+    private void RotateToEnd()
+    {
+        currentAngle = new Vector3(
+                 Mathf.LerpAngle(currentAngle.x, endRotation.x, Time.deltaTime * rotateSpeed),
+                 Mathf.LerpAngle(currentAngle.y, endRotation.y, Time.deltaTime * rotateSpeed),
+                 Mathf.LerpAngle(currentAngle.z, endRotation.z, Time.deltaTime * rotateSpeed));
+
+        transform.eulerAngles = currentAngle;
     }
 }
