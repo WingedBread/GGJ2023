@@ -2,7 +2,7 @@ Shader "Unlit/Hidde"
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "black" {}
     }
     SubShader
     {
