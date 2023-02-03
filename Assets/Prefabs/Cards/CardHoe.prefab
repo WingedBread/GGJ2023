@@ -163,6 +163,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 3
   highlight: {fileID: 0}
+  farmeableTile: {fileID: -7835349196904145219, guid: 003ec7738023f774983aa1e4f9aa504e,
+    type: 3}
 --- !u!65 &-1005383977861424637
 BoxCollider:
   m_ObjectHideFlags: 0
