@@ -11,7 +11,6 @@ public class ScarecrowBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //areaCollider = area.GetComponent<BoxCollider2D>();
         FillScarecrowAreaLocation();
     }
 

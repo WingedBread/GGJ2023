@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,11 +31,16 @@ public class GameManager : MonoBehaviour
     public CanvasGroup canvasGameOver;
     public CanvasGroup canvasStart;
     public CanvasGroup canvasPause;
+    [SerializeField]
+    private Text turnText;
+    [SerializeField]
+    private Text carrotText;
 
     int turn = 1;
     public int birdAparition = 5;
     private Tile lastClickedTile;
     private Card lastClickedCard;
+    int carrots = 0;
 
     [SerializeField]
     private Player player;
@@ -57,6 +62,7 @@ public class GameManager : MonoBehaviour
 
         player.EnableCardCollider(true);
         GridManager.Instance.EnableGridColliders(false);
+        turnText.text = turn.ToString();
     }
 
     void Update()
@@ -112,6 +118,7 @@ public class GameManager : MonoBehaviour
         }
 
         turn++;
+        turnText.text = turn.ToString();
 
         if(turn % birdAparition == 0){
             Instantiate(bird, new Vector3(-10,-10), Quaternion.identity);

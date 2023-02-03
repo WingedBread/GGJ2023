@@ -265,6 +265,8 @@ MonoBehaviour:
   canvasGameOver: {fileID: 1489213157}
   canvasStart: {fileID: 1672343691}
   canvasPause: {fileID: 44772163}
+  turnText: {fileID: 681590231}
+  carrotText: {fileID: 1697744695}
   birdAparition: 5
   player: {fileID: 1792410652}
 --- !u!4 &40551650 stripped
