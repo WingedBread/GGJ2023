@@ -93,6 +93,5 @@ public class GridManager : MonoBehaviour
         Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
         tiles[position] = placedTile;
         tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
-        placedTile.GetComponent<BoxCollider2D>().enabled = false;
     }
 }

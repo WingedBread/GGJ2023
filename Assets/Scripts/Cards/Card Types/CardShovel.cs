@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class CardShovel : Card
 {
+
+   public Tile soilTile;
+
    public override bool play(Tile clickedTile){
-    Debug.Log("SHOVEL USED");
-    return true;
+      if(clickedTile.GetTileState() == Tile.TileStates.CARROT){
+         GridManager.Instance.SetTile(clickedTile.transform.position, soilTile);
+      }
+
+      return true;
    }
 }

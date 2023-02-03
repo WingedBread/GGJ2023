@@ -214,6 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 4
   highlight: {fileID: 0}
+  soilTile: {fileID: -5957897553192933226, guid: 985a7e24c121fbe44be543cbddc43184,
+    type: 3}
 --- !u!65 &2503687563365348936
 BoxCollider:
   m_ObjectHideFlags: 0

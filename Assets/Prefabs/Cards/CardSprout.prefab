@@ -447,10 +447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 0
   highlight: {fileID: 0}
-  tileToChange: {fileID: -7134515662441892853, guid: 6a0234e7bfb7d094ba617e2208f79882,
+  sproutTile: {fileID: -7134515662441892853, guid: 6a0234e7bfb7d094ba617e2208f79882,
     type: 3}
-  hasBeenPlayed: 0
-  handIndex: 0
 --- !u!65 &-6319710291874051664
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CardSprinkler : Card
 {
+    public Tile wetTile;
     
     public override bool play(Tile clickedTile){
-        Debug.Log("SPRINKLER USED");
+        if(clickedTile.GetTileState() == Tile.TileStates.SPROUT){
+            GridManager.Instance.SetTile(clickedTile.transform.position, wetTile);
+        }
         return true;
     }
 }

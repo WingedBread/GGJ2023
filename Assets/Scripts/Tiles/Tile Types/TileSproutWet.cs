@@ -19,12 +19,9 @@ public class TileSproutWet : Tile, EndTurnObserver
         growCount ++;
 
         if(growCount >= growTurn ){
+            GameManager.Instance.EndTurnUnsuscribe(this);
             GridManager.Instance.SetTile(transform.position, tileCarrot);
         }
         return true;
-    }
-
-    public void onDestroy(){
-        GameManager.Instance.EndTurnUnsuscribe(this);
     }
 }

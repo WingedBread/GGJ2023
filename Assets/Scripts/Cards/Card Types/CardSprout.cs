@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class CardSprout : Card
 {
+    public Tile sproutTile;
+
     public override bool play(Tile clickedTile){
-        Debug.Log("SPROUT USED");
+        if(clickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE){
+            GridManager.Instance.SetTile(clickedTile.transform.position, sproutTile);
+        }
         return true;
     }
 }

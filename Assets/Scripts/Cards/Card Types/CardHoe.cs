@@ -7,7 +7,10 @@ public class CardHoe : Card
     public Tile farmeableTile;
 
     public override bool play(Tile clickedTile){
-        GridManager.Instance.Sgit staetTile(clickedTile.transform.position, farmeableTile);
+        if(clickedTile.GetTileState() == Tile.TileStates.SOIL){
+            GridManager.Instance.SetTile(clickedTile.transform.position, farmeableTile);
+        }
+        
         return true;
     }
 }

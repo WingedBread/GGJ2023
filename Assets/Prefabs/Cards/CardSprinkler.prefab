@@ -281,6 +281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 1
   highlight: {fileID: 0}
+  wetTile: {fileID: -659454910625705988, guid: 9f4c98c799df6724fad21b0f00e5d26c, type: 3}
 --- !u!65 &1607909049497723635
 BoxCollider:
   m_ObjectHideFlags: 0
