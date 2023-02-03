@@ -192,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5907715487891384832}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.5, y: 1.45, z: -7.116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -214,10 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 4
   highlight: {fileID: 0}
-  tileToChange: {fileID: -1912233841290086854, guid: 9d3a3dc3d9c4de145a7fea4113c520b6,
-    type: 3}
-  hasBeenPlayed: 0
-  handIndex: 0
 --- !u!65 &2503687563365348936
 BoxCollider:
   m_ObjectHideFlags: 0

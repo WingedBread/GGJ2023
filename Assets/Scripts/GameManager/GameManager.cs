@@ -25,10 +25,6 @@ public class GameManager : MonoBehaviour
     
     private List<EndTurnObserver> endTurnSubsritors;
 
-    public List<Card> deck = new List<Card>();
-    public List<Card> allCards = new List<Card>();
-    public Transform[] cardSlots;
-    public bool[] avaiableSlots;
     public GameObject bird;
 
     public CanvasGroup canvasGameplay;
@@ -40,6 +36,8 @@ public class GameManager : MonoBehaviour
     public int birdAparition = 5;
     private Tile lastClickedTile;
 
+    [SerializeField]
+    private Player player;
 
     private void Awake()
     {
@@ -55,12 +53,6 @@ public class GameManager : MonoBehaviour
             canvasGameplay.interactable = true;
             canvasStart.alpha = 1;
         }
-        for (int i = 0; i < cardSlots.Length; i++)
-        {
-            DrawCard();
-        }
-
-        ChangeTileColliderState(false);
     }
 
     void Update()
@@ -90,36 +82,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void DrawCard()
-    {
-        //Si hay alguna carta en la baraja
-        if(deck.Count >= 1)
-        {
-            //Recogemos una carta random de la lista del mazo
-            Card randomCard = deck[Random.Range(0, deck.Count)];
-
-            //Miramos si tenemos alg�n slot para poner la carta, si lo hay, la activamos, 
-            //le ponemos su posici�n (y le decimos que el slot esta ocupado) y la eliminamos del deck.
-            for (int i = 0; i < avaiableSlots.Length; i++)
-            {
-                if(avaiableSlots[i] == true)
-                {
-                    randomCard.gameObject.SetActive(true);
-                    randomCard.transform.position = cardSlots[i].position;
-                    avaiableSlots[i] = false;
-                    randomCard.hasBeenPlayed = false;
-                    randomCard.handIndex = i;
-                    deck.Remove(randomCard);
-                    return;
-                }
-            }
-        }
-    }
-
     public void PlayCard(Card card)
     {
         if(lastClickedTile != null){
             bool played = card.play(lastClickedTile);
+            player.cardUsed(card);
             EndTurn();
         }
     }
@@ -128,6 +95,7 @@ public class GameManager : MonoBehaviour
         gameState = States.END_TURN;
                 
         lastClickedTile.UnClicked();
+        lastClickedTile = null;
         if(endTurnSubsritors.Count > 0){
             foreach(EndTurnObserver suscritor in endTurnSubsritors){ 
                 bool notified = suscritor.notify();
@@ -147,22 +115,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeTileColliderState(bool activate)
-    {
-        for (int i = 0; i < GridManager.Instance.tileColliders.Count; i++)
-        {
-            if(GridManager.Instance.tileColliders[i] != null) GridManager.Instance.tileColliders[i].enabled = activate;
-        }
-    }
-
-    public void ChangeCardColliderState(bool activate)
-    {
-        foreach (Card card in allCards)
-        {
-            card.GetComponent<BoxCollider>().enabled = activate;
-        }
-    }
-
     private bool GameOverCondition(){
         //TODO
         return false;
@@ -176,12 +128,6 @@ public class GameManager : MonoBehaviour
 
     void Restart()
     {
-        deck.Clear();
-        foreach (Card card in allCards)
-        {
-            card.Restart();
-            deck.Add(card);
-        }
         canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;
     }

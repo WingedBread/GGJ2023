@@ -8,10 +8,7 @@ public abstract class Card : MonoBehaviour
     public CardNames cardName;
     [SerializeField]
     private GameObject highlight;
-
-    public bool hasBeenPlayed = false;
-
-    public int handIndex;
+    private int handIndex;
 
     
     public abstract bool play(Tile clickedTile);
@@ -29,22 +26,11 @@ public abstract class Card : MonoBehaviour
     public void OnMouseDown()
     {
         GameManager.Instance.PlayCard(this);
-        HideCard();
-    }
-
-    private void OnMouseUp()
-    {
-        GameManager.Instance.ChangeTileColliderState(true);
-        GameManager.Instance.ChangeCardColliderState(false);
     }
 
     public void HideCard()
     {
-        //EnableHighLight(false);
         gameObject.SetActive(false);
-        GameManager.Instance.avaiableSlots[handIndex] = true;
-        GameManager.Instance.deck.Add(this);
-        GameManager.Instance.DrawCard();
     }
 
     public void EnableHighLight(bool enable)
@@ -54,13 +40,19 @@ public abstract class Card : MonoBehaviour
 
     public void Restart()
     {
-        hasBeenPlayed = false;
-        GameManager.Instance.avaiableSlots[handIndex] = true;
         gameObject.SetActive(false);
     }
 
     public CardNames GetCardName()
     {
         return cardName;
+    }
+
+    public void SetHandIndex(int i){
+        handIndex = i;
+    }
+
+    public int getHandIndex(){
+        return handIndex;
     }
 }
