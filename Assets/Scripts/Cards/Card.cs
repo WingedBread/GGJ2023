@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class Card : MonoBehaviour
 {
+    public enum CardNames { SPROUT, SPRINKLER, PICKAXE, HOE, SHOVEL, SHOTGUN, SCARECROW}
+    public CardNames cardName;
     [SerializeField]
     private GameObject highlight;
 
@@ -38,14 +40,9 @@ public abstract class Card : MonoBehaviour
         
     }
 
-    public void EnableHighLight()
+    public void EnableHighLight(bool enable)
     {
-        highlight.SetActive(true);
-    }
-
-    public void DisableHighlight()
-    {
-        highlight.SetActive(false);
+        highlight.SetActive(enable);
     }
 
     private void OnMouseUp()
@@ -56,6 +53,11 @@ public abstract class Card : MonoBehaviour
 
     public virtual void CardBehaviour()
     {
+        GameManager.Instance.gridManager.SetTile(GameManager.Instance.GetClickedTile().GetPosition(), tileToChange);
+    }
 
+    public CardNames GetCardName()
+    {
+        return cardName;
     }
 }

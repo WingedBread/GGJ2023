@@ -32,6 +32,11 @@ public abstract class Tile : MonoBehaviour
         highlight.SetActive(false);
     }
 
+    public void CloseHighlight()
+    {
+        highlight.SetActive(false);
+    }
+
 
     public virtual void OnMouseDown()
     {

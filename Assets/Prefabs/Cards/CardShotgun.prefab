@@ -330,7 +330,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435eccd6e3f7af5469779cc7ce7062d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: 5
   highlight: {fileID: 0}
+  tileToChange: {fileID: 0}
   hasBeenPlayed: 0
   handIndex: 0
 --- !u!65 &6095892972732123119

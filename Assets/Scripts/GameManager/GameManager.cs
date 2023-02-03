@@ -63,6 +63,8 @@ public class GameManager : MonoBehaviour
         {
             DrawCard();
         }
+
+        ChangeTileColliderState(false);
     }
 
     // Update is called once per frame
@@ -133,15 +135,62 @@ public class GameManager : MonoBehaviour
 
     public void PlayCard()
     {
-        playedCard.CardBehaviour();
-        playedCard.HideCard();
+        switch (playedCard.cardName)
+        {
+            case Card.CardNames.PICKAXE:
+                if(lastClickedTile.GetTileState() == Tile.TileStates.ROCK)
+                {
+                    playedCard.CardBehaviour();
+                    playedCard.HideCard();
+                }
+                else playedCard.HideCard();
+                break;
+            case Card.CardNames.HOE:
+                if (lastClickedTile.GetTileState() == Tile.TileStates.SOIL)
+                {
+                    playedCard.CardBehaviour();
+                    playedCard.HideCard();
+                }
+                else playedCard.HideCard();
+                break;
+            case Card.CardNames.SPROUT:
+                if (lastClickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE)
+                {
+                    playedCard.CardBehaviour();
+                    playedCard.HideCard();
+                }
+                else playedCard.HideCard();
+                break;
+            case Card.CardNames.SPRINKLER:
+                if (lastClickedTile.GetTileState() == Tile.TileStates.SPROUT)
+                {
+                    playedCard.CardBehaviour();
+                    playedCard.HideCard();
+                }
+                else playedCard.HideCard();
+                break;
+            case Card.CardNames.SHOVEL:
+                if (lastClickedTile.GetTileState() == Tile.TileStates.CARROT)
+                {
+                    playedCard.CardBehaviour();
+                    playedCard.HideCard();
+                }
+                else playedCard.HideCard();
+                break;
+            case Card.CardNames.SHOTGUN:
+                playedCard.HideCard();
+                break;
+            case Card.CardNames.SCARECROW:
+                playedCard.HideCard();
+                break;
+        }
     }
 
     public void ChangeTileColliderState(bool activate)
     {
         for (int i = 0; i < gridManager.tileColliders.Count; i++)
         {
-            gridManager.tileColliders[i].enabled = activate;
+            if(gridManager.tileColliders[i] != null) gridManager.tileColliders[i].enabled = activate;
         }
     }
 
@@ -196,8 +245,6 @@ public class GameManager : MonoBehaviour
     public void SetClickedTile(Tile tile)
     {
         lastClickedTile = tile;
-        Debug.Log(tile.name);
-        Debug.Log(lastClickedTile.name);
     }
 
     public Tile GetClickedTile()

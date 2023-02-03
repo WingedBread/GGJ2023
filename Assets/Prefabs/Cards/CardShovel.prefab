@@ -212,7 +212,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b691c8bda6a47f44b48f2624fb23334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardName: 4
   highlight: {fileID: 0}
+  tileToChange: {fileID: -1912233841290086854, guid: 9d3a3dc3d9c4de145a7fea4113c520b6,
+    type: 3}
   hasBeenPlayed: 0
   handIndex: 0
 --- !u!65 &2503687563365348936
