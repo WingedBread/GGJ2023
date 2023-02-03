@@ -158,8 +158,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1856814589
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 24908a5eb8adaf34a9f13544d4a5124d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -210,8 +210,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dad19c3e92152947a569f79e37fe733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wet: 0
   spriteRenderer: {fileID: 6759364848620420319}
   highlight: {fileID: 3853911571007027324}
-  tileState: 0
-  hasBeenSelected: 0
