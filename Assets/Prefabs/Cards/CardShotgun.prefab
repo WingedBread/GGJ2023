@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5313534377719182010}
   - component: {fileID: 145023309627351534}
   - component: {fileID: 1314766960576212155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1885477318272371817}
   - component: {fileID: 3280120489642640332}
   - component: {fileID: 748058771320846086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Escopeta_Model_Main_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1885477318627438851}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco_Father
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 6825491525064897842}
   - component: {fileID: 6690060164150945367}
   - component: {fileID: 7682654005626342139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 2134766545277361371}
   - component: {fileID: -4374603758745161155}
   - component: {fileID: 6095892972732123119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardShotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2134766545277361370}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -318,7 +318,7 @@ Transform:
   - {fileID: 3991073247701848598}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &-4374603758745161155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134766545720573011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 1274564446667157847}
   - component: {fileID: 6726942530837073902}
   - component: {fileID: 4124970017739720134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3991073247701848598}
   - component: {fileID: 2533524859158271020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,12 +15,12 @@ public abstract class Card : MonoBehaviour
 
     public void OnMouseEnter()
     {
-        transform.position += Vector3.up * 0.1f;
+        transform.localPosition += Vector3.up * 0.1f;
     }
 
     public void OnMouseExit()
     {
-        transform.position -= Vector3.up * 0.1f;
+        transform.localPosition -= Vector3.up * 0.1f;
     }
 
     public void OnMouseDown()

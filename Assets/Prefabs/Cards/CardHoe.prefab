@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4307948513954649828}
   - component: {fileID: 7708244505796214626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7926699465181188220}
   - component: {fileID: 2516250097282821829}
   - component: {fileID: 5084481338511467757}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7066522105060826488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 7066522105372900848}
   - component: {fileID: 1346932582312881058}
   - component: {fileID: -1005383977861424637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardHoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,8 +225,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7066522105372900849}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.5, y: 1.45, z: -7.116}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -234,7 +234,7 @@ Transform:
   - {fileID: 4307948513954649828}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &1346932582312881058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 2380265480720602137}
   - component: {fileID: 2550933981749184380}
   - component: {fileID: 1526482417852902352}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 7321706302485860627}
   - component: {fileID: 5923419343137775286}
   - component: {fileID: 8489498377924864636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Azada_Model_Main_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7321706303490838568}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco_Father
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 3894511880123732881}
   - component: {fileID: 9057402236256780485}
   - component: {fileID: 7894703645919792528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

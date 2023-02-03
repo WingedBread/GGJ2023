@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2463063281761582254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2463063282506669094}
   - component: {fileID: -1567691364960361716}
   - component: {fileID: -1732160564346722903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardScarecrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,8 +57,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2463063282506669095}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 6.5, y: 1.45, z: -7.116}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -66,7 +66,7 @@ Transform:
   - {fileID: 8813731033308772848}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &-1567691364960361716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 7005276363440895439}
   - component: {fileID: 7158867001296709290}
   - component: {fileID: 6129676997588945414}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2712352782129771006}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco_Father
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 2712352782887455781}
   - component: {fileID: 1300394502535742336}
   - component: {fileID: 3886354281926981450}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Espantapajaros_Model_Main_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 8517378372013929031}
   - component: {fileID: 4435342165144920339}
   - component: {fileID: 3292206403823578182}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -388,7 +388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8813731033308772848}
   - component: {fileID: 5922521321900918080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   - component: {fileID: 3332259386810380714}
   - component: {fileID: 7121421686032420627}
   - component: {fileID: 482008021631255867}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}

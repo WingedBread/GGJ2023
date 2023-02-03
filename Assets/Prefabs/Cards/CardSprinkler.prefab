@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 779409130409431526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco_Father
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 779409131166330457}
   - component: {fileID: 4431225292040856060}
   - component: {fileID: 1916889280563811638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Regadera_Model_Main_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5639227709108688343}
   - component: {fileID: 5488856183658596018}
   - component: {fileID: 8819682791476111902}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962570773809585334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 962570774441180222}
   - component: {fileID: -5799599539287951243}
   - component: {fileID: 1607909049497723635}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardSprinkler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,8 +258,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962570774441180223}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 9.5, y: 1.45, z: -7.116}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -267,7 +267,7 @@ Transform:
   - {fileID: 6183961024017877019}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &-5799599539287951243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6183961024017877019}
   - component: {fileID: 1800087925082266011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   - component: {fileID: 6433106766138905183}
   - component: {fileID: 1367038434965012747}
   - component: {fileID: 199695834248940638}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 93346631556534706}
   - component: {fileID: 5593872400238964491}
   - component: {fileID: 3009914972845860131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}

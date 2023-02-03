@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5405410372104157346}
   - component: {fileID: 5290949180370529223}
   - component: {fileID: 9161624993770194795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1121514885328174227}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco_Father
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1121514886159645592}
   - component: {fileID: 4053152036728124477}
   - component: {fileID: 2295506519254647031}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pico_Model_Main_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 584010711208538563}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Objects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 584010711688106315}
   - component: {fileID: -489961202720529461}
   - component: {fileID: 5085846419836176963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardPickaxe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 584010711688106314}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.9848078, z: 0.17364825, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -267,7 +267,7 @@ Transform:
   - {fileID: 416766506391873280}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -20, y: 180, z: 0}
 --- !u!114 &-489961202720529461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 6631430759478689578}
   - component: {fileID: 1709641177007467646}
   - component: {fileID: 541586358758859051}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fondo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 416766506391873280}
   - component: {fileID: 6808560674774825098}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Highlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 291271510698785991}
   - component: {fileID: 5251200388510941822}
   - component: {fileID: 3207743919262992470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Marco
   m_TagString: Untagged
   m_Icon: {fileID: 0}

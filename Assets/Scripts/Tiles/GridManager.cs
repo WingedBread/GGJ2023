@@ -67,7 +67,7 @@ public class GridManager : MonoBehaviour
                 tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
             }
         }
-        cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -1.78f, -10.8f);
+        //cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -2.8f, -10.8f);
     }
 
     public List<Vector2> GetSoilTilesPositions(){
