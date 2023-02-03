@@ -15,7 +15,6 @@ public abstract class Card : MonoBehaviour
     private float rotateSpeed = 1.5f;
     Vector3 endRotation = new Vector3(-20, 194, 0);
     Vector3 starterRotation = new Vector3(-20, 166, 0);
-    [SerializeField]
     bool direction = false;
 
     private void Start()
@@ -33,11 +32,6 @@ public abstract class Card : MonoBehaviour
 
     public void OnMouseOver()
     {
-        //Quaternion endRotation = Quaternion.Euler(-20, 194, 0);
-        //Quaternion starterRotation = Quaternion.Euler(-20, 166, 0);
-        //transform.localRotation = Quaternion.Lerp(starterRotation, endRotation, rotateSpeed);
-        
-
         if (currentAngle.y < 176 && currentAngle.y < 184 && !direction) direction = true;
         if (currentAngle.y > 176 && currentAngle.y > 184 && direction) direction = false;
 
