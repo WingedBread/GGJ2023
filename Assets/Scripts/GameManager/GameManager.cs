@@ -18,8 +18,11 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+
     public enum States {Start, Gameplay, Pause, GameOver};
     public States gameState;
+    
+    private List<EndTurnObserver> endTurnSubsritors;
 
     public List<Card> deck = new List<Card>();
     public List<Card> allCards = new List<Card>();
@@ -27,7 +30,6 @@ public class GameManager : MonoBehaviour
     public bool[] avaiableSlots;
     public GridManager gridManager;
     public GameObject bird;
-    List<GameObject> birds;
 
     public CanvasGroup canvasGameplay;
     public CanvasGroup canvasGameOver;
@@ -46,7 +48,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        endTurnSubsritors = new List<EndTurnObserver>();
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,6 +81,11 @@ public class GameManager : MonoBehaviour
             {
                 Restart();
             }
+        }
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            foreach(EndTurnObserver suscritor in endTurnSubsritors){ suscritor.notify();}
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -194,5 +203,13 @@ public class GameManager : MonoBehaviour
     public Tile GetClickedTile()
     {
         return lastClickedTile;
+    }
+
+    public void EndTurnSubscribe(EndTurnObserver suscritor){
+        endTurnSubsritors.Add(suscritor);
+    }
+
+    public void EndTurnUnsuscribe(EndTurnObserver suscritor){
+        endTurnSubsritors.Remove(suscritor);
     }
 }

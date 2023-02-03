@@ -56,7 +56,7 @@ public class GridManager : MonoBehaviour
     }
 
     public List<Vector2> GetSoilTilesPositions(){
-        return tiles.Where(tile => tile.Value.isSoil()).ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
+        return tiles.Where(tile => tile.Value.GetTileState() == Tile.TileStates.SOIL).ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

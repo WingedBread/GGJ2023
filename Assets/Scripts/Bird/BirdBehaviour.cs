@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdBehaviour : MonoBehaviour
+public class BirdBehaviour : EndTurnObserver
 {
     SpriteRenderer spriteRenderer;
     GridManager gridManager;
@@ -20,7 +20,8 @@ public class BirdBehaviour : MonoBehaviour
         transform.position = GetInitialPosition();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         maxPositionX = 19;
-        maxPositionY = 9;  
+        maxPositionY = 9;
+        EndTurnSubscribe();
     }
 
     public void Move() 
@@ -49,17 +50,18 @@ public class BirdBehaviour : MonoBehaviour
     List<Moves> CalculateProsibleMoves()
     {
         List<Moves> possibleMoves = new List<Moves>();
+        Tile currentTile = gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0));
 
-        if(transform.position.x > 0 && gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0)).isPassable){
+        if(transform.position.x > 0 && gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0)).GetTileState() != Tile.TileStates.ROCK){
             possibleMoves.Add(Moves.LEFT);
         } 
-        if(transform.position.x < maxPositionX && gridManager.GetTileAtPosition(transform.position + new Vector3(1,0,0)).isPassable){
+        if(transform.position.x < maxPositionX && gridManager.GetTileAtPosition(transform.position + new Vector3(1,0,0)).GetTileState() != Tile.TileStates.ROCK){
             possibleMoves.Add(Moves.RIGHT);
         } 
-        if(transform.position.y > 0&& gridManager.GetTileAtPosition(transform.position + new Vector3(0,-1,0)).isPassable){
+        if(transform.position.y > 0 && gridManager.GetTileAtPosition(transform.position + new Vector3(0,-1,0)).GetTileState() != Tile.TileStates.ROCK){
             possibleMoves.Add(Moves.DOWN);
         } 
-        if(transform.position.y < maxPositionY && gridManager.GetTileAtPosition(transform.position + new Vector3(0,1,0)).isPassable){
+        if(transform.position.y < maxPositionY && gridManager.GetTileAtPosition(transform.position + new Vector3(0,1,0)).GetTileState() != Tile.TileStates.ROCK){
             possibleMoves.Add(Moves.UP);
         }
         return possibleMoves;
@@ -73,15 +75,25 @@ public class BirdBehaviour : MonoBehaviour
         return possiblePositions[Random.Range(0, possiblePositions.Count)];
     }
 
-    // Update is called once per frame
-    void Update()
+    public override bool notify()
     {
         if(Input.GetMouseButtonDown(0)){
             Move();
         }
+        Eat();
+        return true;
+    }
 
-        if(gridManager.GetTileAtPosition(transform.position).isConsumible()){
+    void Eat()
+    {
+        Tile currentTile = gridManager.GetTileAtPosition(transform.position);
+
+        if(currentTile.GetTileState() == Tile.TileStates.SPROUT || currentTile.GetTileState() == Tile.TileStates.CARROT){
             gridManager.SetTile(transform.position, tileSoil);
         }
+    }
+
+    void onDestroy(){
+        EndTurnUnsuscribe();
     }
 }

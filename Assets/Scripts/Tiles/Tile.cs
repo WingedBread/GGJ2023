@@ -5,15 +5,15 @@ using UnityEngine;
 public abstract class Tile : MonoBehaviour
 {
     public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, SPROUT_WET, CARROT }
-    public TileStates tileState;
 
     public bool wet;
-    public bool isPassable;
 
     [SerializeField]
     protected SpriteRenderer spriteRenderer;
     [SerializeField]
     private GameObject highlight;
+    [SerializeField]
+    private TileStates tileState;
 
     public bool hasBeenSelected = false;
 
@@ -46,14 +46,6 @@ public abstract class Tile : MonoBehaviour
     public TileStates GetTileState()
     {
         return tileState;
-    }
-
-    public bool isSoil(){
-        return tileState == TileStates.SOIL;
-    }
-
-    public bool isConsumible(){
-        return tileState == TileStates.SPROUT || tileState == TileStates.CARROT;
     }
 
     public Vector2 GetPosition()

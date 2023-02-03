@@ -210,9 +210,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af8c26925c047d4458f8a61c4a0f9c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileState: 1
   wet: 0
-  isPassable: 0
   spriteRenderer: {fileID: 6759364848620420319}
   highlight: {fileID: 3853911571007027324}
+  tileState: 1
   hasBeenSelected: 0
