@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardShovel : Card
 {
    public override bool play(Tile clickedTile){
-    //TODO
+    Debug.Log("SHOVEL USED");
     return true;
    }
 }

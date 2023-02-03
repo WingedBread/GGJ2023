@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardSprout : Card
 {
     public override bool play(Tile clickedTile){
-        //TODO
+        Debug.Log("SPROUT USED");
         return true;
     }
 }

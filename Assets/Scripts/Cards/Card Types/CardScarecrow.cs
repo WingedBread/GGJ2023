@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardScarecrow : Card
 {
     public override bool play(Tile clickedTile){
-        //TODO
+        Debug.Log("SCARECROW USED");
         return true;
     }
 }

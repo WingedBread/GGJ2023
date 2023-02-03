@@ -6,7 +6,7 @@ public class CardSprinkler : Card
 {
     
     public override bool play(Tile clickedTile){
-        //TODO
+        Debug.Log("SPRINKLER USED");
         return true;
     }
 }

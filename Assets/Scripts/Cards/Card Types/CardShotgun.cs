@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardShotgun : Card
 {
    public override bool play(Tile clickedTile){
-    //TODO
+    Debug.Log("SHOT USED");
     return true;
    }
 }

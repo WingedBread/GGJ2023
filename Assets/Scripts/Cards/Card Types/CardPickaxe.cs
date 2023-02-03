@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardPickaxe : Card
 {
     public override bool play(Tile clickedTile){
-        //TODO
+        Debug.Log("PICK USED");
         return true;
     }
 }

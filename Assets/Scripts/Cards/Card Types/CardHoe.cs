@@ -5,7 +5,7 @@ using UnityEngine;
 public class CardHoe : Card
 {
     public override bool play(Tile clickedTile){
-        //TODO
+        Debug.Log("HOE USED");
         return true;
     }
 }
