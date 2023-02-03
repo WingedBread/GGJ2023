@@ -81,6 +81,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 6
   highlight: {fileID: 6529733938120880902}
+  scarecrowPrefab: {fileID: 3863344480910480837, guid: fbd330ef65f979e4987ebe7d820417b8,
+    type: 3}
 --- !u!65 &-1732160564346722903
 BoxCollider:
   m_ObjectHideFlags: 0
