@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: tiles
+    uniqueID: 1856814589
+    locked: 0
+  - name: objects
+    uniqueID: 1608523897
+    locked: 0
+  - name: cards
+    uniqueID: 4016898421
+    locked: 0
