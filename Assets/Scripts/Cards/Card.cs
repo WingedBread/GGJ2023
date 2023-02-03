@@ -25,7 +25,7 @@ public abstract class Card : MonoBehaviour
 
     public void OnMouseDown()
     {
-        GameManager.Instance.PlayCard(this);
+        GameManager.Instance.SetClickedCard(this);
     }
 
     public void HideCard()
@@ -54,5 +54,10 @@ public abstract class Card : MonoBehaviour
 
     public int getHandIndex(){
         return handIndex;
+    }
+
+    public void UnClicked()
+    {
+        highlight.SetActive(false);
     }
 }

@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour
     int turn = 1;
     public int birdAparition = 5;
     private Tile lastClickedTile;
+    private Card lastClickedCard;
 
     [SerializeField]
     private Player player;
@@ -53,6 +54,9 @@ public class GameManager : MonoBehaviour
             canvasGameplay.interactable = true;
             canvasStart.alpha = 1;
         }
+
+        player.EnableCardCollider(true);
+        GridManager.Instance.EnableGridColliders(false);
     }
 
     void Update()
@@ -82,20 +86,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayCard(Card card)
+    public void PlayCard()
     {
         if(lastClickedTile != null){
-            bool played = card.play(lastClickedTile);
-            player.cardUsed(card);
+            bool played = lastClickedCard.play(lastClickedTile);
+            player.cardUsed(lastClickedCard);
+            
             EndTurn();
         }
     }
 
     private void EndTurn(){
         gameState = States.END_TURN;
-                
+
+        lastClickedCard.UnClicked();
         lastClickedTile.UnClicked();
+
+        lastClickedCard = null;
         lastClickedTile = null;
+
         if(endTurnSubsritors.Count > 0){
             foreach(EndTurnObserver suscritor in endTurnSubsritors){ 
                 bool notified = suscritor.notify();
@@ -113,6 +122,9 @@ public class GameManager : MonoBehaviour
         } else {
             gameState = States.GAMEPLAY;
         }
+
+        player.EnableCardCollider(true);
+        GridManager.Instance.EnableGridColliders(false);
     }
 
     private bool GameOverCondition(){
@@ -157,8 +169,25 @@ public class GameManager : MonoBehaviour
         if(lastClickedTile != null){
             lastClickedTile.UnClicked();
         }
-        
+        player.EnableCardCollider(false);
+        GridManager.Instance.EnableGridColliders(false);
+
         lastClickedTile = tile;
+
+        PlayCard();
+    }
+
+    public void SetClickedCard(Card card)
+    {
+        if (lastClickedCard != null)
+        {
+            lastClickedCard.UnClicked();
+        }
+
+        player.EnableCardCollider(false);
+        GridManager.Instance.EnableGridColliders(true);
+
+        lastClickedCard = card;
     }
 
     public void EndTurnSubscribe(EndTurnObserver suscritor){

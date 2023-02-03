@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-
-        private static GridManager _instance;
+    private static GridManager _instance;
     public static GridManager Instance
     {
         get
@@ -36,12 +35,9 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-    }
-
-    private void Start()
-    {
         GenerateGrid();
     }
+
 
     void GenerateGrid()
     {
@@ -89,9 +85,18 @@ public class GridManager : MonoBehaviour
 
     public void SetTile(Vector2 position, Tile tile)
     {
+        tileColliders.Remove(tiles[position].GetComponent<BoxCollider2D>());
         Destroy(tiles[position].gameObject);
         Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
         tiles[position] = placedTile;
         tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
+    }
+
+    public void EnableGridColliders(bool enable)
+    {
+        for (int i = 0; i < tileColliders.Count; i++)
+        {
+            if(tileColliders[i]!= null) tileColliders[i].enabled = enable;
+        }
     }
 }

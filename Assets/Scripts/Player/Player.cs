@@ -5,11 +5,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public List<Card> deck;
+    public List<Card> allCards;
+    private List<BoxCollider> cardColliders = new List<BoxCollider>();
     public bool[] avaiableSlots;
     public Transform[] cardSlots;
     public int handSize = 5;
 
-    public void Start(){
+    public void Start()
+    {
+        for (int i = 0; i < allCards.Count; i++)
+        {
+            cardColliders.Add(allCards[i].GetComponent<BoxCollider>());
+        }
+
         Debug.Log(deck[0]);
         for(int i = 0; i <handSize; i++){
             DrawCard();
@@ -43,5 +51,13 @@ public class Player : MonoBehaviour
         card.transform.position = new Vector3(0, 0, 0);
         avaiableSlots[card.getHandIndex()] = true;
         DrawCard();
+    }
+
+    public void EnableCardCollider(bool enable)
+    {
+        for (int i = 0; i < cardColliders.Count; i++)
+        {
+            cardColliders[i].enabled = enable;
+        }
     }
 }
