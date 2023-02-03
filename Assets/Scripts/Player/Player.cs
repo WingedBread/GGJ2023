@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
             cardColliders.Add(allCards[i].GetComponent<BoxCollider>());
         }
 
-        Debug.Log(deck[0]);
+        //Debug.Log(deck[0]);
         for(int i = 0; i <handSize; i++){
             DrawCard();
         }
