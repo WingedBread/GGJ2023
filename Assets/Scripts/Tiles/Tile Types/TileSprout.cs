@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class TileSprout : Tile
 {
-    public override void OnMouseDown()
-    {
-        GameManager.Instance.SetClickedTile(this);
-        hasBeenSelected = true;
+    public void Start(){
+        tileState = TileStates.SPROUT;
     }
-
+/*
     public override void OnMouseUp()
     {
         CloseHighlight();
@@ -17,5 +15,5 @@ public class TileSprout : Tile
         GameManager.Instance.ChangeCardColliderState(true);
         hasBeenSelected = false;
         GameManager.Instance.PlayCard();
-    }
+    }*/
 }

@@ -15,34 +15,23 @@ public abstract class Card : MonoBehaviour
 
     public int handIndex;
 
-    public virtual void HideCard()
-    {
+    
+    public abstract bool play(Tile clickedTile);
 
+    public void OnMouseEnter()
+    {
+        transform.position += Vector3.up * 0.1f;
     }
 
-    public virtual void Restart()
+    public void OnMouseExit()
     {
-
+        transform.position -= Vector3.up * 0.1f;
     }
 
-    public virtual void OnMouseEnter()
+    public void OnMouseDown()
     {
-        
-    }
-
-    public virtual void OnMouseExit()
-    {
-        
-    }
-
-    public virtual void OnMouseDown()
-    {
-        
-    }
-
-    public void EnableHighLight(bool enable)
-    {
-        highlight.SetActive(enable);
+        GameManager.Instance.PlayCard(this);
+        HideCard();
     }
 
     private void OnMouseUp()
@@ -51,9 +40,25 @@ public abstract class Card : MonoBehaviour
         GameManager.Instance.ChangeCardColliderState(false);
     }
 
-    public virtual void CardBehaviour()
+    public void HideCard()
     {
-        GameManager.Instance.gridManager.SetTile(GameManager.Instance.GetClickedTile().GetPosition(), tileToChange);
+        //EnableHighLight(false);
+        gameObject.SetActive(false);
+        GameManager.Instance.avaiableSlots[handIndex] = true;
+        GameManager.Instance.deck.Add(this);
+        GameManager.Instance.DrawCard();
+    }
+
+    public void EnableHighLight(bool enable)
+    {
+        highlight.SetActive(enable);
+    }
+
+    public void Restart()
+    {
+        hasBeenPlayed = false;
+        GameManager.Instance.avaiableSlots[handIndex] = true;
+        gameObject.SetActive(false);
     }
 
     public CardNames GetCardName()

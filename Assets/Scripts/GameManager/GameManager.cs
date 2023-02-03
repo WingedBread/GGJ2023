@@ -19,8 +19,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public enum States {Start, Gameplay, Pause, GameOver};
+    public enum States {START, GAMEPLAY, END_TURN, GAME_OVER};
     public States gameState;
+    private bool pause;
     
     private List<EndTurnObserver> endTurnSubsritors;
 
@@ -28,7 +29,6 @@ public class GameManager : MonoBehaviour
     public List<Card> allCards = new List<Card>();
     public Transform[] cardSlots;
     public bool[] avaiableSlots;
-    public GridManager gridManager;
     public GameObject bird;
 
     public CanvasGroup canvasGameplay;
@@ -36,14 +36,10 @@ public class GameManager : MonoBehaviour
     public CanvasGroup canvasStart;
     public CanvasGroup canvasPause;
 
-    bool gameOver = false;
-    bool pause = false;
-    public bool initWithStart = false;
-
-    [SerializeField]
+    int turn = 1;
+    public int birdAparition = 5;
     private Tile lastClickedTile;
-    [SerializeField]
-    private Card playedCard;
+
 
     private void Awake()
     {
@@ -54,9 +50,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (initWithStart)
+        if (gameState == States.START)
         {
-            canvasGameplay.interactable = false;
+            canvasGameplay.interactable = true;
             canvasStart.alpha = 1;
         }
         for (int i = 0; i < cardSlots.Length; i++)
@@ -67,32 +63,24 @@ public class GameManager : MonoBehaviour
         ChangeTileColliderState(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (initWithStart)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
+        if(!pause){
+            if (gameState == States.START)
             {
-                StartBehaviour();
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    StartBehaviour();
+                }
             }
-        }
-        if (gameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Restart();
-            }
-        }
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            foreach(EndTurnObserver suscritor in endTurnSubsritors){ suscritor.notify();}
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Instantiate(bird, new Vector3(-10,-10), Quaternion.identity);
+            if (gameState == States.GAME_OVER)
+            {
+                if (Input.GetKeyDown(KeyCode.R))
+                {
+                    Restart();
+                }
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -128,69 +116,42 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetPlayedCard(Card card)
+    public void PlayCard(Card card)
     {
-        playedCard = card;
+        if(lastClickedTile != null){
+            bool played = card.play(lastClickedTile);
+            EndTurn();
+        }
     }
 
-    public void PlayCard()
-    {
-        switch (playedCard.cardName)
-        {
-            case Card.CardNames.PICKAXE:
-                if(lastClickedTile.GetTileState() == Tile.TileStates.ROCK)
-                {
-                    playedCard.CardBehaviour();
-                    playedCard.HideCard();
-                }
-                else playedCard.HideCard();
-                break;
-            case Card.CardNames.HOE:
-                if (lastClickedTile.GetTileState() == Tile.TileStates.SOIL)
-                {
-                    playedCard.CardBehaviour();
-                    playedCard.HideCard();
-                }
-                else playedCard.HideCard();
-                break;
-            case Card.CardNames.SPROUT:
-                if (lastClickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE)
-                {
-                    playedCard.CardBehaviour();
-                    playedCard.HideCard();
-                }
-                else playedCard.HideCard();
-                break;
-            case Card.CardNames.SPRINKLER:
-                if (lastClickedTile.GetTileState() == Tile.TileStates.SPROUT)
-                {
-                    playedCard.CardBehaviour();
-                    playedCard.HideCard();
-                }
-                else playedCard.HideCard();
-                break;
-            case Card.CardNames.SHOVEL:
-                if (lastClickedTile.GetTileState() == Tile.TileStates.CARROT)
-                {
-                    playedCard.CardBehaviour();
-                    playedCard.HideCard();
-                }
-                else playedCard.HideCard();
-                break;
-            case Card.CardNames.SHOTGUN:
-                playedCard.HideCard();
-                break;
-            case Card.CardNames.SCARECROW:
-                playedCard.HideCard();
-                break;
+    private void EndTurn(){
+        gameState = States.END_TURN;
+                
+        lastClickedTile.UnClicked();
+        if(endTurnSubsritors.Count > 0){
+            foreach(EndTurnObserver suscritor in endTurnSubsritors){ 
+                bool notified = suscritor.notify();
+            }
+        }
+
+        turn++;
+
+        if(turn % birdAparition == 0){
+            Instantiate(bird, new Vector3(-10,-10), Quaternion.identity);
+        }
+
+        if(GameOverCondition()){
+            GameOver();
+        } else {
+            gameState = States.GAMEPLAY;
         }
     }
 
     public void ChangeTileColliderState(bool activate)
     {
-        for (int i = 0; i < gridManager.tileColliders.Count; i++)
+        for (int i = 0; i < GridManager.Instance.tileColliders.Count; i++)
         {
-            if(gridManager.tileColliders[i] != null) gridManager.tileColliders[i].enabled = activate;
+            if(GridManager.Instance.tileColliders[i] != null) GridManager.Instance.tileColliders[i].enabled = activate;
         }
     }
 
@@ -202,11 +163,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool GameOverCondition(){
+        //TODO
+        return false;
+    }
+
     public void GameOver()
     {
         canvasGameplay.interactable = false;
         canvasGameOver.alpha = 1;
-        gameOver = true;
     }
 
     void Restart()
@@ -219,7 +184,6 @@ public class GameManager : MonoBehaviour
         }
         canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;
-        gameOver = false;
     }
 
     void StartBehaviour()
@@ -244,12 +208,11 @@ public class GameManager : MonoBehaviour
 
     public void SetClickedTile(Tile tile)
     {
+        if(lastClickedTile != null){
+            lastClickedTile.UnClicked();
+        }
+        
         lastClickedTile = tile;
-    }
-
-    public Tile GetClickedTile()
-    {
-        return lastClickedTile;
     }
 
     public void EndTurnSubscribe(EndTurnObserver suscritor){

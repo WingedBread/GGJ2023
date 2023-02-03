@@ -5,6 +5,20 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
+
+        private static GridManager _instance;
+    public static GridManager Instance
+    {
+        get
+        {
+            if (_instance is null)
+            {
+                Debug.LogError("FALTA GAME MANAGER");
+            }
+            return _instance;
+        }
+    }
+
     [SerializeField]
     private int _width, _height;
     [SerializeField]
@@ -20,6 +34,11 @@ public class GridManager : MonoBehaviour
     Transform tilesParent;
 
     private void Awake()
+    {
+        _instance = this;
+    }
+
+    private void Start()
     {
         GenerateGrid();
     }

@@ -4,18 +4,7 @@ using UnityEngine;
 
 public class TileSoilFarmable : Tile
 {
-    public override void OnMouseDown()
-    {
-        GameManager.Instance.SetClickedTile(this);
-        hasBeenSelected = true;
-    }
-
-    public override void OnMouseUp()
-    {
-        CloseHighlight();
-        GameManager.Instance.ChangeTileColliderState(false);
-        GameManager.Instance.ChangeCardColliderState(true);
-        hasBeenSelected = false;
-        GameManager.Instance.PlayCard();
+    public void Start(){
+        tileState = TileStates.SOIL_FARMABLE;
     }
 }

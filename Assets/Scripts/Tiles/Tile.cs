@@ -6,21 +6,16 @@ public abstract class Tile : MonoBehaviour
 {
     public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, SPROUT_WET, CARROT }
 
-    public bool wet;
-
     [SerializeField]
     protected SpriteRenderer spriteRenderer;
     [SerializeField]
     private GameObject highlight;
-    [SerializeField]
-    private TileStates tileState;
 
-    public bool hasBeenSelected = false;
+    private bool clicked;
 
-    public virtual void TileBehaviour()
-    {
+    protected TileStates tileState;
 
-    }
+    private GameObject bird;
 
     private void OnMouseEnter()
     {
@@ -29,23 +24,19 @@ public abstract class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        highlight.SetActive(false);
+        if(!clicked){
+            highlight.SetActive(false);
+        }
+    }
+
+    public void OnMouseDown(){
+        GameManager.Instance.SetClickedTile(this);
+        clicked = true;
     }
 
     public void CloseHighlight()
     {
         highlight.SetActive(false);
-    }
-
-
-    public virtual void OnMouseDown()
-    {
-
-    }
-
-    public virtual void OnMouseUp()
-    {
-
     }
 
     public TileStates GetTileState()
@@ -58,8 +49,16 @@ public abstract class Tile : MonoBehaviour
         return new Vector2(transform.position.x, transform.position.y);
     }
 
-    public bool HasBeenSelected()
-    {
-        return hasBeenSelected;
+    public void setBird(GameObject bird){
+        this.bird = bird; 
+    }
+
+    public GameObject getBird(){
+        return bird;
+    }
+
+    public void UnClicked(){
+        clicked = false;
+        highlight.SetActive(false);
     }
 }

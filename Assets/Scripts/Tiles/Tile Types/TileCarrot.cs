@@ -4,18 +4,8 @@ using UnityEngine;
 
 public class TileCarrot : Tile
 {
-    public override void OnMouseDown()
-    {
-        GameManager.Instance.SetClickedTile(this);
-        hasBeenSelected = true;
+    public void Start(){
+        tileState = TileStates.CARROT;
     }
 
-    public override void OnMouseUp()
-    {
-        CloseHighlight();
-        GameManager.Instance.ChangeTileColliderState(false);
-        GameManager.Instance.ChangeCardColliderState(true);
-        hasBeenSelected = false;
-        GameManager.Instance.PlayCard();
-    }
 }

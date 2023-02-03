@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TileSproutWet : Tile
+public class TileSproutWet : Tile, EndTurnObserver
 {
-    public override void OnMouseDown()
-    {
-        GameManager.Instance.SetClickedTile(this);
-        hasBeenSelected = true;
+    private int growCount = 0;
+    [SerializeField]
+    private int growTurn;
+    [SerializeField]
+    private Tile tileCarrot;
+
+    public void Start(){
+        tileState = TileStates.SPROUT_WET;
+        GameManager.Instance.EndTurnSubscribe(this);
+    }
+    
+    public bool notify(){
+        growCount ++;
+
+        if(growCount >= growTurn ){
+            GridManager.Instance.SetTile(transform.position, tileCarrot);
+        }
+        return true;
     }
 
-    public override void OnMouseUp()
-    {
-        CloseHighlight();
-        GameManager.Instance.ChangeTileColliderState(false);
-        GameManager.Instance.ChangeCardColliderState(true);
-        hasBeenSelected = false;
-        GameManager.Instance.PlayCard();
+    public void onDestroy(){
+        GameManager.Instance.EndTurnUnsuscribe(this);
     }
 }

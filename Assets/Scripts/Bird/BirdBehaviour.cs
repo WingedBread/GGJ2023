@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdBehaviour : EndTurnObserver
+public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 {
     SpriteRenderer spriteRenderer;
     GridManager gridManager;
+    GameManager gameManager;
     enum Moves {UP, LEFT, RIGHT, DOWN}
 
     [SerializeField]
@@ -16,12 +17,13 @@ public class BirdBehaviour : EndTurnObserver
 
     void Start()
     {
-        gridManager = GameObject.Find("GRID MANAGER").GetComponent<GridManager> ();;
+        gridManager = GameObject.Find("GRID MANAGER").GetComponent<GridManager> ();
+        gameManager = GameManager.Instance;
         transform.position = GetInitialPosition();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         maxPositionX = 19;
         maxPositionY = 9;
-        EndTurnSubscribe();
+        gameManager.EndTurnSubscribe(this);
     }
 
     public void Move() 
@@ -67,7 +69,8 @@ public class BirdBehaviour : EndTurnObserver
         return possibleMoves;
     }
 
-    Vector3 GetInitialPosition(){
+    Vector3 GetInitialPosition()
+    {
         List<Vector2> possiblePositions = gridManager.GetSoilTilesPositions();
         if(possiblePositions.Count == 0 ) {
             return new Vector2(-5,-5);
@@ -75,7 +78,7 @@ public class BirdBehaviour : EndTurnObserver
         return possiblePositions[Random.Range(0, possiblePositions.Count)];
     }
 
-    public override bool notify()
+    public bool notify()
     {
         if(Input.GetMouseButtonDown(0)){
             Move();
@@ -93,7 +96,8 @@ public class BirdBehaviour : EndTurnObserver
         }
     }
 
-    void onDestroy(){
-        EndTurnUnsuscribe();
+    void onDestroy()
+    {
+        gameManager.EndTurnUnsuscribe(this);
     }
 }
