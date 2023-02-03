@@ -9,8 +9,6 @@ public abstract class Card : MonoBehaviour
     [SerializeField]
     private GameObject highlight;
 
-    public Tile tileToChange;
-
     public bool hasBeenPlayed = false;
 
     public int handIndex;
