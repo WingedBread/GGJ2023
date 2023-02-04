@@ -105,6 +105,7 @@ public class AudioController : MonoBehaviour
         if (fxSounds == null) fxSounds = transform.GetChild(1).GetComponent<AudioSource>();
         fxSounds.loop = false;
         backgroundMusic.loop = false;
+        backgroundMusic2.loop = false;
     }
 
     public void PlayMenuBGMusic()
@@ -117,16 +118,31 @@ public class AudioController : MonoBehaviour
         StartCoroutine("StartMenuLoop");
     }
 
-    private IEnumerator StartMenuLoop()
+    private IEnumerator StartGameplayLoop()
     {
         yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
         //backgroundMusic.Stop();
-        if (backgroundMusic.clip == menuIntroBGClip)
+        if (backgroundMusic.clip == gameplayBGClip && !backgroundMusic2.loop)
         {
-            backgroundMusic2.clip = menuLoopBGClip;
-            backgroundMusic2.volume = menuLoopBGVolume;
+            backgroundMusic2.clip = gameplayBGClip;
+            backgroundMusic2.volume = gameplayBGVolume;
             backgroundMusic2.Play();
             backgroundMusic2.loop = true;
+            StopCoroutine("StartGameplayLoop");
+        }
+        else StopCoroutine("StartGameplayLoop");
+    }
+
+    private IEnumerator StartMenuLoop()
+    {
+        yield return new WaitForSeconds(backgroundMusic.clip.length);
+        if (backgroundMusic.clip == menuIntroBGClip)
+        {
+            backgroundMusic.Stop();
+            backgroundMusic.clip = menuLoopBGClip;
+            backgroundMusic.volume = menuLoopBGVolume;
+            backgroundMusic.Play();
+            backgroundMusic.loop = true;
             StopCoroutine("StartMenuLoop");
         }
         else StopCoroutine("StartMenuLoop");
@@ -139,7 +155,8 @@ public class AudioController : MonoBehaviour
         backgroundMusic.clip = gameplayBGClip;
         backgroundMusic.volume = gameplayBGVolume;
         backgroundMusic.Play();
-        backgroundMusic.loop = true;
+        backgroundMusic.loop = false;
+        StartCoroutine("StartGameplayLoop");
     }
 
     public void SetPauseMusic(bool pause)
