@@ -93,8 +93,7 @@ public class GameManager : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.R))
                 {
-                    Restart();
-                    //SceneManager.LoadScene(0);
+                    SceneManager.LoadScene(0);
                 }
             }
         }
@@ -165,14 +164,6 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.EnableGridColliders(false);
         AudioController.Instance.PlayGameOverSound();
         AudioController.Instance.PlayGameOverBGMusic();
-
-        //Recargar Scene
-    }
-
-    void Restart()
-    {
-        canvasGameOver.alpha = 0;
-        StartBehaviour();
     }
 
     void StartBehaviour()
