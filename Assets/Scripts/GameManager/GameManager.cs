@@ -132,8 +132,8 @@ public class GameManager : MonoBehaviour
 
     private void EndTurn(){
 
-        lastClickedCard.UnClicked();
-        lastClickedTile.UnClicked();
+        if(lastClickedCard != null) lastClickedCard.UnClicked();
+        if(lastClickedTile != null) lastClickedTile.UnClicked();
 
         lastClickedCard = null;
         lastClickedTile = null;

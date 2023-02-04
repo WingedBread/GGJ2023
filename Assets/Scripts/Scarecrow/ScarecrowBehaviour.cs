@@ -17,9 +17,7 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
     void Start()
     {
         FillScarecrowAreaLocation();
-        Debug.Log("to protect");
         ProtectTiles();
-        Debug.Log("protected");
         OcupeTile(transform.position);
         GameManager.Instance.EndTurnSubscribe(this);
     }

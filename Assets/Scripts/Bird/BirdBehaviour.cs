@@ -70,7 +70,6 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         if(transform.position.y < maxPositionY && isPosibleMoveToTile(GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(0,1,0)))){
             possibleMoves.Add(Moves.UP);
         }
-        Debug.Log(possibleMoves.Count);
         return possibleMoves;
     }
 
@@ -106,6 +105,7 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 
     void OnDestroy()
     {
+        GridManager.Instance.UnocupeTile(transform.position);
         gameManager.EndTurnUnsuscribe(this);
     }
 }

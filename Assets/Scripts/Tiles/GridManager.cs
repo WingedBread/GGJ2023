@@ -105,7 +105,6 @@ public class GridManager : MonoBehaviour
 
     public void OcupeTile(Vector2 position){
         tiles[position].setOcuped(true);
-        Debug.Log("ocuped " + tiles[position].transform.position.x + " , " + tiles[position].transform.position.y);
     }
 
     public void UnocupeTile(Vector2 position){

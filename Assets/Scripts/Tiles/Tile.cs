@@ -14,7 +14,7 @@ public abstract class Tile : MonoBehaviour
     [SerializeField]
     protected TileStates tileState;
 
-    private bool isOccuped = false;
+    public bool isOccuped = false;
 
     private bool isProtected = false;
 
