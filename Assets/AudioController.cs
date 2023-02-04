@@ -51,8 +51,8 @@ public class AudioController : MonoBehaviour
     AudioClip shovelFXClip;
     [SerializeField]
     AudioClip sprinklerFXClip;
-    [SerializeField]
-    AudioClip drawCardFXClip;
+    //[SerializeField]
+    //AudioClip drawCardFXClip;
     [SerializeField]
     AudioClip sproutFXClip;
     [SerializeField]
@@ -89,8 +89,8 @@ public class AudioController : MonoBehaviour
     float shovelFXVolume = 0.3f;
     [SerializeField]
     float sprinklerFXVolume = 0.3f;
-    [SerializeField]
-    float drawCardFXVolume = 0.3f;
+    //[SerializeField]
+    //float drawCardFXVolume = 0.3f;
     [SerializeField]
     float sproutFXVolume = 0.3f;
     [SerializeField]
@@ -210,7 +210,7 @@ public class AudioController : MonoBehaviour
         backgroundMusic.loop = false;
     }
 
-    public void PlayDrawCardSound() { PlaySound(drawCardFXClip, drawCardFXVolume); }
+    //public void PlayDrawCardSound() { PlaySound(drawCardFXClip, drawCardFXVolume); }
     public void PlayPickaxeOnRockSound() { PlaySound(pickaxeFXClip, pickaxeFXVolume); }
     public void PlayHoeOnSoilSound() { PlaySound(hoeFXClip, hoeFXVolume); }
     public void PlaySproutSound() { PlaySound(sproutFXClip, sproutFXVolume); }
