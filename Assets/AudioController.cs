@@ -23,6 +23,8 @@ public class AudioController : MonoBehaviour
     private AudioSource backgroundMusic2;
     [SerializeField]
     private AudioSource fxSounds;
+    [SerializeField]
+    private AudioSource ambientMusic;
 
     [Header("Background Music Clips")]
     [SerializeField]
@@ -33,6 +35,8 @@ public class AudioController : MonoBehaviour
     AudioClip gameplayBGClip;
     [SerializeField]
     AudioClip gameOverBGClip;
+    [SerializeField]
+    AudioClip ambientGameplayBGClip;
 
     [Header("FX Sounds Clips")]
     [SerializeField]
@@ -69,6 +73,8 @@ public class AudioController : MonoBehaviour
     float gameOverBGVolume = 0.1f;
     [SerializeField]
     float pauseBGVolume = 0.1f;
+    [SerializeField]
+    float ambientGameplayBGVolume = 0.1f;
 
     [Header("VOLUMES FX Sounds")]
     [SerializeField]
@@ -106,76 +112,98 @@ public class AudioController : MonoBehaviour
         fxSounds.loop = false;
         backgroundMusic.loop = false;
         backgroundMusic2.loop = false;
+        ambientMusic.loop = true;
     }
 
     public void PlayMenuBGMusic()
     {
         backgroundMusic.Stop();
+        backgroundMusic2.Stop();
+        ambientMusic.Stop();
+
         backgroundMusic.clip = menuIntroBGClip;
         backgroundMusic.volume = menuIntroBGVolume;
+
+        backgroundMusic2.clip = menuLoopBGClip;
+        backgroundMusic2.volume = menuLoopBGVolume;
+
         backgroundMusic.Play();
+        backgroundMusic2.PlayDelayed(backgroundMusic.clip.length);
         backgroundMusic.loop = false;
-        StartCoroutine("StopMenuIntro");
-        StartCoroutine("StartMenuLoop");
+        backgroundMusic2.loop = true;
+        
     }
 
-    private IEnumerator StartGameplayLoop()
+    public void PlayGameplayBGMusic()
     {
-        yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
-        //backgroundMusic.Stop();
-        if (backgroundMusic.clip == gameplayBGClip && !backgroundMusic2.loop)
-        {
-            backgroundMusic2.clip = gameplayBGClip;
-            backgroundMusic2.volume = gameplayBGVolume;
-            backgroundMusic2.Play();
-            backgroundMusic2.loop = true;
-            StopCoroutine("StartGameplayLoop");
-        }
-        else StopCoroutine("StartGameplayLoop");
-    }
-
-    private IEnumerator StartMenuLoop()
-    {
-        yield return new WaitForSeconds(backgroundMusic.clip.length-1f);
-        if (backgroundMusic.clip == menuIntroBGClip)
-        {
-            backgroundMusic2.clip = menuLoopBGClip;
-            backgroundMusic2.volume = menuLoopBGVolume;
-            backgroundMusic2.Play();
-            backgroundMusic2.loop = true;
-            StopCoroutine("StartMenuLoop");
-        }
-        else StopCoroutine("StartMenuLoop");
-    }
-
-    private IEnumerator StopMenuIntro()
-    {
-        yield return new WaitForSeconds(backgroundMusic.clip.length);
         backgroundMusic.Stop();
-        StopCoroutine("StopMenuIntro");
-    }
-
-        public void PlayGameplayBGMusic()
-    {
         backgroundMusic2.Stop();
-        backgroundMusic.Stop();
-        backgroundMusic2.loop = false;
+        ambientMusic.Stop();
+
         backgroundMusic.clip = gameplayBGClip;
         backgroundMusic.volume = gameplayBGVolume;
+        ambientMusic.clip = ambientGameplayBGClip;
+        ambientMusic.volume = ambientGameplayBGVolume;
+        backgroundMusic2.clip = gameplayBGClip;
+        backgroundMusic2.volume = gameplayBGVolume;
+
+        ambientMusic.Play();
         backgroundMusic.Play();
+        backgroundMusic2.PlayDelayed(backgroundMusic.clip.length);
         backgroundMusic.loop = false;
-        StartCoroutine("StartGameplayLoop");
+        backgroundMusic2.loop = true;
+        ambientMusic.loop = true;
     }
+
+    //private IEnumerator StartMenuLoop()
+    //{
+    //    yield return new WaitForSeconds(backgroundMusic.clip.length);
+    //    if (backgroundMusic.clip == menuIntroBGClip)
+    //    {
+    //        backgroundMusic.clip = menuLoopBGClip;
+    //        backgroundMusic.volume = menuLoopBGVolume;
+    //        backgroundMusic.Play();
+    //        backgroundMusic.loop = true;
+    //        StopCoroutine("StartMenuLoop");
+    //    }
+    //    else StopCoroutine("StartMenuLoop");
+    //}
+
+    //private IEnumerator StartGameplayLoop()
+    //{
+    //    yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
+    //    //backgroundMusic.Stop();
+    //    if (backgroundMusic.clip == gameplayBGClip && !backgroundMusic2.loop)
+    //    {
+    //        backgroundMusic2.clip = gameplayBGClip;
+    //        backgroundMusic2.volume = gameplayBGVolume;
+    //        backgroundMusic2.Play();
+    //        backgroundMusic2.loop = true;
+    //        StopCoroutine("StartGameplayLoop");
+    //    }
+    //    else StopCoroutine("StartGameplayLoop");
+    //}
+
+
 
     public void SetPauseMusic(bool pause)
     {
-        if (pause) backgroundMusic.volume = pauseBGVolume;
-        else backgroundMusic.volume = gameplayBGVolume;
+        if (pause)
+        {
+            backgroundMusic.volume = pauseBGVolume;
+        }
+        else
+        {
+            backgroundMusic.volume = gameplayBGVolume;
+        }
     }
 
     public void PlayGameOverBGMusic()
     {
         backgroundMusic.Stop();
+        backgroundMusic2.Stop();
+        ambientMusic.Stop();
+
         backgroundMusic.clip = gameOverBGClip;
         backgroundMusic.volume = gameOverBGVolume;
         backgroundMusic.Play();
