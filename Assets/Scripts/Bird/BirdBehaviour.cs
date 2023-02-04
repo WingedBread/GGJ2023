@@ -22,6 +22,8 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         maxPositionX = 19;
         maxPositionY = 9;
         gameManager.EndTurnSubscribe(this);
+        GridManager.Instance.GetTileAtPosition(transform.position).setOcuped(true);
+        GridManager.Instance.GetTileAtPosition(transform.position).setBird(gameObject);
     }
 
     public void Move() 
@@ -47,7 +49,7 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         } else if(move == Moves.DOWN){
             transform.position += new Vector3(0,-1,0);
         } 
-
+        GridManager.Instance.GetTileAtPosition(transform.position).setOcuped(true);
         GridManager.Instance.GetTileAtPosition(transform.position).setBird(gameObject);
     }
 
