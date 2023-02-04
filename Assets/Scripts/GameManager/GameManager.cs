@@ -34,13 +34,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text turnText;
     [SerializeField]
-    private Text carrotText;
+    private Text pointsText;
 
     int turn = 1;
     public int birdAparition = 5;
     private Tile lastClickedTile;
     private Card lastClickedCard;
-    int carrots = 0;
+    int points = 0;
 
     [SerializeField]
     private Player player;
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         player.EnableCardCollider(true);
         GridManager.Instance.EnableGridColliders(false);
         turnText.text = turn.ToString();
+        pointsText.text = points.ToString();
     }
 
     void Update()
@@ -203,5 +204,11 @@ public class GameManager : MonoBehaviour
 
     public void EndTurnUnsuscribe(EndTurnObserver suscritor){
         endTurnSubsritors.Remove(suscritor);
+    }
+
+    public void AddPoint()
+    {
+        points++;
+        pointsText.text = points.ToString();
     }
 }

@@ -10,7 +10,8 @@ public class CardShovel : Card
    public override bool play(Tile clickedTile){
       if(clickedTile.GetTileState() == Tile.TileStates.CARROT){
          GridManager.Instance.SetTile(clickedTile.transform.position, soilTile);
-      }
+         GameManager.Instance.AddPoint();
+        }
 
       return true;
    }
