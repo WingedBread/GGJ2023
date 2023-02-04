@@ -11,8 +11,6 @@ public abstract class Tile : MonoBehaviour
     [SerializeField]
     private GameObject highlight;
 
-    private bool clicked;
-
     protected TileStates tileState;
 
     private bool isOccuped = false;
@@ -28,14 +26,11 @@ public abstract class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if(!clicked){
-            highlight.SetActive(false);
-        }
+        highlight.SetActive(false);
     }
 
     public void OnMouseDown(){
         GameManager.Instance.SetClickedTile(this);
-        clicked = true;
     }
 
     public void CloseHighlight()
@@ -62,7 +57,7 @@ public abstract class Tile : MonoBehaviour
     }
 
     public void UnClicked(){
-        clicked = false;
+
         highlight.SetActive(false);
     }
 
