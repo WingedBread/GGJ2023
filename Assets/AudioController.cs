@@ -128,7 +128,7 @@ public class AudioController : MonoBehaviour
         backgroundMusic2.volume = menuLoopBGVolume;
 
         backgroundMusic.Play();
-        backgroundMusic2.PlayDelayed(backgroundMusic.clip.length);
+        backgroundMusic2.PlayDelayed(menuIntroBGClip.length);
         backgroundMusic.loop = false;
         backgroundMusic2.loop = true;
         
@@ -149,7 +149,7 @@ public class AudioController : MonoBehaviour
 
         ambientMusic.Play();
         backgroundMusic.Play();
-        backgroundMusic2.PlayDelayed(backgroundMusic.clip.length);
+        backgroundMusic2.PlayDelayed(gameplayBGClip.length-3.5f);
         backgroundMusic.loop = false;
         backgroundMusic2.loop = true;
         ambientMusic.loop = true;
