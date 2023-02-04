@@ -9,9 +9,12 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
 
     private List<Vector2> areaLocations = new List<Vector2>();
 
-    private int liveTurns = 0;
+    private int liveTurns = -1;
 
-    public int maxTurns = 5;
+    public int maxTurns = 6;
+
+    [SerializeField]
+    private GameObject[] spritesTurns;
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +61,9 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
     public void notify()
     {
         liveTurns ++;
+        if (liveTurns != 0) spritesTurns[liveTurns-1].SetActive(false);
 
-        if(liveTurns >= maxTurns){
+        if (liveTurns >= maxTurns){
             Destroy(gameObject);
         }
     }

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class TileSproutWet : Tile, EndTurnObserver
 {
-    private int growCount = 0;
+    private int growCount = -1;
     [SerializeField]
     private int growTurn;
     [SerializeField]
     private Tile tileCarrot;
+
+    [SerializeField]
+    private GameObject[] spritesTurns;
 
     new void Start(){
         base.Start();
@@ -17,8 +20,9 @@ public class TileSproutWet : Tile, EndTurnObserver
     
     public void notify(){
         growCount ++;
+        if (growCount != 0) spritesTurns[growCount - 1].SetActive(false);
 
-        if(growCount >= growTurn ){
+        if (growCount >= growTurn){
             GridManager.Instance.SetTile(transform.position, tileCarrot);
         }
     }
