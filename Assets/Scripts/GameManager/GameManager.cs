@@ -54,13 +54,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gameState == States.START)
-        {
-            canvasGameplay.interactable = true;
-            canvasStart.alpha = 1;
-        }
-
-        player.EnableCardCollider(true);
+        gameState = States.START;
+        canvasGameplay.interactable = false;
+        canvasStart.alpha = 1; 
+        player.EnableCardCollider(false);
         GridManager.Instance.EnableGridColliders(false);
         turnText.text = turn.ToString();
         pointsText.text = points.ToString();
@@ -93,12 +90,24 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetClickedTile(Tile tile)
+    {
+        if(lastClickedTile != null){
+            lastClickedTile.UnClicked();
+        }
+        player.EnableCardCollider(false);
+        GridManager.Instance.EnableGridColliders(false);
+
+        lastClickedTile = tile;
+
+        PlayCard();
+    }
+
     public void PlayCard()
     {
         if(lastClickedTile != null){
             bool played = lastClickedCard.play(lastClickedTile);
             player.cardUsed(lastClickedCard);
-            
             EndTurn();
         }
     }
@@ -112,11 +121,7 @@ public class GameManager : MonoBehaviour
         lastClickedCard = null;
         lastClickedTile = null;
 
-        if(endTurnSubsritors.Count > 0){
-            foreach(EndTurnObserver suscritor in endTurnSubsritors){ 
-                bool notified = suscritor.notify();
-            }
-        }
+        EndTurnNotify();
 
         turn++;
         turnText.text = turn.ToString();
@@ -154,8 +159,10 @@ public class GameManager : MonoBehaviour
 
     void StartBehaviour()
     {
+        player.EnableCardCollider(true);
         canvasGameplay.interactable = true;
         canvasStart.alpha = 0;
+        gameState = States.GAMEPLAY;
     }
 
     void PauseBehaviour(bool pause)
@@ -170,19 +177,6 @@ public class GameManager : MonoBehaviour
             canvasGameplay.interactable = true;
             canvasPause.alpha = 0;
         }
-    }
-
-    public void SetClickedTile(Tile tile)
-    {
-        if(lastClickedTile != null){
-            lastClickedTile.UnClicked();
-        }
-        player.EnableCardCollider(false);
-        GridManager.Instance.EnableGridColliders(false);
-
-        lastClickedTile = tile;
-
-        PlayCard();
     }
 
     public void SetClickedCard(Card card)
@@ -204,6 +198,16 @@ public class GameManager : MonoBehaviour
 
     public void EndTurnUnsuscribe(EndTurnObserver suscritor){
         endTurnSubsritors.Remove(suscritor);
+    }
+
+    public void EndTurnNotify(){
+        List<EndTurnObserver> observers = new List<EndTurnObserver>();
+        endTurnSubsritors.ForEach((EndTurnObserver observer) => {observers.Add(observer);});
+        if(observers.Count > 0){
+            foreach(EndTurnObserver suscritor in observers){ 
+                bool notified = suscritor.notify();
+            }
+        }
     }
 
     public void AddPoint()

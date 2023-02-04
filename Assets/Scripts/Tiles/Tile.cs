@@ -15,6 +15,10 @@ public abstract class Tile : MonoBehaviour
 
     protected TileStates tileState;
 
+    private bool isOccuped = false;
+
+    private bool isProtected = false;
+
     private GameObject bird;
 
     private void OnMouseEnter()
@@ -60,5 +64,21 @@ public abstract class Tile : MonoBehaviour
     public void UnClicked(){
         clicked = false;
         highlight.SetActive(false);
+    }
+
+    public void setOcuped(bool ocuped){
+        isOccuped = ocuped;
+    }
+
+    public bool getOcuped(){
+        return isOccuped;
+    }
+
+    public void setProtection(bool protection){
+        isProtected = protection;
+    }
+
+    public bool getProtection(){
+        return isProtected;
     }
 }

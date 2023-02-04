@@ -15,8 +15,6 @@ public class CardScarecrow : Card
             scarecrow.transform.rotation = Quaternion.Euler(0, 0, 0);
             scarecrow.transform.localScale = new Vector3(1, 1, 1);
             scarecrow.transform.position = clickedTile.GetPosition();
-
-            Debug.Log("SCARECROW USED");
         }
         return true;
     }

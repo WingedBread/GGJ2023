@@ -85,18 +85,25 @@ public class GridManager : MonoBehaviour
 
     public void SetTile(Vector2 position, Tile tile)
     {
-        tileColliders.Remove(tiles[position].GetComponent<BoxCollider2D>());
-        Destroy(tiles[position].gameObject);
-        Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
-        tiles[position] = placedTile;
-        tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
+        if(!tiles[position].getOcuped()){
+            Destroy(tiles[position].gameObject);
+            Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
+            tiles[position] = placedTile;
+        }
     }
 
     public void EnableGridColliders(bool enable)
     {
-        for (int i = 0; i < tileColliders.Count; i++)
-        {
-            if(tileColliders[i]!= null) tileColliders[i].enabled = enable;
+        foreach(KeyValuePair<Vector2, Tile> pair in tiles){
+            pair.Value.GetComponent<BoxCollider2D>().enabled = enable;
         }
+    }
+
+    public void OcupeTile(Vector2 position){
+        tiles[position].setOcuped(true);
+    }
+
+    public void UnocupeTile(Vector2 position){
+        tiles[position].setOcuped(false);
     }
 }
