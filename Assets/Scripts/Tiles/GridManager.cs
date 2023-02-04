@@ -100,6 +100,7 @@ public class GridManager : MonoBehaviour
         foreach(KeyValuePair<Vector2, Tile> pair in tiles){
             pair.Value.GetComponent<BoxCollider2D>().enabled = enable;
         }
+        GameManager.Instance.SetGridCollidersState(enable);
     }
 
     public void OcupeTile(Vector2 position){

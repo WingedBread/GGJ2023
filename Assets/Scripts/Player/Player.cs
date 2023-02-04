@@ -60,5 +60,6 @@ public class Player : MonoBehaviour
         {
             cardColliders[i].enabled = enable;
         }
+        GameManager.Instance.SetCardsCollidersState(enable);
     }
 }

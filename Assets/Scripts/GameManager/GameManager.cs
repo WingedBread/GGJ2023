@@ -45,6 +45,12 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Player player;
 
+    private bool gridCollidersState = false;
+    private bool cardsCollidersState = false;
+
+    private bool prePauseGridColliderState = false;
+    private bool prePauseCardsColliderState = false;
+
     private void Awake()
     {
         _instance = this;
@@ -144,16 +150,20 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         canvasGameOver.alpha = 1;
+        player.EnableCardCollider(false);
+        GridManager.Instance.EnableGridColliders(false);
     }
 
     void Restart()
     {
         canvasGameOver.alpha = 0;
+        StartBehaviour();
     }
 
     void StartBehaviour()
     {
         player.EnableCardCollider(true);
+        GridManager.Instance.EnableGridColliders(false);
         canvasStart.alpha = 0;
         gameState = States.GAMEPLAY;
         AudioController.Instance.PlayGameplayBGMusic();
@@ -164,15 +174,21 @@ public class GameManager : MonoBehaviour
         pause = !pause;
 
         AudioController.Instance.SetPauseMusic(pause);
-        Debug.Log(pause);
 
         if (pause)
         {
             canvasPause.alpha = 1;
+            prePauseCardsColliderState = cardsCollidersState;
+            prePauseGridColliderState = gridCollidersState;
+
+            player.EnableCardCollider(false);
+            GridManager.Instance.EnableGridColliders(false);
         }
         else
         {
             canvasPause.alpha = 0;
+            player.EnableCardCollider(prePauseCardsColliderState);
+            GridManager.Instance.EnableGridColliders(prePauseGridColliderState);
         }
     }
 
@@ -211,5 +227,14 @@ public class GameManager : MonoBehaviour
     {
         points++;
         pointsText.text = points.ToString();
+    }
+
+    public void SetGridCollidersState(bool state)
+    {
+        gridCollidersState = state;
+    }
+    public void SetCardsCollidersState(bool state)
+    {
+        cardsCollidersState = state;
     }
 }
