@@ -10,6 +10,7 @@ public abstract class Card : MonoBehaviour
     private GameObject highlight;
     private int handIndex;
 
+    private Vector3 slotPosition;
     private Vector3 startRotation;
     private Vector3 currentAngle;
     private float rotateSpeed = 1.5f;
@@ -108,6 +109,7 @@ public abstract class Card : MonoBehaviour
     public void UnClicked()
     {
         EnableHighLight(false);
+        transform.position = slotPosition;
     }
 
 
@@ -129,5 +131,15 @@ public abstract class Card : MonoBehaviour
                  Mathf.LerpAngle(currentAngle.z, endRotation.z, Time.deltaTime * rotateSpeed));
 
         transform.eulerAngles = currentAngle;
+    }
+
+    public bool IsCardSelected()
+    {
+        return hasBeenSelected;
+    }
+
+    public void SetSlotPosition(Vector3 pos)
+    {
+        slotPosition = pos;
     }
 }

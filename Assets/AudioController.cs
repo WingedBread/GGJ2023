@@ -98,6 +98,8 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     float gameOverFXVolume = 0.3f;
 
+    bool mute = false;
+
     private void Awake()
     {
         _instance = this;
@@ -152,38 +154,6 @@ public class AudioController : MonoBehaviour
         backgroundMusic2.loop = true;
         ambientMusic.loop = true;
     }
-
-    //private IEnumerator StartMenuLoop()
-    //{
-    //    yield return new WaitForSeconds(backgroundMusic.clip.length);
-    //    if (backgroundMusic.clip == menuIntroBGClip)
-    //    {
-    //        backgroundMusic.clip = menuLoopBGClip;
-    //        backgroundMusic.volume = menuLoopBGVolume;
-    //        backgroundMusic.Play();
-    //        backgroundMusic.loop = true;
-    //        StopCoroutine("StartMenuLoop");
-    //    }
-    //    else StopCoroutine("StartMenuLoop");
-    //}
-
-    //private IEnumerator StartGameplayLoop()
-    //{
-    //    yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
-    //    //backgroundMusic.Stop();
-    //    if (backgroundMusic.clip == gameplayBGClip && !backgroundMusic2.loop)
-    //    {
-    //        backgroundMusic2.clip = gameplayBGClip;
-    //        backgroundMusic2.volume = gameplayBGVolume;
-    //        backgroundMusic2.Play();
-    //        backgroundMusic2.loop = true;
-    //        StopCoroutine("StartGameplayLoop");
-    //    }
-    //    else StopCoroutine("StartGameplayLoop");
-    //}
-
-
-
     public void SetPauseMusic(bool pause)
     {
         if (pause)
@@ -229,5 +199,15 @@ public class AudioController : MonoBehaviour
         fxSounds.clip = fxSounds.clip = clip;
         fxSounds.volume = volume;
         fxSounds.Play();
+    }
+
+    public void MuteAll ()
+    {
+        mute = !mute;
+
+        backgroundMusic.mute = mute;
+        backgroundMusic2.mute = mute;
+        fxSounds.mute = mute;
+        ambientMusic.mute = mute;
     }
 }
