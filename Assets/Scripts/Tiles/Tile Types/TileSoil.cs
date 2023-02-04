@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TileSoil : Tile
 {
-    public void Start(){
+    new void Start(){
         tileState = TileStates.SOIL;
+        base.Start();
     }
 }

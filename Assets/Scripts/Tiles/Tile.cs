@@ -19,6 +19,10 @@ public abstract class Tile : MonoBehaviour
 
     private GameObject bird;
 
+    public void Start(){
+        name = "Tile " + tileState.ToString() + " {" + transform.position.x.ToString() + ", " + transform.position.y + "}";
+    }
+
     private void OnMouseEnter()
     {
         highlight.SetActive(true);

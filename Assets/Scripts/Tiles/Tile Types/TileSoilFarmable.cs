@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TileSoilFarmable : Tile
 {
-    public void Start(){
+    new void Start(){
         tileState = TileStates.SOIL_FARMABLE;
+        base.Start();
     }
 }

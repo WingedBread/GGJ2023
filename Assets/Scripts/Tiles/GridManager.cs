@@ -59,10 +59,6 @@ public class GridManager : MonoBehaviour
 
                 Tile placedTile = Instantiate(spawnedTile, new Vector3(x,y), Quaternion.identity, tilesParent);
 
-                if (spawnedTile.GetTileState() == Tile.TileStates.SOIL) spawnedTile.name = $"TileSoil {x} {y}";
-                else if (spawnedTile.GetTileState() == Tile.TileStates.ROCK) spawnedTile.name = $"TileRock {x} {y}";
-                else spawnedTile.name = $"Tile NONAME {x} {y}";
-
                 tiles[new Vector2(x, y)] = placedTile;
                 tileColliders.Add(placedTile.GetComponent<BoxCollider2D>());
             }
@@ -91,6 +87,12 @@ public class GridManager : MonoBehaviour
             Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
             tiles[position] = placedTile;
         }
+    }
+
+    public void BirdChangeTile(Vector2 position, Tile tile){
+            Destroy(tiles[position].gameObject);
+            Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
+            tiles[position] = placedTile;
     }
 
     public void EnableGridColliders(bool enable)

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TileRock : Tile
 {
-    public void Start(){
+    new void Start(){
         tileState = TileStates.ROCK;
+        base.Start();
     }
 }
