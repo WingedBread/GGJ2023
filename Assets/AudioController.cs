@@ -20,6 +20,8 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     private AudioSource backgroundMusic;
     [SerializeField]
+    private AudioSource backgroundMusic2;
+    [SerializeField]
     private AudioSource fxSounds;
 
     [Header("Background Music Clips")]
@@ -115,17 +117,18 @@ public class AudioController : MonoBehaviour
 
     private IEnumerator StartMenuLoop()
     {
-        yield return new WaitForSeconds(backgroundMusic.clip.length-0.2f);
-        backgroundMusic.Stop();
-        backgroundMusic.clip = menuLoopBGClip;
-        backgroundMusic.volume = menuLoopBGVolume;
-        backgroundMusic.Play();
-        backgroundMusic.loop = true;
+        yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
+        //backgroundMusic.Stop();
+        backgroundMusic2.clip = menuLoopBGClip;
+        backgroundMusic2.volume = menuLoopBGVolume;
+        backgroundMusic2.Play();
+        backgroundMusic2.loop = true;
         StopCoroutine("StartMenuLoop");
     }
 
     public void PlayGameplayBGMusic()
     {
+        backgroundMusic2.Stop();
         backgroundMusic.Stop();
         backgroundMusic.clip = gameplayBGClip;
         backgroundMusic.volume = gameplayBGVolume;
