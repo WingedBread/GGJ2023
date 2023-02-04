@@ -1232,8 +1232,8 @@ MonoBehaviour:
   sprinklerFXClip: {fileID: 8300000, guid: 6e607125e016dff4b8bc5c49c3327494, type: 3}
   drawCardFXClip: {fileID: 8300000, guid: 10616fc3446352d43b94542a363d641e, type: 3}
   sproutFXClip: {fileID: 8300000, guid: 3195fd306b5b3614b9d1fe15ae30d322, type: 3}
-  incorrectTileFXClip: {fileID: 8300000, guid: e6e1769f1c2a82149b38de6c67e3e9ee, type: 3}
-  gameOverFXClip: {fileID: 0}
+  incorrectTileFXClip: {fileID: 8300000, guid: 564dd59f98b9e9f4489ab7260f468f4a, type: 3}
+  gameOverFXClip: {fileID: 8300000, guid: 21f21044251e79b41a49616935b0dcef, type: 3}
 --- !u!1 &948381179
 GameObject:
   m_ObjectHideFlags: 0
