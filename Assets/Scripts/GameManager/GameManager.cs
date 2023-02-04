@@ -158,11 +158,11 @@ public class GameManager : MonoBehaviour
             GameOver();
         } else {
             gameState = States.GAMEPLAY;
+            player.EnableCardCollider(true);
+            GridManager.Instance.EnableGridColliders(false);
         }
 
-        player.EnableCardCollider(true);
-        gameState = States.GAMEPLAY;
-        GridManager.Instance.EnableGridColliders(false);
+
     }
 
     private bool GameOverCondition(){        
