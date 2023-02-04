@@ -17,37 +17,47 @@ public abstract class Card : MonoBehaviour
     Vector3 starterRotation = new Vector3(-20, 166, 0);
     bool direction = false;
 
+    bool hasBeenSelected = false;
+
     private void Start()
     {
         startRotation = transform.localEulerAngles;
         currentAngle = startRotation;
+        hasBeenSelected = false;
     }
 
     public abstract bool play(Tile clickedTile);
 
     public void OnMouseEnter()
     {
-        transform.localPosition += Vector3.up * 0.1f;
+        if(!hasBeenSelected) transform.localPosition += Vector3.up * 0.1f;
     }
 
     public void OnMouseOver()
     {
-        if (currentAngle.y < 176 && currentAngle.y < 184 && !direction) direction = true;
-        if (currentAngle.y > 176 && currentAngle.y > 184 && direction) direction = false;
+        if (!hasBeenSelected)
+        {
+            if (currentAngle.y < 176 && currentAngle.y < 184 && !direction) direction = true;
+            if (currentAngle.y > 176 && currentAngle.y > 184 && direction) direction = false;
 
-        if (!direction) RotateToStart();
-        else RotateToEnd();
+            if (!direction) RotateToStart();
+            else RotateToEnd();
+        }
 
     }
     public void OnMouseExit()
     {
-        transform.localPosition -= Vector3.up * 0.1f;
-        transform.localEulerAngles = startRotation;
+        if (!hasBeenSelected)
+        {
+            transform.localPosition -= Vector3.up * 0.1f;
+            transform.localEulerAngles = startRotation;
+        }
     }
 
     public void OnMouseDown()
     {
         GameManager.Instance.SetClickedCard(this);
+        hasBeenSelected = true;
         EnableHighLight(true);
     }
 
@@ -59,7 +69,22 @@ public abstract class Card : MonoBehaviour
 
     public void EnableHighLight(bool enable)
     {
-        highlight.SetActive(enable);
+        if (hasBeenSelected)
+        {
+            if (enable)
+            {
+                transform.localPosition += Vector3.up * 0.1f;
+                transform.localEulerAngles = startRotation;
+                hasBeenSelected = true;
+            }
+            else
+            {
+                transform.localPosition -= Vector3.up * 0.1f;
+                transform.localEulerAngles = startRotation;
+                hasBeenSelected = false;
+            }
+        }
+        //highlight.SetActive(enable);
     }
 
     public void Restart()
@@ -82,7 +107,7 @@ public abstract class Card : MonoBehaviour
 
     public void UnClicked()
     {
-        highlight.SetActive(false);
+        EnableHighLight(false);
     }
 
 

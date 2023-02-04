@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class Player : MonoBehaviour
     public Transform[] cardSlots;
     public int handSize = 5;
 
+    private Card lastCardUsed;
+
+
     public void Start()
     {
         for (int i = 0; i < allCards.Count; i++)
@@ -19,17 +23,35 @@ public class Player : MonoBehaviour
         }
 
         for(int i = 0; i <handSize; i++){
-            DrawCard();
+            DrawCard(true);
         }
 
         EnableCardCollider(false);
     }
 
-    public void DrawCard()
+    public void DrawCard(bool start)
     {
         if(deck.Count >= 1)
         {
             Card randomCard = deck[Random.Range(0, deck.Count)];
+            if (!start)
+            {
+                List<Card> filterDeck;
+                filterDeck = deck.Where(findCard => findCard.GetCardName() != lastCardUsed.GetCardName()).ToList();
+
+                if(filterDeck.Count <= 0)
+                {
+                    randomCard = deck[Random.Range(0, deck.Count)];
+                }
+                else randomCard = filterDeck[Random.Range(0, filterDeck.Count)];
+
+                //while (randomCard.GetCardName() == lastCardUsed.GetCardName())
+                //{
+                //    randomCard = deck[Random.Range(0, deck.Count)];
+                //    Debug.Log("try");
+                //}
+            }
+
             //AudioController.Instance.PlayDrawCardSound();
 
             for (int i = 0; i < avaiableSlots.Length; i++)
@@ -49,10 +71,11 @@ public class Player : MonoBehaviour
 
     public void cardUsed(Card card) {
         card.HideCard();
+        lastCardUsed = card;
         deck.Add(card);
         card.transform.position = new Vector3(0, 0, 0);
         avaiableSlots[card.getHandIndex()] = true;
-        DrawCard();
+        DrawCard(false);
     }
 
     public void EnableCardCollider(bool enable)

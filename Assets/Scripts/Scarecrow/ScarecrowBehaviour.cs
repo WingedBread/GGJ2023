@@ -43,14 +43,15 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
     public void ProtectTiles(){
         foreach(Vector2 tilePositions in areaLocations){
             Tile tile = GridManager.Instance.GetTileAtPosition(tilePositions);
-            tile.setProtection(true);
+
+            if(tile != null) tile.setProtection(true);
         }
     }
 
     public void UnprotectTiles(){
         foreach(Vector2 tilePositions in areaLocations){
             Tile tile = GridManager.Instance.GetTileAtPosition(tilePositions);
-            tile.setProtection(false);
+            if (tile != null) tile.setProtection(false);
         }
     }
 

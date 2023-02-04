@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.R))
                 {
                     Restart();
+                    //SceneManager.LoadScene(0);
                 }
             }
         }
@@ -143,17 +145,21 @@ public class GameManager : MonoBehaviour
     }
 
     private bool GameOverCondition(){
+        //si despues del primer sprout (brote), el mapa se queda sin sprout/wet sprout o carrots (zanahorias)
         //TODO
         return false;
     }
 
     public void GameOver()
     {
+        gameState = States.GAME_OVER;
         canvasGameOver.alpha = 1;
         player.EnableCardCollider(false);
         GridManager.Instance.EnableGridColliders(false);
         AudioController.Instance.PlayGameOverSound();
         AudioController.Instance.PlayGameOverBGMusic();
+
+        //Recargar Scene
     }
 
     void Restart()

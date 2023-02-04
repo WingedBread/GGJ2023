@@ -189,11 +189,13 @@ public class AudioController : MonoBehaviour
         if (pause)
         {
             backgroundMusic.volume = pauseBGVolume;
+            backgroundMusic2.volume = pauseBGVolume;
             ambientMusic.volume = ambientPauseBGVolume;
         }
         else
         {
             backgroundMusic.volume = gameplayBGVolume;
+            backgroundMusic2.volume = gameplayBGVolume;
             ambientMusic.volume = ambientGameplayBGVolume;
         }
     }
