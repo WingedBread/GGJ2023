@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
     private bool prePauseGridColliderState = false;
     private bool prePauseCardsColliderState = false;
 
+    [SerializeField]
+    private Button pauseButton;
+    [SerializeField]
+    private GameObject muteButton;
+
     private void Awake()
     {
         _instance = this;
@@ -68,6 +73,8 @@ public class GameManager : MonoBehaviour
         canvasStart.alpha = 1;   
         turnText.text = turn.ToString();
         pointsText.text = points.ToString();
+        pauseButton.interactable = false;
+        muteButton.SetActive(false);
 
         player.EnableCardCollider(false);
         GridManager.Instance.EnableGridColliders(false);
@@ -179,31 +186,37 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.EnableGridColliders(false);
         canvasStart.alpha = 0;
         gameState = States.GAMEPLAY;
+        pauseButton.interactable = true;
         AudioController.Instance.PlayGameplayBGMusic();
     }
 
     public void PauseBehaviour()
     {
-        pause = !pause;
-
-        AudioController.Instance.SetPauseMusic(pause);
-
-        if (pause)
+        if (gameState == States.GAMEPLAY)
         {
-            canvasPause.alpha = 1;
-            canvasPause.interactable = true;
-            prePauseCardsColliderState = cardsCollidersState;
-            prePauseGridColliderState = gridCollidersState;
+            pause = !pause;
 
-            player.EnableCardCollider(false);
-            GridManager.Instance.EnableGridColliders(false);
-        }
-        else
-        {
-            canvasPause.alpha = 0;
-            canvasPause.interactable = false;
-            player.EnableCardCollider(prePauseCardsColliderState);
-            GridManager.Instance.EnableGridColliders(prePauseGridColliderState);
+            AudioController.Instance.SetPauseMusic(pause);
+
+            if (pause)
+            {
+                canvasPause.alpha = 1;
+                muteButton.SetActive(true);
+                canvasPause.interactable = true;
+                prePauseCardsColliderState = cardsCollidersState;
+                prePauseGridColliderState = gridCollidersState;
+
+                player.EnableCardCollider(false);
+                GridManager.Instance.EnableGridColliders(false);
+            }
+            else
+            {
+                canvasPause.alpha = 0;
+                muteButton.SetActive(false);
+                canvasPause.interactable = false;
+                player.EnableCardCollider(prePauseCardsColliderState);
+                GridManager.Instance.EnableGridColliders(prePauseGridColliderState);
+            }
         }
     }
 
