@@ -1238,16 +1238,16 @@ MonoBehaviour:
   menuLoopBGVolume: 0.1
   gameplayBGVolume: 0.1
   gameOverBGVolume: 0.1
-  hoeFXVolume: 0.3
+  hoeFXVolume: 0.1
   shuffleDeckFXVolume: 0.3
-  shotgunFXVolume: 0.3
-  scarecrowFXVolume: 0.3
-  pickaxeFXVolume: 0.3
-  shovelFXVolume: 0.3
-  sprinklerFXVolume: 0.3
+  shotgunFXVolume: 0.6
+  scarecrowFXVolume: 0.2
+  pickaxeFXVolume: 0.5
+  shovelFXVolume: 0.1
+  sprinklerFXVolume: 0.12
   drawCardFXVolume: 0.3
-  sproutFXVolume: 0.3
-  incorrectTileFXVolume: 0.3
+  sproutFXVolume: 0.4
+  incorrectTileFXVolume: 0.007
   gameOverFXVolume: 0.3
 --- !u!1 &948381179
 GameObject:
