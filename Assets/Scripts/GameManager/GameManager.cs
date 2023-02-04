@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject muteButton;
 
+    private bool birdEat = false;
+
     private void Awake()
     {
         _instance = this;
@@ -130,7 +132,9 @@ public class GameManager : MonoBehaviour
 
     public void PlayCard()
     {
-        if(lastClickedTile != null){
+        GameManager.Instance.SetBirdEat(false);
+        Debug.Log("FALSE");
+        if (lastClickedTile != null){
             lastClickedCard.play(lastClickedTile);
             player.cardUsed(lastClickedCard);
             gameState = States.END_TURN;
@@ -166,7 +170,7 @@ public class GameManager : MonoBehaviour
     }
 
     private bool GameOverCondition(){        
-        if(firstSprout && GridManager.Instance.GetTileSproutAndCarrotCount() <= 0){
+        if(firstSprout && GridManager.Instance.GetTileSproutAndCarrotCount() <= 0 && birdEat){
             return true;
         }
         return false;
@@ -270,5 +274,10 @@ public class GameManager : MonoBehaviour
 
     public void FirstSproutPlaced(){
         firstSprout = true;
+    }
+
+    public void SetBirdEat(bool eat)
+    {
+        birdEat = eat;
     }
 }

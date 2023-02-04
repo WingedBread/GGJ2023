@@ -100,6 +100,8 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         Tile currentTile = GridManager.Instance.GetTileAtPosition(transform.position);
         if(currentTile.GetTileState() == Tile.TileStates.SPROUT || currentTile.GetTileState() == Tile.TileStates.SPROUT_WET || currentTile.GetTileState() == Tile.TileStates.CARROT){
             GridManager.Instance.BirdChangeTile(transform.position, tileSoil);
+            GameManager.Instance.SetBirdEat(true);
+            Debug.Log("TRUE");
         }
     }
 
