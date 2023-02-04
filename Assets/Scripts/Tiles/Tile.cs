@@ -4,14 +4,12 @@ using UnityEngine;
 
 public abstract class Tile : MonoBehaviour
 {
-    public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, SPROUT_WET, CARROT }
+    public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SOIL_FARMABLE_WET, SPROUT, SPROUT_WET, CARROT }
 
     [SerializeField]
     protected SpriteRenderer spriteRenderer;
     [SerializeField]
     private GameObject highlight;
-
-    private bool clicked;
 
     protected TileStates tileState;
 
@@ -28,14 +26,11 @@ public abstract class Tile : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if(!clicked){
-            highlight.SetActive(false);
-        }
+        highlight.SetActive(false);
     }
 
     public void OnMouseDown(){
         GameManager.Instance.SetClickedTile(this);
-        clicked = true;
     }
 
     public void CloseHighlight()
@@ -62,7 +57,7 @@ public abstract class Tile : MonoBehaviour
     }
 
     public void UnClicked(){
-        clicked = false;
+
         highlight.SetActive(false);
     }
 

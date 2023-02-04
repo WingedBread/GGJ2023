@@ -282,7 +282,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: 1
   highlight: {fileID: 2135013728256896612}
-  wetTile: {fileID: -659454910625705988, guid: 9f4c98c799df6724fad21b0f00e5d26c, type: 3}
+  soilFarmableWetTile: {fileID: 1780588027871649091, guid: 150757a106d527a4e9b6f83f2884d5a7,
+    type: 3}
+  sproutWetTile: {fileID: -659454910625705988, guid: 9f4c98c799df6724fad21b0f00e5d26c,
+    type: 3}
 --- !u!65 &1607909049497723635
 BoxCollider:
   m_ObjectHideFlags: 0
