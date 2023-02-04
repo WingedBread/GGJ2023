@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject bird;
 
-    public CanvasGroup canvasGameplay;
+    //public CanvasGroup canvasGameplay;
     public CanvasGroup canvasGameOver;
     public CanvasGroup canvasStart;
     public CanvasGroup canvasPause;
@@ -55,12 +55,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameState = States.START;
-        canvasGameplay.interactable = false;
-        canvasStart.alpha = 1; 
-        player.EnableCardCollider(false);
-        GridManager.Instance.EnableGridColliders(false);
+        AudioController.Instance.PlayMenuBGMusic();
+        canvasStart.alpha = 1;   
         turnText.text = turn.ToString();
         pointsText.text = points.ToString();
+
+        player.EnableCardCollider(false);
+        GridManager.Instance.EnableGridColliders(false);
     }
 
     void Update()
@@ -81,12 +82,6 @@ public class GameManager : MonoBehaviour
                     Restart();
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            pause = !pause;
-            PauseBehaviour(pause);
         }
     }
 
@@ -148,34 +143,35 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        canvasGameplay.interactable = false;
         canvasGameOver.alpha = 1;
     }
 
     void Restart()
     {
-        canvasGameplay.interactable = true;
         canvasGameOver.alpha = 0;
     }
 
     void StartBehaviour()
     {
         player.EnableCardCollider(true);
-        canvasGameplay.interactable = true;
         canvasStart.alpha = 0;
         gameState = States.GAMEPLAY;
+        AudioController.Instance.PlayGameplayBGMusic();
     }
 
-    void PauseBehaviour(bool pause)
+    public void PauseBehaviour()
     {
+        pause = !pause;
+
+        AudioController.Instance.SetPauseMusic(pause);
+        Debug.Log(pause);
+
         if (pause)
         {
-            canvasGameplay.interactable = false;
             canvasPause.alpha = 1;
         }
         else
         {
-            canvasGameplay.interactable = true;
             canvasPause.alpha = 0;
         }
     }

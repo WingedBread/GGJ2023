@@ -67,6 +67,8 @@ public class AudioController : MonoBehaviour
     float gameplayBGVolume = 0.1f;
     [SerializeField]
     float gameOverBGVolume = 0.1f;
+    [SerializeField]
+    float pauseBGVolume = 0.1f;
 
     [Header("VOLUMES FX Sounds")]
     [SerializeField]
@@ -119,11 +121,15 @@ public class AudioController : MonoBehaviour
     {
         yield return new WaitForSeconds(backgroundMusic.clip.length-3.5f);
         //backgroundMusic.Stop();
-        backgroundMusic2.clip = menuLoopBGClip;
-        backgroundMusic2.volume = menuLoopBGVolume;
-        backgroundMusic2.Play();
-        backgroundMusic2.loop = true;
-        StopCoroutine("StartMenuLoop");
+        if (backgroundMusic.clip == menuIntroBGClip)
+        {
+            backgroundMusic2.clip = menuLoopBGClip;
+            backgroundMusic2.volume = menuLoopBGVolume;
+            backgroundMusic2.Play();
+            backgroundMusic2.loop = true;
+            StopCoroutine("StartMenuLoop");
+        }
+        else StopCoroutine("StartMenuLoop");
     }
 
     public void PlayGameplayBGMusic()
@@ -134,6 +140,12 @@ public class AudioController : MonoBehaviour
         backgroundMusic.volume = gameplayBGVolume;
         backgroundMusic.Play();
         backgroundMusic.loop = true;
+    }
+
+    public void SetPauseMusic(bool pause)
+    {
+        if (pause) backgroundMusic.volume = pauseBGVolume;
+        else backgroundMusic.volume = gameplayBGVolume;
     }
 
     public void PlayGameOverBGMusic()

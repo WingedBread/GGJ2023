@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
         for(int i = 0; i <handSize; i++){
             DrawCard();
         }
+
+        EnableCardCollider(false);
     }
 
     public void DrawCard()
