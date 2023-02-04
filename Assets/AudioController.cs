@@ -24,13 +24,13 @@ public class AudioController : MonoBehaviour
 
     [Header("Background Music Clips")]
     [SerializeField]
-    AudioClip menuIntroBMClip;
+    AudioClip menuIntroBGClip;
     [SerializeField]
-    AudioClip menuLoopBMClip;
+    AudioClip menuLoopBGClip;
     [SerializeField]
-    AudioClip gameplayBMClip;
+    AudioClip gameplayBGClip;
     [SerializeField]
-    AudioClip gameOverBMClip;
+    AudioClip gameOverBGClip;
 
     [Header("FX Sounds Clips")]
     [SerializeField]
@@ -56,6 +56,40 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     AudioClip gameOverFXClip;
 
+    [Header("VOLUMES BG Music")]
+    [SerializeField]
+    float menuIntroBGVolume = 0.1f;
+    [SerializeField]
+    float menuLoopBGVolume = 0.1f;
+    [SerializeField]
+    float gameplayBGVolume = 0.1f;
+    [SerializeField]
+    float gameOverBGVolume = 0.1f;
+
+    [Header("VOLUMES FX Sounds")]
+    [SerializeField]
+    float hoeFXVolume = 0.3f;
+    [SerializeField]
+    float shuffleDeckFXVolume = 0.3f;
+    [SerializeField]
+    float shotgunFXVolume = 0.3f;
+    [SerializeField]
+    float scarecrowFXVolume = 0.3f;
+    [SerializeField]
+    float pickaxeFXVolume = 0.3f;
+    [SerializeField]
+    float shovelFXVolume = 0.3f;
+    [SerializeField]
+    float sprinklerFXVolume = 0.3f;
+    [SerializeField]
+    float drawCardFXVolume = 0.3f;
+    [SerializeField]
+    float sproutFXVolume = 0.3f;
+    [SerializeField]
+    float incorrectTileFXVolume = 0.3f;
+    [SerializeField]
+    float gameOverFXVolume = 0.3f;
+
     private void Awake()
     {
         _instance = this;
@@ -72,7 +106,8 @@ public class AudioController : MonoBehaviour
     public void PlayMenuBGMusic()
     {
         backgroundMusic.Stop();
-        backgroundMusic.clip = menuIntroBMClip;
+        backgroundMusic.clip = menuIntroBGClip;
+        backgroundMusic.volume = menuIntroBGVolume;
         backgroundMusic.Play();
         backgroundMusic.loop = false;
         StartCoroutine("StartMenuLoop");
@@ -82,7 +117,8 @@ public class AudioController : MonoBehaviour
     {
         yield return new WaitForSeconds(backgroundMusic.clip.length-0.2f);
         backgroundMusic.Stop();
-        backgroundMusic.clip = menuLoopBMClip;
+        backgroundMusic.clip = menuLoopBGClip;
+        backgroundMusic.volume = menuLoopBGVolume;
         backgroundMusic.Play();
         backgroundMusic.loop = true;
         StopCoroutine("StartMenuLoop");
@@ -91,25 +127,37 @@ public class AudioController : MonoBehaviour
     public void PlayGameplayBGMusic()
     {
         backgroundMusic.Stop();
-        backgroundMusic.clip = gameplayBMClip;
+        backgroundMusic.clip = gameplayBGClip;
+        backgroundMusic.volume = gameplayBGVolume;
         backgroundMusic.Play();
         backgroundMusic.loop = true;
     }
 
-    public void PlayDrawCardSound() { PlaySound(drawCardFXClip); }
-    public void PlayPickaxeOnRockSound() { PlaySound(pickaxeFXClip); }
-    public void PlayHoeOnSoilSound() { PlaySound(hoeFXClip); }
-    public void PlaySproutSound() { PlaySound(sproutFXClip); }
-    public void PlaySpinkleSound() { PlaySound(sprinklerFXClip); }
-    public void PlayShovelOnCarrotSound() { PlaySound(shovelFXClip); }
-    public void PlayShotgunOnBirdSound() { PlaySound(shotgunFXClip); }
-    public void PlayScarecrowSound() { PlaySound(scarecrowFXClip); }
-    public void PlayIncorrectSound() { PlaySound(incorrectTileFXClip); }
+    public void PlayGameOverBGMusic()
+    {
+        backgroundMusic.Stop();
+        backgroundMusic.clip = gameOverBGClip;
+        backgroundMusic.volume = gameOverBGVolume;
+        backgroundMusic.Play();
+        backgroundMusic.loop = false;
+    }
 
-    private void PlaySound(AudioClip clip)
+    public void PlayDrawCardSound() { PlaySound(drawCardFXClip, drawCardFXVolume); }
+    public void PlayPickaxeOnRockSound() { PlaySound(pickaxeFXClip, pickaxeFXVolume); }
+    public void PlayHoeOnSoilSound() { PlaySound(hoeFXClip, hoeFXVolume); }
+    public void PlaySproutSound() { PlaySound(sproutFXClip, sproutFXVolume); }
+    public void PlaySpinkleSound() { PlaySound(sprinklerFXClip, sprinklerFXVolume); }
+    public void PlayShovelOnCarrotSound() { PlaySound(shovelFXClip, shovelFXVolume); }
+    public void PlayShotgunOnBirdSound() { PlaySound(shotgunFXClip, shotgunFXVolume); }
+    public void PlayScarecrowSound() { PlaySound(scarecrowFXClip, scarecrowFXVolume); }
+    public void PlayIncorrectSound() { PlaySound(incorrectTileFXClip, incorrectTileFXVolume); }
+    public void PlayGameOverSound() { PlaySound(gameOverFXClip, gameOverFXVolume); }
+
+    private void PlaySound(AudioClip clip, float volume)
     {
         fxSounds.Stop();
         fxSounds.clip = fxSounds.clip = clip;
+        fxSounds.volume = volume;
         fxSounds.Play();
     }
 }
