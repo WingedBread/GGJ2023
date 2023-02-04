@@ -204,7 +204,6 @@ public class AudioController : MonoBehaviour
     public void MuteAll ()
     {
         mute = !mute;
-
         backgroundMusic.mute = mute;
         backgroundMusic2.mute = mute;
         fxSounds.mute = mute;
