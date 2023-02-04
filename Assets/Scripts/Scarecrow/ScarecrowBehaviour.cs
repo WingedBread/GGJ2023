@@ -57,7 +57,6 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
     public bool notify()
     {
         liveTurns ++;
-        Debug.Log(liveTurns);
 
         if(liveTurns >= maxTurns){
             Destroy(gameObject);
