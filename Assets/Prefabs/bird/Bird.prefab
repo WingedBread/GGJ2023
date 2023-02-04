@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3643789053306009515}
   - component: {fileID: 3643789053306009508}
   - component: {fileID: 3643789053306009509}
-  - component: {fileID: -7790097957988993323}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -100,29 +99,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tileSoil: {fileID: -5957897553192933226, guid: 985a7e24c121fbe44be543cbddc43184,
     type: 3}
---- !u!61 &-7790097957988993323
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3643789053306009510}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
