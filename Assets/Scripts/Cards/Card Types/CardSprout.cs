@@ -10,11 +10,14 @@ public class CardSprout : Card
     public override bool play(Tile clickedTile){
         if(clickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE){
             GridManager.Instance.SetTile(clickedTile.transform.position, sproutTile);
+            AudioController.Instance.PlaySproutSound();
         }
         else if (clickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE_WET)
         {
             GridManager.Instance.SetTile(clickedTile.transform.position, sproutWetTile);
+            AudioController.Instance.PlaySproutSound();
         }
+        else AudioController.Instance.PlayIncorrectSound();
         return true;
     }
 }

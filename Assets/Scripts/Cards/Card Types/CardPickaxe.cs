@@ -9,7 +9,9 @@ public class CardPickaxe : Card
     public override bool play(Tile clickedTile){
         if(clickedTile.GetTileState() == Tile.TileStates.ROCK){
             GridManager.Instance.SetTile(clickedTile.transform.position, soilTile);
+            AudioController.Instance.PlayPickaxeOnRockSound();
         }
+        else AudioController.Instance.PlayIncorrectSound();
         return true;
     }
 }

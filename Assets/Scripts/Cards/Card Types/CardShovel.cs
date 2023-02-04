@@ -11,8 +11,9 @@ public class CardShovel : Card
       if(clickedTile.GetTileState() == Tile.TileStates.CARROT){
          GridManager.Instance.SetTile(clickedTile.transform.position, soilTile);
          GameManager.Instance.AddPoint();
+         AudioController.Instance.PlayShovelOnCarrotSound();
         }
-
+      else AudioController.Instance.PlayIncorrectSound();
       return true;
    }
 }
