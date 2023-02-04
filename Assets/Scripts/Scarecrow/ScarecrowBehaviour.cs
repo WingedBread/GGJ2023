@@ -8,6 +8,7 @@ public class ScarecrowBehaviour : MonoBehaviour
     private GameObject area;
 
     private List<Vector2> areaLocations = new List<Vector2>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +35,8 @@ public class ScarecrowBehaviour : MonoBehaviour
 
     public void DestroyScarecrow()
     {
+        //Delete all areaLocations from gamemanagerlist
+
         Destroy(this);
     }
 }

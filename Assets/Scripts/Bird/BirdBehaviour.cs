@@ -66,6 +66,8 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         if(transform.position.y < maxPositionY && gridManager.GetTileAtPosition(transform.position + new Vector3(0,1,0)).GetTileState() != Tile.TileStates.ROCK){
             possibleMoves.Add(Moves.UP);
         }
+
+
         return possibleMoves;
     }
 
