@@ -1779,7 +1779,7 @@ MonoBehaviour:
   sprinklerFXVolume: 0.12
   sproutFXVolume: 0.4
   incorrectTileFXVolume: 0.035
-  gameOverFXVolume: 0.3
+  gameOverFXVolume: 0.13
 --- !u!1 &948381179
 GameObject:
   m_ObjectHideFlags: 0
