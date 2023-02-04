@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         if(!pause){
             if (gameState == States.START)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetMouseButtonDown(0))
                 {
                     StartBehaviour();
                 }
@@ -95,11 +95,18 @@ public class GameManager : MonoBehaviour
             } 
             else if (gameState == States.GAME_OVER)
             {
-                if (Input.GetKeyDown(KeyCode.R))
+                if (Input.GetMouseButtonDown(0))
                 {
                     SceneManager.LoadScene(0);
                 }
             }
+        }
+
+        if (gameState == States.GAMEPLAY && Input.GetMouseButtonDown(1) && lastClickedCard != null && lastClickedCard.IsCardSelected())
+        {
+            lastClickedCard.UnClicked();
+            player.EnableCardCollider(true);
+            GridManager.Instance.EnableGridColliders(false);
         }
     }
 
@@ -186,6 +193,7 @@ public class GameManager : MonoBehaviour
         if (pause)
         {
             canvasPause.alpha = 1;
+            canvasPause.interactable = true;
             prePauseCardsColliderState = cardsCollidersState;
             prePauseGridColliderState = gridCollidersState;
 
@@ -195,6 +203,7 @@ public class GameManager : MonoBehaviour
         else
         {
             canvasPause.alpha = 0;
+            canvasPause.interactable = false;
             player.EnableCardCollider(prePauseCardsColliderState);
             GridManager.Instance.EnableGridColliders(prePauseGridColliderState);
         }

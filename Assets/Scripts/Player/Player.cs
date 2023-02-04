@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
                 {
                     randomCard.gameObject.SetActive(true);
                     randomCard.transform.position = cardSlots[i].position;
+                    randomCard.SetSlotPosition(cardSlots[i].position);
                     avaiableSlots[i] = false;
                     randomCard.SetHandIndex(i);
                     deck.Remove(randomCard);
