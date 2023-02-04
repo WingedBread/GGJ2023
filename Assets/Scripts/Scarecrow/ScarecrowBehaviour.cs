@@ -13,12 +13,15 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
 
     public int maxTurns = 5;
 
+    public void Awake(){
+        FillScarecrowAreaLocation();
+        ProtectTiles();
+        Debug.Log(transform.position.x);
+        OcupeTile(transform.position);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        FillScarecrowAreaLocation();
-        ProtectTiles();
-        OcupeTile(transform.position);
         GameManager.Instance.EndTurnSubscribe(this);
     }
 

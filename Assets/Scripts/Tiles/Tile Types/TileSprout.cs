@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileSprout : Tile
 {
     new void Start(){
-        tileState = TileStates.SPROUT;
+        GameManager.Instance.FirstSproutPlaced();
         base.Start();
     }
 }

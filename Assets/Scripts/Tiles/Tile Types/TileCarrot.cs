@@ -4,9 +4,4 @@ using UnityEngine;
 
 public class TileCarrot : Tile
 {
-    new void Start(){
-        tileState = TileStates.CARROT;
-        base.Start();
-    }
-
 }

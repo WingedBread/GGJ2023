@@ -44,12 +44,6 @@ public class Player : MonoBehaviour
                     randomCard = deck[Random.Range(0, deck.Count)];
                 }
                 else randomCard = filterDeck[Random.Range(0, filterDeck.Count)];
-
-                //while (randomCard.GetCardName() == lastCardUsed.GetCardName())
-                //{
-                //    randomCard = deck[Random.Range(0, deck.Count)];
-                //    Debug.Log("try");
-                //}
             }
 
             //AudioController.Instance.PlayDrawCardSound();

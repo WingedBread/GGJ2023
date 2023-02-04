@@ -11,6 +11,7 @@ public abstract class Tile : MonoBehaviour
     [SerializeField]
     private GameObject highlight;
 
+    [SerializeField]
     protected TileStates tileState;
 
     public bool isOccuped = false;

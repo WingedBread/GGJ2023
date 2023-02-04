@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public enum States {START, GAMEPLAY, END_TURN, GAME_OVER};
     public States gameState;
     private bool pause;
+
+    private bool firstSprout;
     
     private List<EndTurnObserver> endTurnSubsritors;
 
@@ -82,6 +84,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+            if (gameState == States.END_TURN)
+            {
+                EndTurn();
+            }
+
             if (gameState == States.GAME_OVER)
             {
                 if (Input.GetKeyDown(KeyCode.R))
@@ -109,10 +116,9 @@ public class GameManager : MonoBehaviour
     public void PlayCard()
     {
         if(lastClickedTile != null){
-            bool played = lastClickedCard.play(lastClickedTile);
-            Debug.Log("card used");
+            lastClickedCard.play(lastClickedTile);
             player.cardUsed(lastClickedCard);
-            EndTurn();
+            gameState = States.END_TURN;
         }
     }
 
@@ -144,9 +150,10 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.EnableGridColliders(false);
     }
 
-    private bool GameOverCondition(){
-        //si despues del primer sprout (brote), el mapa se queda sin sprout/wet sprout o carrots (zanahorias)
-        //TODO
+    private bool GameOverCondition(){        
+        if(firstSprout && GridManager.Instance.GetTileSproutAndCarrotCount() <= 0){
+            return true;
+        }
         return false;
     }
 
@@ -244,5 +251,9 @@ public class GameManager : MonoBehaviour
     public void SetCardsCollidersState(bool state)
     {
         cardsCollidersState = state;
+    }
+
+    public void FirstSproutPlaced(){
+        firstSprout = true;
     }
 }

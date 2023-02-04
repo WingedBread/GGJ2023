@@ -11,7 +11,6 @@ public class TileSproutWet : Tile, EndTurnObserver
     private Tile tileCarrot;
 
     new void Start(){
-        tileState = TileStates.SPROUT_WET;
         base.Start();
         GameManager.Instance.EndTurnSubscribe(this);
     }

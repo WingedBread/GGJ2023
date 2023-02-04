@@ -211,3 +211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6759364848620420319}
   highlight: {fileID: 3853911571007027324}
+  tileState: 2
+  isOccuped: 0
+  isProtected: 0
