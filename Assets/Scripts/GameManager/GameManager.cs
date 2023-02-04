@@ -90,13 +90,17 @@ public class GameManager : MonoBehaviour
                     StartBehaviour();
                 }
             }
-
-            if (gameState == States.END_TURN)
+            else if (gameState == States.GAMEPLAY)
+            {
+                if(lastClickedCard != null && lastClickedTile != null){
+                    PlayCard();
+                }
+            } 
+            else if (gameState == States.END_TURN)
             {
                 EndTurn();
-            }
-
-            if (gameState == States.GAME_OVER)
+            } 
+            else if (gameState == States.GAME_OVER)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -122,8 +126,6 @@ public class GameManager : MonoBehaviour
         GridManager.Instance.EnableGridColliders(false);
 
         lastClickedTile = tile;
-
-        PlayCard();
     }
 
     public void PlayCard()
