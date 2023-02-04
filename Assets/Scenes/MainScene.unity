@@ -1499,7 +1499,7 @@ MonoBehaviour:
   gameOverBGVolume: 0.1
   pauseBGVolume: 0.0025
   ambientGameplayBGVolume: 0.02
-  ambientPauseBGVolume: 0.1
+  ambientPauseBGVolume: 0
   hoeFXVolume: 0.1
   shotgunFXVolume: 0.5
   scarecrowFXVolume: 0.2
