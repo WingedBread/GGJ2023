@@ -15,9 +15,9 @@ public abstract class Tile : MonoBehaviour
 
     protected TileStates tileState;
 
-    private bool isOccuped = false;
+    public bool isOccuped = false;
 
-    private bool isProtected = false;
+    public bool isProtected = false;
 
     private GameObject bird;
 

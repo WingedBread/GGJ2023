@@ -5,7 +5,6 @@ using UnityEngine;
 public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 {
     SpriteRenderer spriteRenderer;
-    GridManager gridManager;
     GameManager gameManager;
     enum Moves {UP, LEFT, RIGHT, DOWN}
 
@@ -17,7 +16,6 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 
     void Start()
     {
-        gridManager = GameObject.Find("GRID MANAGER").GetComponent<GridManager> ();
         gameManager = GameManager.Instance;
         transform.position = GetInitialPosition();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -36,7 +34,7 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         Moves move = possibleMoves[Random.Range(0, possibleMoves.Count)];
 
         GridManager.Instance.GetTileAtPosition(transform.position).setOcuped(false);
-                GridManager.Instance.GetTileAtPosition(transform.position).setBird(null);
+        GridManager.Instance.GetTileAtPosition(transform.position).setBird(null);
 
         if(move == Moves.UP){
             transform.position += new Vector3(0,1,0);
@@ -56,22 +54,22 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
     List<Moves> CalculatePosibleMoves()
     {
         List<Moves> possibleMoves = new List<Moves>();
-        Tile currentTile = gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0));
+        Tile currentTile = GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(-1,0,0));
 
-        if(transform.position.x > 0 && isPosibleMoveToTile(gridManager.GetTileAtPosition(transform.position + new Vector3(-1,0,0)))){
+        if(transform.position.x > 0 && isPosibleMoveToTile(GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(-1,0,0)))){
             possibleMoves.Add(Moves.LEFT);
         } 
-        if(transform.position.x < maxPositionX && isPosibleMoveToTile(gridManager.GetTileAtPosition(transform.position + new Vector3(1,0,0)))){
+        if(transform.position.x < maxPositionX && isPosibleMoveToTile(GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(1,0,0)))){
             possibleMoves.Add(Moves.RIGHT);
         } 
-        if(transform.position.y > 0 && isPosibleMoveToTile(gridManager.GetTileAtPosition(transform.position + new Vector3(0,-1,0)))){
+        if(transform.position.y > 0 && isPosibleMoveToTile(GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(0,-1,0)))){
             possibleMoves.Add(Moves.DOWN);
         } 
-        if(transform.position.y < maxPositionY && isPosibleMoveToTile(gridManager.GetTileAtPosition(transform.position + new Vector3(0,1,0)))){
+        if(transform.position.y < maxPositionY && isPosibleMoveToTile(GridManager.Instance.GetTileAtPosition(transform.position + new Vector3(0,1,0)))){
             possibleMoves.Add(Moves.UP);
         }
 
-
+        Debug.Log(possibleMoves.Count);
         return possibleMoves;
     }
 
@@ -83,7 +81,8 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 
     Vector3 GetInitialPosition()
     {
-        List<Vector2> possiblePositions = gridManager.GetSoilTilesPositions();
+        List<Vector2> possiblePositions = GridManager.Instance.GetSoilTilesPositionsAndNotOcupedAndNotProtected();
+
         if(possiblePositions.Count == 0 ) {
             return new Vector2(-5,-5);
         }
@@ -92,19 +91,17 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
 
     public bool notify()
     {
-        if(Input.GetMouseButtonDown(0)){
-            Move();
-        }
+        Move();
         Eat();
         return true;
     }
 
     void Eat()
     {
-        Tile currentTile = gridManager.GetTileAtPosition(transform.position);
+        Tile currentTile = GridManager.Instance.GetTileAtPosition(transform.position);
 
         if(currentTile.GetTileState() == Tile.TileStates.SPROUT || currentTile.GetTileState() == Tile.TileStates.SPROUT_WET || currentTile.GetTileState() == Tile.TileStates.CARROT){
-            gridManager.SetTile(transform.position, tileSoil);
+            GridManager.Instance.SetTile(transform.position, tileSoil);
         }
     }
 

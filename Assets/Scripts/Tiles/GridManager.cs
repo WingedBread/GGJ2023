@@ -70,8 +70,9 @@ public class GridManager : MonoBehaviour
         //cam.transform.position = new Vector3((float)_width / 2 -0.5f, (float)_height / 2 -2.8f, -10.8f);
     }
 
-    public List<Vector2> GetSoilTilesPositions(){
-        return tiles.Where(tile => tile.Value.GetTileState() == Tile.TileStates.SOIL).ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
+    public List<Vector2> GetSoilTilesPositionsAndNotOcupedAndNotProtected(){
+        return tiles.Where(tile => tile.Value.GetTileState() == Tile.TileStates.SOIL && !tile.Value.getProtection() && !tile.Value.getOcuped())
+            .ToDictionary(pair => pair.Key, pair=> pair.Value).Keys.ToList();
     }
 
     public Tile GetTileAtPosition(Vector2 pos)

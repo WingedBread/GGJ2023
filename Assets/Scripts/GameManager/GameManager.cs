@@ -107,6 +107,7 @@ public class GameManager : MonoBehaviour
     {
         if(lastClickedTile != null){
             bool played = lastClickedCard.play(lastClickedTile);
+            Debug.Log("card used");
             player.cardUsed(lastClickedCard);
             EndTurn();
         }
