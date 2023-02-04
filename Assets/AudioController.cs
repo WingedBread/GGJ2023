@@ -75,6 +75,8 @@ public class AudioController : MonoBehaviour
     float pauseBGVolume = 0.1f;
     [SerializeField]
     float ambientGameplayBGVolume = 0.1f;
+    [SerializeField]
+    float ambientPauseBGVolume = 0.1f;
 
     [Header("VOLUMES FX Sounds")]
     [SerializeField]
@@ -191,10 +193,12 @@ public class AudioController : MonoBehaviour
         if (pause)
         {
             backgroundMusic.volume = pauseBGVolume;
+            ambientMusic.volume = ambientPauseBGVolume;
         }
         else
         {
             backgroundMusic.volume = gameplayBGVolume;
+            ambientMusic.volume = ambientGameplayBGVolume;
         }
     }
 
