@@ -152,6 +152,8 @@ public class GameManager : MonoBehaviour
         canvasGameOver.alpha = 1;
         player.EnableCardCollider(false);
         GridManager.Instance.EnableGridColliders(false);
+        AudioController.Instance.PlayGameOverSound();
+        AudioController.Instance.PlayGameOverBGMusic();
     }
 
     void Restart()

@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
         if(deck.Count >= 1)
         {
             Card randomCard = deck[Random.Range(0, deck.Count)];
+            AudioController.Instance.PlayDrawCardSound();
 
             for (int i = 0; i < avaiableSlots.Length; i++)
             {

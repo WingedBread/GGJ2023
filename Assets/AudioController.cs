@@ -42,8 +42,6 @@ public class AudioController : MonoBehaviour
     [SerializeField]
     AudioClip hoeFXClip;
     [SerializeField]
-    AudioClip shuffleDeckFXClip;
-    [SerializeField]
     AudioClip shotgunFXClip;
     [SerializeField]
     AudioClip scarecrowFXClip;
@@ -81,8 +79,6 @@ public class AudioController : MonoBehaviour
     [Header("VOLUMES FX Sounds")]
     [SerializeField]
     float hoeFXVolume = 0.3f;
-    [SerializeField]
-    float shuffleDeckFXVolume = 0.3f;
     [SerializeField]
     float shotgunFXVolume = 0.3f;
     [SerializeField]
