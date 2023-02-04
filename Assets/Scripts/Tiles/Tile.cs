@@ -14,9 +14,9 @@ public abstract class Tile : MonoBehaviour
     [SerializeField]
     protected TileStates tileState;
 
-    public bool isOccuped = false;
+    private bool isOccuped = false;
 
-    public bool isProtected = false;
+    private bool isProtected = false;
 
     private GameObject bird;
 
@@ -76,6 +76,7 @@ public abstract class Tile : MonoBehaviour
 
     public void setProtection(bool protection){
         isProtected = protection;
+        Debug.Log("protected " + transform.position.x + " , " + transform.position.y);
     }
 
     public bool getProtection(){

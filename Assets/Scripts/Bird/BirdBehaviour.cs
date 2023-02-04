@@ -90,11 +90,10 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
         return possiblePositions[Random.Range(0, possiblePositions.Count)];
     }
 
-    public bool notify()
+    public void notify()
     {
         Move();
         Eat();
-        return true;
     }
 
     void Eat()

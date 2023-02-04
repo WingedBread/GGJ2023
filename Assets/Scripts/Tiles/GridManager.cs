@@ -86,7 +86,6 @@ public class GridManager : MonoBehaviour
             Destroy(tiles[position].gameObject);
             Tile placedTile = Instantiate(tile, position, Quaternion.identity, tilesParent);
             tiles[position] = placedTile;
-            Debug.Log(placedTile.GetTileState());
         }
     }
 
@@ -106,6 +105,7 @@ public class GridManager : MonoBehaviour
 
     public void OcupeTile(Vector2 position){
         tiles[position].setOcuped(true);
+        Debug.Log("ocuped " + tiles[position].transform.position.x + " , " + tiles[position].transform.position.y);
     }
 
     public void UnocupeTile(Vector2 position){
@@ -113,12 +113,9 @@ public class GridManager : MonoBehaviour
     }
 
     public int GetTileSproutAndCarrotCount(){
-        int count =  tiles.Where(tile => tile.Value.GetTileState() == Tile.TileStates.SPROUT ||
+        return  tiles.Where(tile => tile.Value.GetTileState() == Tile.TileStates.SPROUT ||
                             tile.Value.GetTileState() == Tile.TileStates.SPROUT_WET ||
                             tile.Value.GetTileState() == Tile.TileStates.CARROT)
                 .ToDictionary(pair => pair.Key, pair=> pair.Value).Count;
-        
-        Debug.Log(count);
-        return count;
     }
 }

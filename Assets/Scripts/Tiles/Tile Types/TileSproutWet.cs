@@ -15,13 +15,12 @@ public class TileSproutWet : Tile, EndTurnObserver
         GameManager.Instance.EndTurnSubscribe(this);
     }
     
-    public bool notify(){
+    public void notify(){
         growCount ++;
 
         if(growCount >= growTurn ){
             GridManager.Instance.SetTile(transform.position, tileCarrot);
         }
-        return true;
     }
 
     public void OnDestroy(){

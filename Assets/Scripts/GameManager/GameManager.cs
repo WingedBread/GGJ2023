@@ -122,7 +122,6 @@ public class GameManager : MonoBehaviour
     }
 
     private void EndTurn(){
-        gameState = States.END_TURN;
 
         lastClickedCard.UnClicked();
         lastClickedTile.UnClicked();
@@ -146,6 +145,7 @@ public class GameManager : MonoBehaviour
         }
 
         player.EnableCardCollider(true);
+        gameState = States.GAMEPLAY;
         GridManager.Instance.EnableGridColliders(false);
     }
 
@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
         endTurnSubsritors.ForEach((EndTurnObserver observer) => {observers.Add(observer);});
         if(observers.Count > 0){
             foreach(EndTurnObserver suscritor in observers){ 
-                bool notified = suscritor.notify();
+                suscritor.notify();
             }
         }
     }

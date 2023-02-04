@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface EndTurnObserver
 {
-    bool notify();
+    void notify();
 }

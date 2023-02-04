@@ -40,7 +40,7 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
         return areaLocations;
     }
 
-    public void ProtectTiles(){
+    private void ProtectTiles(){
         foreach(Vector2 tilePositions in areaLocations){
             Tile tile = GridManager.Instance.GetTileAtPosition(tilePositions);
 
@@ -48,21 +48,20 @@ public class ScarecrowBehaviour : Object, EndTurnObserver
         }
     }
 
-    public void UnprotectTiles(){
+    private void UnprotectTiles(){
         foreach(Vector2 tilePositions in areaLocations){
             Tile tile = GridManager.Instance.GetTileAtPosition(tilePositions);
             if (tile != null) tile.setProtection(false);
         }
     }
 
-    public bool notify()
+    public void notify()
     {
         liveTurns ++;
 
         if(liveTurns >= maxTurns){
             Destroy(gameObject);
-        } 
-        return true;
+        }
     }
 
     public void OnDestroy(){
