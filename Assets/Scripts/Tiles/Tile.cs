@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Tile : MonoBehaviour
 {
-    public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SPROUT, SPROUT_WET, CARROT }
+    public enum TileStates { ROCK, SOIL, SOIL_FARMABLE, SOIL_FARMABLE_WET, SPROUT, SPROUT_WET, CARROT }
 
     [SerializeField]
     protected SpriteRenderer spriteRenderer;

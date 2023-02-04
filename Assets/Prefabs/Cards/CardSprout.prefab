@@ -535,6 +535,8 @@ MonoBehaviour:
   highlight: {fileID: 1853185731682947605}
   sproutTile: {fileID: -7134515662441892853, guid: 6a0234e7bfb7d094ba617e2208f79882,
     type: 3}
+  sproutWetTile: {fileID: -659454910625705988, guid: 9f4c98c799df6724fad21b0f00e5d26c,
+    type: 3}
 --- !u!65 &-6319710291874051664
 BoxCollider:
   m_ObjectHideFlags: 0
