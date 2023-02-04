@@ -115,6 +115,7 @@ public class AudioController : MonoBehaviour
         backgroundMusic.volume = menuIntroBGVolume;
         backgroundMusic.Play();
         backgroundMusic.loop = false;
+        StartCoroutine("StopMenuIntro");
         StartCoroutine("StartMenuLoop");
     }
 
@@ -135,23 +136,30 @@ public class AudioController : MonoBehaviour
 
     private IEnumerator StartMenuLoop()
     {
-        yield return new WaitForSeconds(backgroundMusic.clip.length);
+        yield return new WaitForSeconds(backgroundMusic.clip.length-1f);
         if (backgroundMusic.clip == menuIntroBGClip)
         {
-            backgroundMusic.Stop();
-            backgroundMusic.clip = menuLoopBGClip;
-            backgroundMusic.volume = menuLoopBGVolume;
-            backgroundMusic.Play();
-            backgroundMusic.loop = true;
+            backgroundMusic2.clip = menuLoopBGClip;
+            backgroundMusic2.volume = menuLoopBGVolume;
+            backgroundMusic2.Play();
+            backgroundMusic2.loop = true;
             StopCoroutine("StartMenuLoop");
         }
         else StopCoroutine("StartMenuLoop");
     }
 
-    public void PlayGameplayBGMusic()
+    private IEnumerator StopMenuIntro()
+    {
+        yield return new WaitForSeconds(backgroundMusic.clip.length);
+        backgroundMusic.Stop();
+        StopCoroutine("StopMenuIntro");
+    }
+
+        public void PlayGameplayBGMusic()
     {
         backgroundMusic2.Stop();
         backgroundMusic.Stop();
+        backgroundMusic2.loop = false;
         backgroundMusic.clip = gameplayBGClip;
         backgroundMusic.volume = gameplayBGVolume;
         backgroundMusic.Play();
