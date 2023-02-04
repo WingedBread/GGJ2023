@@ -1485,30 +1485,27 @@ MonoBehaviour:
   ambientGameplayBGClip: {fileID: 8300000, guid: d1b5c1be164020a44ac1766d9a313462,
     type: 3}
   hoeFXClip: {fileID: 8300000, guid: 7079c35ea449dd940a2c1e500c087b96, type: 3}
-  shuffleDeckFXClip: {fileID: 8300000, guid: e6e1769f1c2a82149b38de6c67e3e9ee, type: 3}
   shotgunFXClip: {fileID: 8300000, guid: a2dfafc1484b15941b8229b2d85c0788, type: 3}
   scarecrowFXClip: {fileID: 8300000, guid: 30fa416ce81309447b6818ff1173811f, type: 3}
   pickaxeFXClip: {fileID: 8300000, guid: d2ef12943a2d78340a68f47ccd7faf7c, type: 3}
   shovelFXClip: {fileID: 8300000, guid: 7079c35ea449dd940a2c1e500c087b96, type: 3}
   sprinklerFXClip: {fileID: 8300000, guid: 6e607125e016dff4b8bc5c49c3327494, type: 3}
-  drawCardFXClip: {fileID: 8300000, guid: 10616fc3446352d43b94542a363d641e, type: 3}
   sproutFXClip: {fileID: 8300000, guid: 3195fd306b5b3614b9d1fe15ae30d322, type: 3}
   incorrectTileFXClip: {fileID: 8300000, guid: 564dd59f98b9e9f4489ab7260f468f4a, type: 3}
   gameOverFXClip: {fileID: 8300000, guid: 21f21044251e79b41a49616935b0dcef, type: 3}
   menuIntroBGVolume: 0.03
   menuLoopBGVolume: 0.03
-  gameplayBGVolume: 0.015
+  gameplayBGVolume: 0.0085
   gameOverBGVolume: 0.1
-  pauseBGVolume: 0.004
-  ambientGameplayBGVolume: 0.04
+  pauseBGVolume: 0.0025
+  ambientGameplayBGVolume: 0.02
+  ambientPauseBGVolume: 0.1
   hoeFXVolume: 0.1
-  shuffleDeckFXVolume: 0.3
   shotgunFXVolume: 0.5
   scarecrowFXVolume: 0.2
   pickaxeFXVolume: 0.5
   shovelFXVolume: 0.1
   sprinklerFXVolume: 0.12
-  drawCardFXVolume: 0.3
   sproutFXVolume: 0.4
   incorrectTileFXVolume: 0.035
   gameOverFXVolume: 0.3
