@@ -9,8 +9,10 @@ public class CardHoe : Card
     public override bool play(Tile clickedTile){
         if(clickedTile.GetTileState() == Tile.TileStates.SOIL){
             GridManager.Instance.SetTile(clickedTile.transform.position, farmeableTile);
+            AudioController.Instance.PlayHoeOnSoilSound();
         }
-        
+        else AudioController.Instance.PlayIncorrectSound();
+
         return true;
     }
 }
