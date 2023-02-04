@@ -269,6 +269,7 @@ MonoBehaviour:
   birdAparition: 5
   player: {fileID: 1792410652}
   pauseButton: {fileID: 1218226484}
+  muteButton: {fileID: 422878620}
 --- !u!4 &40551650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5907715487891384833, guid: 4b73f9f88f004dd4db7daa8cf25ea3d9,

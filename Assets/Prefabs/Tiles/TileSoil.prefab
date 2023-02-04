@@ -213,4 +213,6 @@ MonoBehaviour:
   highlight: {fileID: 3853911571007027324}
   tileState: 1
   isOccuped: 0
-  isProtected: 0
+  sprites:
+  - {fileID: 21300000, guid: d0a305c12a4e5ff4aa777c40fad3aad3, type: 3}
+  - {fileID: 21300000, guid: f85a6dc973249f248bef396f853fb85d, type: 3}
