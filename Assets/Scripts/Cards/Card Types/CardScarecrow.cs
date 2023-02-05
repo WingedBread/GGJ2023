@@ -6,7 +6,7 @@ public class CardScarecrow : Card
 {
     public GameObject scarecrowPrefab;
     public override bool play(Tile clickedTile){
-        if (clickedTile.GetTileState() == Tile.TileStates.SOIL || clickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE)
+        if ((clickedTile.GetTileState() == Tile.TileStates.SOIL || clickedTile.GetTileState() == Tile.TileStates.SOIL_FARMABLE) && clickedTile.getBird() == null)
         {
             //Instantiate(scarecrowPrefab,new Vector3 (clickedTile.GetPosition().x, clickedTile.GetPosition().y, 0));
             GameObject scarecrow;

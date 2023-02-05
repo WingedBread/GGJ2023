@@ -42,10 +42,10 @@ public class BirdBehaviour : MonoBehaviour, EndTurnObserver
             transform.position += new Vector3(0,1,0);
         } else if(move == Moves.LEFT){
             transform.position += new Vector3(-1,0,0);
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         } else if(move == Moves.RIGHT){
             transform.position += new Vector3(1,0,0);
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         } else if(move == Moves.DOWN){
             transform.position += new Vector3(0,-1,0);
         } 

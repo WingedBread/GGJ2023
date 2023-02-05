@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public enum States {START, GAMEPLAY, END_TURN, GAME_OVER};
+    public enum States {START, TUTORIAL, GAMEPLAY, END_TURN, GAME_OVER};
     public States gameState;
     private bool pause;
 
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     public CanvasGroup canvasGameOver;
     public CanvasGroup canvasStart;
     public CanvasGroup canvasPause;
+    public CanvasGroup canvasTutorial;
     [SerializeField]
     private Text turnText;
     [SerializeField]
@@ -86,6 +87,13 @@ public class GameManager : MonoBehaviour
     {
         if(!pause){
             if (gameState == States.START)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    TutorialBehaviour();
+                }
+            }
+            else if (gameState == States.TUTORIAL)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -191,6 +199,7 @@ public class GameManager : MonoBehaviour
         player.EnableCardCollider(true);
         GridManager.Instance.EnableGridColliders(false);
         canvasStart.alpha = 0;
+        canvasTutorial.alpha = 0;
         gameState = States.GAMEPLAY;
         pauseButton.interactable = true;
         AudioController.Instance.PlayGameplayBGMusic();
@@ -279,5 +288,13 @@ public class GameManager : MonoBehaviour
     public void SetBirdEat(bool eat)
     {
         birdEat = eat;
+    }
+
+    public void TutorialBehaviour()
+    {
+        gameState = States.TUTORIAL;
+        canvasStart.alpha = 0;
+        canvasTutorial.alpha = 1;
+        pauseButton.interactable = false;
     }
 }
