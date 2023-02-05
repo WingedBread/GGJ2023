@@ -298,8 +298,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 6759364848620420319}
-  highlight: {fileID: 6759364848620420312, guid: c1d1701485fa7604ab56336765e5e899,
-    type: 3}
+  highlight: {fileID: 3853911571007027324}
   tileState: 5
   isOccuped: 0
   growTurn: 3
