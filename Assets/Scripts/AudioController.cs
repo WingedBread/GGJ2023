@@ -111,7 +111,7 @@ public class AudioController : MonoBehaviour
         if (fxSounds == null) fxSounds = transform.GetChild(1).GetComponent<AudioSource>();
         fxSounds.loop = false;
         backgroundMusic.loop = false;
-        backgroundMusic2.loop = false;
+        backgroundMusic2.loop = true;
         ambientMusic.loop = true;
     }
 
