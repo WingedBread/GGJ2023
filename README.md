@@ -9,8 +9,9 @@ Beware of the birds!
 
 This game was made in a week for the Global Game Jam TecnoCampus 2023:
 
-GGJ TecnoCampus 2023 Game Website.
-GGJ TecnoCampus 2023.
+https://globalgamejam.org/2023/games/sprout-tycoon-9
+
+https://globalgamejam.org/2023/jam-sites/tecnocampus-matar%C3%B3-ggj23-0
 
 
 Controls:
