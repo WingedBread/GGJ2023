@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour
     public void PlayCard()
     {
         GameManager.Instance.SetBirdEat(false);
-        Debug.Log("FALSE");
+        //Debug.Log("FALSE");
         if (lastClickedTile != null){
             lastClickedCard.play(lastClickedTile);
             player.cardUsed(lastClickedCard);
