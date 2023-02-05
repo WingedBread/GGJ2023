@@ -1,6 +1,7 @@
 # Sprout Tycoon - GGJ2023
 
 About Sprout Tycoon:
+
 Strategy card game whose objective is to get the highest score possible before the end of the game.
 
 The player has a series of cards by means of which he has to grow carrots which, when harvested, will allow him to score points.
